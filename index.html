@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	body{
+		background:#644bff;
+		padding: 0 20px;
+	}
+	.search-input input{
+		height: 60px;
+		font-size: 1.7em;
+		color:black;
+		border-radius: 5px;
+		outline: none;
+		font-weight: 600;
+		display: inline-block;
+		padding-left: 56px;
+		width: 43%;
+		font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+	}
+	.icon{
+		font-size: 33px;
+		padding:15px;
+		left:445px;
+		display: inline-block;
+		position: absolute;
+		color: #644bff;
+	}
+	.padding{
+		padding: 0 20px;
+		margin: 120px auto;
+	}
+	 datalist{
+		font-size: 40px;
+	}
+	</style>
+<body onLoad="">
+	<center>
+			<div class="icon">
+			<i class="fa fa-search"></i>
+				</div>
+		<div class="padding">
+			
+		<div class="search-input">
+		
+<input type="text" autofocus placeholder="Search.." value="" id="search" onKeyUp="SearchKeyUp()" onChange="SearchEnter()" list="data">
+			
+			</div>
+		
+			</div>
+		</center>
+	<datalist id="data" class="data">
+	
+	</datalist>
+</body>
+	<script>
+function SearchEnter(){
+	var a = document.getElementById('search').value;
+	var b = document.getElementById('search');
+	var c = "https://www.youtube.com/results?search_query="
+	
+	
+	  if(b.placeholder == "Search youtube.."){
+				window.open("https://www.youtube.com/results?search_query=" + a) 
+		 
+			 }
+		if(b.style.color=="orange"){
+				window.open("https://" + a) 
+			 }
+		
+		if(b.style.color == "blue"){
+			window.open('https://www.facebook.com/search/top?q=' + b.value)
+		}
+		
+		if(a == "Google"||a == "google"||a =="youtube"||a == "messenger"){
+			window.open("https://" + b.value + ".com")
+		}
+		
+			
+			/*	b.style.color='#0D63FC' */
+		b.addEventListener('keyup' , e =>{
+				if(e.keyCode === 13){
+				 window.open("https://www.google.com/search?q=" + b.value + "&source=hp&ei=jbiiYabDBunUgwflk6mADQ&iflsig=ALs-wAMAAAAAYaLGnUaZHW6IJURyuVeQ-3iJs_bJgUjy&ved=0ahUKEwjmvZzk0rn0AhVp6uAKHeVJCtAQ4dUDCAc&uact=5&oq=fad&gs_lcp=Cgdnd3Mtd2l6EAMyBAgAEEMyBQguEIAEMgcIABCxAxAKMgsILhCABBDHARCvATIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEMgUIABCABDoKCC4QxwEQowIQQzoECC4QQzoLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOggIABAKEAEQQzoQCC4QsQMQgwEQxwEQ0QMQQzoHCAAQsQMQQzoICAAQgAQQsQM6CggAELEDEIMBEEM6CAguEIAEELEDUABYiQJg0ANoAHAAeACAAYwBiAGVA5IBAzAuM5gBAKABAQ&sclient=gws-wiz")
+			}	
+			
+			})
+}
+		
+		function SearchKeyUp(){
+			var a = document.getElementById('search').value;
+			var b = document.getElementById('search');
+			
+		
+			if(a == "youtube/"||a == "y/"||a == "/y"||a == "يوب"){
+			b.placeholder = "Search youtube.."
+			b.value = ""
+			b.style.color="red"
+				
+		}
+			if(a == "li/"||a == "Lichess/"||a == "lp/"||a == "l/"||a == "lichess.org/@/"||a == "lichessprofile"||a == "lichess/"){
+			b.value="lichess.org/@/"
+			b.style.color="orange"
+		}
+			
+			if(a == "e-"||a == "E-"||a == "ex1"||a == "ex-"){
+			b.value = "e-"
+			b.style.color="purple"
+				if(b.value == "e"){
+					b.style.color = "black"
+				}
+			
+			}
+			if(b.placeholder == "Search youtube.."&&a == "youtube"){
+				b.style.color = "red"
+			}
+			if(b.placeholder == "Search youtube.."&&a == ""){
+				b.style.color = "red"
+				b.placeholder = "Search youtube.."
+			}
+			if(a == ""||a == "lichess.org/@"){
+			b.style.color='black'
+				 b.placeholder = "Search.."
+			}
+			
+			
+			
+			if(a == "egybest"||a == "Egybest"||a == "egybest.com"){
+				b.style.color='black'
+			window.open("https://fito." + a + ".guru")
+			}
+	if
+	(a == "google form"||a == "googleform"||a == "Google Form"||a == "Google form"||a == "GoogleForm"||a == "google/forms"||a == "Google/forms"||a == "Google/Forms"){
+		b.style.color='black'
+			window.open("https://docs.google.com/forms")
+			}
+			if(a == "google site"||a == "googlesite"){
+		b.style.color='black'
+			window.open("https://sites.google.com/new")
+			}
+			if(a == "Lichess"||a == "lichess"){
+				b.style.color='black'
+			window.open("https://" + a + ".org")	
+			}
+	if
+(a=="Facebook"||a=="facebook"||a=="Youtube"||a=="W3schools"||a=="w3schools"||a=="Instagram"||a == "instagram"||a=="Insta"||a=="tiktok"||a=="Tiktok"||a=="Gmail"||a=="gmail"||a=="Name"||a=="chess24"||a=="Chess24"||a == "Google"||a == "Youtube"){
+ window.open("https://" + a + ".com")
+ }
+			if(a == "translate"||a == "Translate"||a == "e-tran"){
+				window.open("https://www.bing.com/search?q=translate&cvid=8a82730cfec34ec88a27c19f740ba4fd&aqs=edge.0.69i59j0j69i57j0l6.1294j0j1&pglt=675&FORM=ANNTA1&PC=U531"
+						  )
+				b.value = "translate"
+				b.style.color="black"
+			}
+			if(a == "e-w3"){
+			 window.open("https://w3schools.com")
+				b.value = "w3schools"
+				b.style.color="black"
+				
+			}
+			if(a == "e-insta"){
+			window.open("https://instagram.com")
+				b.value = "instagram"
+				b.style.color="black"
+			}
+			if(a == "e-egy"){
+			window.open("https://fito.egybest.guru")
+			b.value = "egybest"
+				b.style.color="black"
+			}
+				if(a == "e-li"){
+			window.open("https://lichess.org")
+			b.value = "lichess"
+				b.style.color="black"
+			}
+			if(a == "e-you"){
+			window.open("https://youtube.com")
+			b.value = "lichess"
+				b.style.color="black"
+			}
+			
+			if(a == "youtube//"||a == "y//"||a == "yp/"||a == "//y"){
+				b.value = "youtube//name/play"
+				b.style.color="#ff1414"
+			}
+			if(a == "youtube//its okay/play"||a == "youtube//it's okay/play"){
+			window.open("https://www.youtube.com/watch?v=eReZPXVzqg8")
+		}
+			if(a == "youtube//siri/play"||a == "youtube//it's okay/play"){
+			window.open("https://www.youtube.com/watch?v=eReZPXVzqg8")
+		}
+		}
+	</script>
+</html>
