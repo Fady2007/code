@@ -19,8 +19,11 @@
 		display: inline-block;
 		padding-left: 50px;
 		width: 50%;
-		font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+		border: none;
+		font-size:1.5em;
+		text-align: left;
 	}
 	.padding{
 		padding: 0 20px;
@@ -31,35 +34,42 @@
 	}
 	</style>
 <body onLoad="">
-	
-	
-	
 	<center>
 			
 				
-		<div class="padding">
-			
+		<div class="padding">	
+
+	<i class="fa fa-search" id="fa-search"
+	style="color: #644bff;padding-left: 10px;padding-top: 15px;position: absolute;font-size: 2.1em;display: inline-block; ">
+	</i>
 		
-			<i class="fa fa-search" style="color: #644bff;padding-left: 10px;padding-top: 15px;position: absolute;font-size: 2.1em;display: inline-block; "></i>
-		
-<input type="text" autofocus placeholder="Search.." value="" id="search" onKeyUp="SearchKeyUp()" onChange="SearchEnter()" list="data" class="search-input" style="font-size:1.7em;text-align: left">
-			
-			
+<input type="text" autofocus 
+placeholder="Search.." value="" 
+id="search" onKeyUp="SearchKeyUp()" 
+onChange="SearchEnter()" list="data" 
+class="search-input">
+
 				</div>
 		</center>
-	<datalist id="data" class="data">
+	<datalist id="data" class="data" style="color: blueviolet;">
 	
 	</datalist>
 </body>
 	<script>
+		// Search when clicked enter "13"
 function SearchEnter(){
 	var a = document.getElementById('search').value;
 	var b = document.getElementById('search');
+	var fa = document.getElementById('fa-search');
 	var c = "https://www.youtube.com/results?search_query="
 	
 	
 	  if(b.placeholder == "Search youtube.."){
 				window.open("https://www.youtube.com/results?search_query=" + a) 
+		 
+			 }
+	 if(b.placeholder == "Search facebook.."){
+				window.open("https://www.facebook.com/search/top?q=" + a) 
 		 
 			 }
 		if(b.style.color=="orange"){
@@ -82,19 +92,83 @@ function SearchEnter(){
 			}	
 			
 			})
-}
-		
+		}
+// Search with keyup
 		function SearchKeyUp(){
-			var a = document.getElementById('search').value;
-			var b = document.getElementById('search');
-			
-		
-			if(a == "youtube/"||a == "y/"||a == "/y"||a == "يوب"){
+		var a = document.getElementById('search').value;
+		var b = document.getElementById('search');
+		var fa = document.getElementById('fa-search');
+		var jsstringcolor = "red"
+		var replace = a.replace(/fuck|bitch|shit|a7a|kos|zep/gi, "$");
+		var replace2 = a.replace(/facepook/gi, "Facebook");
+		var replace3 = a.replace(/getLenghString/gi , "String.search()")
+		var replace4 = a.replace(/cuting string/gi , "replace()")
+		var replace5 = a.replace(/youtube/gi , function(){
+			return b.style.color = "red"
+		})
+		// var replace5 = a.replace(b.value , function(){
+        // return document.body.style.background= a
+		// })
+		if(a == "youtube/"||a == "y/"||a == "/y"||a == "Y/"||a == "يوب"){
 			b.placeholder = "Search youtube.."
 			b.value = ""
 			b.style.color="red"
-				
+			
 		}
+		b.addEventListener('keyup' , p=>{
+			if(p.keyCode === 17){
+				b.select()
+				b.setSelectionRange(0 , 99999) /* for mobile */
+			}
+		})
+		
+		if(a !== replace){
+			b.value = replace;
+		}
+		if(a !== replace2){
+			b.value = replace2;
+		}
+
+		if(a !== replace3 && b.placeholder == "Your code:"){
+		b.value = 	replace3;
+		}
+		if(a !== replace4 && b.placeholder == "Your code:"){
+		b.value = 	replace4;
+		}
+		if(b.placeholder == "background:" && b.style.fontFamily == "monospace"){
+		document.body.style.background= a
+		b.style.color = a
+		}
+		if(a == "/js"){
+			b.style.fontFamily="monospace";
+			b.style.color="#0D63FC";
+			b.style.fontSize="24px";
+			b.placeholder = "Your code:"
+			b.value=""
+		}
+		if(a == "ht/" || a == "https://"){
+			b.value = "https://"
+			b.style.color="purple"
+			b.style.textDecoration="underline"
+		}
+if(a.includes("insert bg")&& b.style.fontFamily == "monospace"){
+	b.placeholder="background:"
+	b.value=""
+}
+// #0D63FC
+			if(a == "print(w)"){
+				b.value="window.print()"
+				window.print()
+				b.style.fontFamily="monospace"
+				b.style.fontSize="28px"
+			}
+			
+			if(a == "f/"||a == "F/"||a == "/f"||a == "face/"||a == "فيسب"){
+			b.placeholder = "Search facebook.."
+		  b.value = ""
+				b.style.color="blue"
+				
+			}
 			if(a == "li/"||a == "Lichess/"||a == "lp/"||a == "l/"||a == "lichess.org/@/"||a == "lichessprofile"||a == "lichess/"){
 			b.value="lichess.org/@/"
 			b.style.color="orange"
@@ -111,13 +185,15 @@ function SearchEnter(){
 			if(b.placeholder == "Search youtube.."&&a == "youtube"){
 				b.style.color = "red"
 			}
-			if(b.placeholder == "Search youtube.."&&a == ""){
+			if(b.placeholder == "Search youtube.."&&b.value == ""){
 				b.style.color = "red"
 				b.placeholder = "Search youtube.."
 			}
 			if(a == ""||a == "lichess.org/@"){
 			b.style.color='black'
+			b.style.fontFamily="";
 				 b.placeholder = "Search.."
+				 b.style.textDecoration="none"
 			}
 			
 			
@@ -186,6 +262,8 @@ function SearchEnter(){
 			if(a == "youtube//siri/play"||a == "youtube//it's okay/play"){
 			window.open("https://www.youtube.com/watch?v=eReZPXVzqg8")
 		}
+	
 		}
+
 	</script>
 </html>
