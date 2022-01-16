@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: rgb(39, 39, 39);
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+        display: flex; 
+    }
+.game{
+    width: 350px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: auto;
+    font-weight: 500;
+}
+.title{
+    width: 306px;
+    background:blue;
+    padding: 4px 0;
+    margin: 5px 0;
+    font-size: 1.5em;
+}
+.title span{
+    color: gold;
+}
+.square{
+    width: 100px;
+    height: 100px;
+    background: #f25;
+    float: left;
+    line-height: 100px;
+    font-size:40px ;
+    margin: 1px;
+}
+.square:hover{
+    background:rgb(0, 54, 75);
+    cursor: pointer;
+    transition: .3s;
+}
+.score{
+    font-size: 2em;
+    color: white;
+    width: 306px;
+    background: rgb(70, 70, 70);
+    text-align: center;
+    font-family: monospace;
+    padding: 3px 0;
+    border: 1px solid;
+    border-radius: 3px;
+}
+.score span{
+    font-weight: 600;
+}
+.modal {
+display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(39, 39, 39, 0); /* Black w/ opacity */
+}
+
+</style>
+<body>
+    <audio id="sound">
+        <source src="beep.mp3" type="audio/mpeg">
+        </audio>
+
+<div class="modal" id="modal"></div>
+    <div class="game" id="game">
+        <div class="score">
+            Score
+          <span id="x">0</span>  - <span id="o">0</span>
+        </div>
+        <div class="title"><span>X - O</span></div>
+        <div class="square" id="item1" onclick="game(this.id)"></div>
+        <div class="square" id="item2" onclick="game(this.id)"></div>
+        <div class="square" id="item3" onclick="game(this.id)"></div>
+
+        <div class="square" id="item4" onclick="game(this.id)"></div>
+        <div class="square" id="item5" onclick="game(this.id)"></div>
+        <div class="square" id="item6" onclick="game(this.id)"></div>
+
+        <div class="square" id="item7" onclick="game(this.id)"></div>
+        <div class="square" id="item8" onclick="game(this.id)"></div>
+        <div class="square" id="item9" onclick="game(this.id)"></div>
+
+    </div>
+
+    <script>
+        let title = document.querySelector('.title');
+        let turn = 'x'
+        let squares = []
+        let x = document.getElementById('x');
+        let o = document.getElementById('o');
+        let mod = document.getElementById('modal');
+        var sound = document.getElementById("sound");
+
+        function game(id){
+            let element = document.getElementById(id);
+    if(turn === 'x' && element.innerHTML == ""){
+        title.innerHTML = 'O';
+        element.innerHTML = 'X';
+        element.style.background = 'rgb(0, 54, 75)'
+        turn = 'o';
+        sound.play();
+    }
+    else if(turn === 'o' && element.innerHTML == ""){
+        title.innerHTML = 'X';
+        element.innerHTML = 'O';
+        element.style.background = 'rgb(0, 54, 75)'
+        turn = 'x';
+        sound.play();
+    }
+   
+    winner();
+        }
+
+        function end(num1,num2,num3){
+            title.innerHTML = `${squares[num1]} winner`;
+          document.getElementById('item' + num1).style.background = 'blue';
+          document.getElementById('item' + num2).style.background = 'blue';
+          document.getElementById('item' + num3).style.background = 'blue';
+          document.getElementById('item' + num1).style.color = 'yellow';
+          document.getElementById('item' + num2).style.color = 'yellow';
+          document.getElementById('item' + num3).style.color = 'yellow';
+
+            mod.style.display="block"
+            
+
+         if(title.innerHTML == "X winner"){
+            x.innerHTML++;
+        }
+         if(title.innerHTML == "O winner"){
+            o.innerHTML++;
+        }
+}
+function clear(n1 , n2 , n3 , n4 , n5 , n6 , n7 , n8 , n9){
+    setTimeout(function(){
+        mod.style.display="none"
+        title.innerHTML = "X"
+        document.getElementById('item' + n1).innerHTML = ""
+         document.getElementById('item' + n2).innerHTML = ""
+        document.getElementById('item' + n3).innerHTML = ""
+        document.getElementById('item' + n4).innerHTML = ""
+        document.getElementById('item' + n5).innerHTML = ""
+        document.getElementById('item' + n6).innerHTML = ""
+        document.getElementById('item' + n7).innerHTML = ""
+        document.getElementById('item' + n8).innerHTML = ""
+        document.getElementById('item' + n9).innerHTML = ""
+
+        document.getElementById('item' + n1).style.background = '';
+        document.getElementById('item' + n2).style.background = '';
+        document.getElementById('item' + n3).style.background = '';
+        document.getElementById('item' + n4).style.background = '';
+        document.getElementById('item' + n5).style.background = '';
+        document.getElementById('item' + n6).style.background = '';
+        document.getElementById('item' + n7).style.background = '';
+        document.getElementById('item' + n8).style.background = '';
+        document.getElementById('item' + n9).style.background = '';
+
+        document.getElementById('item' + n1).style.color = '';
+        document.getElementById('item' + n2).style.color = '';
+        document.getElementById('item' + n3).style.color = '';
+        document.getElementById('item' + n4).style.color = '';
+        document.getElementById('item' + n5).style.color = '';
+        document.getElementById('item' + n6).style.color = '';
+        document.getElementById('item' + n7).style.color = '';
+        document.getElementById('item' + n8).style.color = '';
+        document.getElementById('item' + n9).style.color = '';
+        turn = 'x';
+            }, 1000)
+}
+
+        function winner(){
+            for(let i = 1; i < 10; i++){
+       squares[i] = document.getElementById('item' + i).innerHTML
+        }
+        if(title.innerHTML == "X winner"){
+            x.innerHTML = "0"
+        }
+        if(title.innerHTML == "O winner"){
+            x.innerHTML = "0"
+        }
+       if(squares[1] == squares[2] && squares[2] == squares[3] && squares[1] != ''){
+         end(1,2,3)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        if(squares[4] == squares[5] && squares[5] == squares[6] && squares[4] != ''){
+         end(4,5,6)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        if(squares[7] == squares[8] && squares[8] == squares[9] && squares[7] != ''){
+         end(7,8,9)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        if(squares[1] == squares[4] && squares[4] == squares[7] && squares[1] != ''){
+         end(1,4,7)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        if(squares[2] == squares[5] && squares[5] == squares[8] && squares[2] != ''){
+         end(2,5,8)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        if(squares[3] == squares[6] && squares[6] == squares[9] && squares[3] != ''){
+         end(3,6,9)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        if(squares[1] == squares[5] && squares[5] == squares[9] && squares[5] != ''){
+         end(1,5,9)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        if(squares[3] == squares[5] && squares[5] == squares[7] && squares[5] != ''){
+         end(3,5,7)
+         clear(1,2,3,4,5,6,7,8,9)
+        }
+        else if(
+            squares[1] != '' && squares[2] != '' && squares[3] != '' 
+         && squares[4] != '' && squares[5] != '' && squares[6] != '' &&
+            squares[7] != '' && squares[8] != '' && squares[9] != ''
+            ){
+            title.innerHTML = 'Draw'
+            clear(1,2,3,4,5,6,7,8,9)
+        }
+        }
+
+        
+
+    </script>
+</body>
+</html>
