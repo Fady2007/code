@@ -117,14 +117,14 @@ display: none; /* Hidden by default */
         element.innerHTML = 'X';
         element.style.background = 'rgb(0, 54, 75)'
         turn = 'o';
-        // sound.play();
+         sound.play();
     }
     else if(turn === 'o' && element.innerHTML == ""){
         title.innerHTML = 'X';
         element.innerHTML = 'O';
         element.style.background = 'red'
         turn = 'x';
-        // sound.play();
+         sound.play();
     }
    
     winner();
