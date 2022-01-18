@@ -35,7 +35,7 @@
 .square{
     width: 100px;
     height: 100px;
-    background: #f25;
+    background: rgb(63, 63, 63);
     float: left;
     line-height: 100px;
     font-size:40px ;
@@ -117,14 +117,14 @@ display: none; /* Hidden by default */
         element.innerHTML = 'X';
         element.style.background = 'rgb(0, 54, 75)'
         turn = 'o';
-        sound.play();
+        // sound.play();
     }
     else if(turn === 'o' && element.innerHTML == ""){
         title.innerHTML = 'X';
         element.innerHTML = 'O';
-        element.style.background = 'rgb(0, 54, 75)'
+        element.style.background = 'red'
         turn = 'x';
-        sound.play();
+        // sound.play();
     }
    
     winner();
@@ -132,12 +132,12 @@ display: none; /* Hidden by default */
 
         function end(num1,num2,num3){
             title.innerHTML = `${squares[num1]} winner`;
-          document.getElementById('item' + num1).style.background = 'blue';
-          document.getElementById('item' + num2).style.background = 'blue';
-          document.getElementById('item' + num3).style.background = 'blue';
-          document.getElementById('item' + num1).style.color = 'yellow';
-          document.getElementById('item' + num2).style.color = 'yellow';
-          document.getElementById('item' + num3).style.color = 'yellow';
+          document.getElementById('item' + num1).style.background = 'gold';
+          document.getElementById('item' + num2).style.background = 'gold';
+          document.getElementById('item' + num3).style.background = 'gold';
+          document.getElementById('item' + num1).style.color = 'rgb(0, 54, 75)';
+          document.getElementById('item' + num2).style.color = 'rgb(0, 54, 75)';
+          document.getElementById('item' + num3).style.color = 'rgb(0, 54, 75)';
 
             mod.style.display="block"
             
