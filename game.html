@@ -9,25 +9,22 @@
 <style>
     body{
         background: rgb(39, 39, 39);
-        justify-content: center;
-        align-items: center;
-        min-height: 90vh;
-        display: flex; 
     }
 .game{
     width: 350px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
     margin: auto;
     font-weight: 500;
 }
 .title{
-    width: 306px;
-    background:blue;
+    width: 310px;
+    background:red;
     padding: 4px 0;
     margin: 5px 0;
     font-size: 1.5em;
+    color: white;
+    border-radius: 3px;
 }
 .title span{
     color: gold;
@@ -35,30 +32,31 @@
 .square{
     width: 100px;
     height: 100px;
-    background: rgb(63, 63, 63);
     float: left;
     line-height: 100px;
     font-size:40px ;
     margin: 1px;
+    border:1px double #f3f3f3;
+    border-radius: 5px;
 }
 .square:hover{
     background:rgb(0, 54, 75);
     cursor: pointer;
-    transition: .3s;
+    transition: .2s;
 }
 .score{
     font-size: 2em;
     color: white;
-    width: 306px;
-    background: rgb(70, 70, 70);
+    width: 310px;
+    background: rgb(220, 40, 226);
     text-align: center;
     font-family: monospace;
     padding: 3px 0;
-    border: 1px solid;
     border-radius: 3px;
+    font-weight: 600;
 }
 .score span{
-    font-weight: 600;
+    font-weight: bold;
 }
 .modal {
 display: none; /* Hidden by default */
@@ -73,18 +71,35 @@ display: none; /* Hidden by default */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(39, 39, 39, 0); /* Black w/ opacity */
 }
-
+.intro h1{
+    color: white;
+}
+.intro span{
+    color: gold;
+    font-size: 1.7em;
+    font-weight: 600;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    
+}
 </style>
 <body>
+    <div class="intro">
+    <h1><ins>Tic Tac Toe:-</ins></h1>
+    <span>
+        
+    </span>
+</div>
+<br>
     <audio id="sound">
         <source src="beep.mp3" type="audio/mpeg">
         </audio>
-
 <div class="modal" id="modal"></div>
     <div class="game" id="game">
         <div class="score">
             Score
-          <span id="x">0</span>  - <span id="o">0</span>
+          <span id="x" style="color: rgb(255, 0, 0);">0</span>  
+          - 
+          <span id="o" style="color: rgb(17, 200, 255);">0</span>
         </div>
         <div class="title"><span>X - O</span></div>
         <div class="square" id="item1" onclick="game(this.id)"></div>
@@ -102,6 +117,7 @@ display: none; /* Hidden by default */
     </div>
 
     <script>
+        // get IDs
         let title = document.querySelector('.title');
         let turn = 'x'
         let squares = []
@@ -109,100 +125,79 @@ display: none; /* Hidden by default */
         let o = document.getElementById('o');
         let mod = document.getElementById('modal');
         var sound = document.getElementById("sound");
-
+        
+        // on click 
         function game(id){
             let element = document.getElementById(id);
     if(turn === 'x' && element.innerHTML == ""){
         title.innerHTML = 'O';
+        title.style.background = 'rgb(17, 200, 255)';
         element.innerHTML = 'X';
-        element.style.background = 'rgb(0, 54, 75)'
+        element.style.color = 'red'
         turn = 'o';
-         sound.play();
+        // sound.play();
     }
     else if(turn === 'o' && element.innerHTML == ""){
         title.innerHTML = 'X';
+        title.style.background = 'red';
         element.innerHTML = 'O';
-        element.style.background = 'red'
+        element.style.color = 'rgb(17, 200, 255)'
         turn = 'x';
-         sound.play();
+        // sound.play();
+        
     }
-   
+    
     winner();
         }
 
         function end(num1,num2,num3){
             title.innerHTML = `${squares[num1]} winner`;
-          document.getElementById('item' + num1).style.background = 'gold';
-          document.getElementById('item' + num2).style.background = 'gold';
-          document.getElementById('item' + num3).style.background = 'gold';
-          document.getElementById('item' + num1).style.color = 'rgb(0, 54, 75)';
-          document.getElementById('item' + num2).style.color = 'rgb(0, 54, 75)';
-          document.getElementById('item' + num3).style.color = 'rgb(0, 54, 75)';
-
-            mod.style.display="block"
-            
-
+          document.getElementById('item' + num1).style.background = 'rgba(0, 57, 75,6)';
+          document.getElementById('item' + num2).style.background = 'rgba(0, 57, 75,6)';
+          document.getElementById('item' + num3).style.background = 'rgba(0, 57, 75,6)';
+         mod.style.display="block"
+         
          if(title.innerHTML == "X winner"){
             x.innerHTML++;
         }
          if(title.innerHTML == "O winner"){
             o.innerHTML++;
         }
+         
 }
-function clear(n1 , n2 , n3 , n4 , n5 , n6 , n7 , n8 , n9){
-    setTimeout(function(){
-        mod.style.display="none"
-        title.innerHTML = "X"
-        document.getElementById('item' + n1).innerHTML = ""
-         document.getElementById('item' + n2).innerHTML = ""
-        document.getElementById('item' + n3).innerHTML = ""
-        document.getElementById('item' + n4).innerHTML = ""
-        document.getElementById('item' + n5).innerHTML = ""
-        document.getElementById('item' + n6).innerHTML = ""
-        document.getElementById('item' + n7).innerHTML = ""
-        document.getElementById('item' + n8).innerHTML = ""
-        document.getElementById('item' + n9).innerHTML = ""
+// function color(c1 , c2 , c3 , c4 , c5 , c6 , c7 , c8 , c9){
+//     document.getElementById('item' + c1).style.background = 'red';  
+//     document.getElementById('item' + c2).style.background = 'red';  
+//     document.getElementById('item' + c3).style.background = 'red';  
+//     document.getElementById('item' + c4).style.background = 'red';  
+// }
+// function clearcolor(c1 , c2 , c3 , c4 , c5 , c6 , c7 , c8 , c9){
+//     document.getElementById('item' + c1).style.background = '';  
+//     document.getElementById('item' + c2).style.background = '';  
+//     document.getElementById('item' + c3).style.background = '';  
+//     document.getElementById('item' + c4).style.background = '';  
+// }
 
-        document.getElementById('item' + n1).style.background = '';
-        document.getElementById('item' + n2).style.background = '';
-        document.getElementById('item' + n3).style.background = '';
-        document.getElementById('item' + n4).style.background = '';
-        document.getElementById('item' + n5).style.background = '';
-        document.getElementById('item' + n6).style.background = '';
-        document.getElementById('item' + n7).style.background = '';
-        document.getElementById('item' + n8).style.background = '';
-        document.getElementById('item' + n9).style.background = '';
-
-        document.getElementById('item' + n1).style.color = '';
-        document.getElementById('item' + n2).style.color = '';
-        document.getElementById('item' + n3).style.color = '';
-        document.getElementById('item' + n4).style.color = '';
-        document.getElementById('item' + n5).style.color = '';
-        document.getElementById('item' + n6).style.color = '';
-        document.getElementById('item' + n7).style.color = '';
-        document.getElementById('item' + n8).style.color = '';
-        document.getElementById('item' + n9).style.color = '';
-        turn = 'x';
-            }, 1000)
-}
-
+// win and lose and draw
         function winner(){
             for(let i = 1; i < 10; i++){
        squares[i] = document.getElementById('item' + i).innerHTML
         }
+    
         if(
             squares[1] != '' && squares[2] != '' && squares[3] != '' 
          && squares[4] != '' && squares[5] != '' && squares[6] != '' &&
-            squares[7] != '' && squares[8] != '' && squares[9] != ''
+            squares[7] != '' && squares[8] != '' && squares[9] != '' 
             ){
             title.innerHTML = 'Draw'
+            title.style.background = 'orange';
             clear(1,2,3,4,5,6,7,8,9)
         }
         if(title.innerHTML == "X winner"){
-            x.innerHTML = "0"
+            title.style.background = 'red'
         }
         if(title.innerHTML == "O winner"){
-            x.innerHTML = "0"
+            title.style.background = 'blue'
         }
        if(squares[1] == squares[2] && squares[2] == squares[3] && squares[1] != ''){
          end(1,2,3)
@@ -239,6 +234,44 @@ function clear(n1 , n2 , n3 , n4 , n5 , n6 , n7 , n8 , n9){
         
         }
 
+// clear game after WLD
+function clear(n1 , n2 , n3 , n4 , n5 , n6 , n7 , n8 , n9){
+    setTimeout(function(){
+        mod.style.display="none"
+        title.innerHTML = "X"
+        document.getElementById('item' + n1).innerHTML = ""
+         document.getElementById('item' + n2).innerHTML = ""
+        document.getElementById('item' + n3).innerHTML = ""
+        document.getElementById('item' + n4).innerHTML = ""
+        document.getElementById('item' + n5).innerHTML = ""
+        document.getElementById('item' + n6).innerHTML = ""
+        document.getElementById('item' + n7).innerHTML = ""
+        document.getElementById('item' + n8).innerHTML = ""
+        document.getElementById('item' + n9).innerHTML = ""
+
+        document.getElementById('item' + n1).style.background = '';
+        document.getElementById('item' + n2).style.background = '';
+        document.getElementById('item' + n3).style.background = '';
+        document.getElementById('item' + n4).style.background = '';
+        document.getElementById('item' + n5).style.background = '';
+        document.getElementById('item' + n6).style.background = '';
+        document.getElementById('item' + n7).style.background = '';
+        document.getElementById('item' + n8).style.background = '';
+        document.getElementById('item' + n9).style.background = '';
+
+        document.getElementById('item' + n1).style.color = '';
+        document.getElementById('item' + n2).style.color = '';
+        document.getElementById('item' + n3).style.color = '';
+        document.getElementById('item' + n4).style.color = '';
+        document.getElementById('item' + n5).style.color = '';
+        document.getElementById('item' + n6).style.color = '';
+        document.getElementById('item' + n7).style.color = '';
+        document.getElementById('item' + n8).style.color = '';
+        document.getElementById('item' + n9).style.color = '';
+        turn = 'x';
+        title.style.background = 'red';
+            }, 2000)
+}
         
 
     </script>
