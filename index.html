@@ -60,6 +60,7 @@ class="search-input">
 function SearchEnter(){
 	var a = document.getElementById('search').value;
 	var b = document.getElementById('search');
+	var d = document.getElementById('search');
 	var fa = document.getElementById('fa-search');
 	var c = "https://www.youtube.com/results?search_query="
 	
@@ -90,9 +91,40 @@ function SearchEnter(){
 				if(e.keyCode === 13){
 				 window.open("https://www.google.com/search?q=" + b.value + "&source=hp&ei=jbiiYabDBunUgwflk6mADQ&iflsig=ALs-wAMAAAAAYaLGnUaZHW6IJURyuVeQ-3iJs_bJgUjy&ved=0ahUKEwjmvZzk0rn0AhVp6uAKHeVJCtAQ4dUDCAc&uact=5&oq=fad&gs_lcp=Cgdnd3Mtd2l6EAMyBAgAEEMyBQguEIAEMgcIABCxAxAKMgsILhCABBDHARCvATIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEMgUIABCABDoKCC4QxwEQowIQQzoECC4QQzoLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOggIABAKEAEQQzoQCC4QsQMQgwEQxwEQ0QMQQzoHCAAQsQMQQzoICAAQgAQQsQM6CggAELEDEIMBEEM6CAguEIAEELEDUABYiQJg0ANoAHAAeACAAYwBiAGVA5IBAzAuM5gBAKABAQ&sclient=gws-wiz")
 			}	
-			
+			// ?user=fady_2007#friend
+if(e.keyCode === 13 && a.includes("lichess.org/?user")){
+	window.open("https://" + b.value)
+}
+// profile
+if(e.keyCode === 13 && a.includes("lichess.org/")){
+	window.open("https://" + b.value)
+}
 			})
+		
+		d.addEventListener('keydown' , key=>{
+				
+				if(key.ctrlKey && key.keyCode === 71){
+					key.preventDefault()
+					window.open("https://" + d.value + ".com")
+					
+				}
+		if(key.ctrlKey && key.keyCode === 71 && a.includes(".org")){
+					key.preventDefault()
+					window.open("https://" + d.value)
+				}
+			});
 		}
+		// 	b.addEventListener('keyup' , key=>{
+	// 		key.preventDefault()
+	// 		if(
+	// 			key.ctrlKey
+	// 			&& key.keyCode === 13
+				
+	// 			)
+	// 			{
+    //    window.open("https://" + b.value)
+	// 		}
+	// 	});
 // Search with keyup
 		function SearchKeyUp(){
 		var a = document.getElementById('search').value;
@@ -109,6 +141,9 @@ function SearchEnter(){
 		// var replace5 = a.replace(b.value , function(){
         // return document.body.style.background= a
 		// })
+	
+			
+
 		if(a == "youtube/"||a == "y/"||a == "/y"||a == "Y/"||a == "يوب"){
 			b.placeholder = "Search youtube.."
 			b.value = ""
@@ -151,16 +186,28 @@ function SearchEnter(){
 			b.style.color="purple"
 			b.style.textDecoration="underline"
 		}
-if(a.includes("insert bg")&& b.style.fontFamily == "monospace"){
+if(a.includes("insert bg") || a.includes("Insert bg") && b.style.fontFamily == "monospace"){
 	b.placeholder="background:"
 	b.value=""
 }
+if(a.includes("tic tac toe") && b.style.fontFamily == "monospace"){
+	window.open("https://onlymove47.github.io/history.com/game.html")
+}
 // #0D63FC
+// ?user=fady_2007#friend
+if(a == "lichess.org/?"){
+	b.value = "lichess.org/?user=fady_2007#friend"
+}
+// profile
+if(a == "lichess.org//"){
+	b.value = "lichess.org/@/"
+}
+
 			if(a == "print(w)"){
 				b.value="window.print()"
 				window.print()
 				b.style.fontFamily="monospace"
-				b.style.fontSize="28px"
+				b.style.fontSize="25px"
 			}
 			
 			if(a == "f/"||a == "F/"||a == "/f"||a == "face/"||a == "فيسب"){
@@ -170,7 +217,7 @@ if(a.includes("insert bg")&& b.style.fontFamily == "monospace"){
 				
 			}
 			if(a == "li/"||a == "Lichess/"||a == "lp/"||a == "l/"||a == "lichess.org/@/"||a == "lichessprofile"||a == "lichess/"){
-			b.value="lichess.org/@/"
+			b.value="lichess.org/"
 			b.style.color="orange"
 		}
 			
