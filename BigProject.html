@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fady.com</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <h2 style="color:white" class="menulogo">Fady.com</h2>
+        <div class="menuBar">
+            <p onclick="window.location.hash = '#Home'">Home</p>
+            <p onclick="window.location.hash = '#footer'">About</p>
+            <p>Profile</p>
+            <p>Services</p>
+            <p>Notes</p>
+        </div>
+        <div class="icon mobileP">
+            <i class="fa-solid fa-bars moBarI" onclick="appearMenu()"></i>
+            <div class="mobileMenu hidden">
+                <nav>
+                    <ul>
+                        <li><a href="#" style="padding:60px 0 60px 0;">Fady.com</a></li>
+
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#footer">About</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Notes</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Home page -->
+    <div id="allSite">
+        <div id="Home">
+            <div class="get-div">
+                <h1 style="text-align: center;padding-top: 100px;">Welcome to our site</h1>
+                <h3 style="text-align: center;">There are a lot of things for you I hope to the site will be good.</h3>
+                <h1><u>Our Services</u></h1>
+                <div class="icon">
+                    <i class="fa-solid fa-graduation-cap" title="School Job"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-table-cells hovering_Red" title="Creating tables"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-list-check hovering_LBlue" title="Todo List"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa-brands fa-js hovering_Yellow" title="Modern Information about Javascript"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="get-div" style="background-color:rgb(236, 236, 236);color:black;">
+            <div class="Topics">
+                <h1 class="centerText">Important Topics</h1>
+                <div class="TopicDiv">
+                    <div class="icon woh">
+                        <i class="fa-solid fa-quote-left woh"></i>
+                    </div>
+
+                    <h1 class="Topic hovering_Red"></h1>
+
+                </div>
+
+                <div class="TopicDiv">
+                    <div class="icon woh">
+                        <i class="fa-solid fa-quote-left woh"></i>
+                    </div>
+
+                    <h1 class="Topic hovering_Red"></h1>
+                </div>
+
+                <div class="TopicDiv">
+
+                    <div class="icon woh">
+                        <i class="fa-solid fa-quote-left woh"></i>
+                    </div>
+
+                    <h1 class="Topic hovering_Red"></h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="get-div" style="background-color:#d8d8d8;color:#434343">
+            <h1 class="centerText">Contact Us</h1>
+            <div class="TopicDiv">
+                <a href="mailto:fadye9007@gmail.com">
+                    <div class="icon email" style="color: red;">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </a>
+                <p style="color: red;" class="email">Email</p>
+
+                <div class="loading">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" />
+                    </svg>
+                    <h4 style="padding-left: 20px;">Opening email...</h4>
+                </div>
+            </div>
+
+            <div class="TopicDiv">
+                <a href="https://twitter.com" target="_blank">
+                    <div class="icon twitter" style="color:rgb(0, 147, 233)">
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                </a>
+                <p style="color:rgb(0, 147, 233)">Twitter</p>
+            </div>
+
+            <div class="TopicDiv">
+                <a href="https://www.facebook.com/fdfdsoli/" target="_blank">
+                    <div class="icon facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                </a>
+                <p>Facebook</p>
+            </div>
+
+
+
+        </div>
+
+        <footer>
+            <div class="container" id="footer">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>
+                            Made By <i class="fa-solid fa-heart" style="color:rgb(0, 89, 255)"></i> Fady Emad © 2023
+                        </p>
+                    </div>
+                    <!-- <div class="col-md-4">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#Home">Home</a></li>
+                        <li><a href="#container">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div> -->
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src=" BigProjectJS.js"></script>
+    <script src="all.js"></script>
+</body>
+
+</html>
