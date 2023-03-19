@@ -13,24 +13,23 @@
     <header>
         <h2 style="color:white" class="menulogo">Fady.com</h2>
         <div class="menuBar">
-            <p onclick="window.location.hash = '#Home'">Home</p>
-            <p onclick="window.location.hash = '#footer'">About</p>
-            <p>Profile</p>
-            <p>Services</p>
-            <p>Notes</p>
+            <a href="#Home" onclick="openHomePage()">Home</a>
+            <a href="#footer">About</a>
+            <a>Profile</a>
+            <a>Services</a>
+            <a onclick="openNotaPage()">Notes</a>
         </div>
         <div class="icon mobileP">
             <i class="fa-solid fa-bars moBarI" onclick="appearMenu()"></i>
             <div class="mobileMenu hidden">
                 <nav>
                     <ul>
-                        <li><a href="#" style="padding:60px 0 60px 0;">Fady.com</a></li>
-
-                        <li><a href="#">Home</a></li>
+                        <li><a href="#" style="padding:60px 0 60px 0">Fady.com</a></li>
+                        <li><a href="#" onclick="openHomePage()">Home</a></li>
                         <li><a href="#footer">About</a></li>
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Services</a></li>
-                        <li><a href="#">Notes</a></li>
+                        <li><a href="#Nota" onclick="openNotaPage()">Notes</a></li>
                     </ul>
                 </nav>
             </div>
@@ -39,7 +38,7 @@
     </header>
 
     <!-- Home page -->
-    <div id="allSite">
+    <div id="allSite" class="hidden">
         <div id="Home">
             <div class="get-div">
                 <h1 style="text-align: center;padding-top: 100px;">Welcome to our site</h1>
@@ -59,7 +58,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- Topics -->
         <div class="get-div" style="background-color:rgb(236, 236, 236);color:black;">
             <div class="Topics">
                 <h1 class="centerText">Important Topics</h1>
@@ -90,7 +89,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- Contact us -->
         <div class="get-div" style="background-color:#d8d8d8;color:#434343">
             <h1 class="centerText">Contact Us</h1>
             <div class="TopicDiv">
@@ -126,11 +125,8 @@
                 </a>
                 <p>Facebook</p>
             </div>
-
-
-
         </div>
-
+        <!-- footer -->
         <footer>
             <div class="container" id="footer">
                 <div class="row">
@@ -152,8 +148,38 @@
             </div>
         </footer>
     </div>
+    <div class="notes">
+        <div class="get-div">
+            <h1 style="padding-top: 70px;text-align: center;font-family: cursive;">
+                Your Nota is here
+            </h1>
+            <h3>Don't worry Your Notes is secure , No one can see it</h3>
+        </div>
 
-    <script src=" BigProjectJS.js"></script>
+        <div class="notaProject" style="padding: 15px;color:#434343"></div>
+
+        <div style="padding: 10px;color:#434343" id="form">
+            <h1 style="text-align: center;margin-bottom: 30px;">Enter inputs to continue</h1>
+            <h1>Enter Your Name:</h1>
+            <input type="text" placeholder="Name" name="Name" maxlength="8">
+            <h1>Title Of First Notes:</h1>
+            <input type="text" placeholder="Title" name="Title">
+            <h1 style="background: orange;font-weight: bolder;padding: 10px;color:whitesmoke;font-size: 1.2em;">
+                Warning:
+                You Can't change this form after click continue
+            </h1>
+            <button class="buttonB" style="width: 100%;">Continue</button>
+        </div>
+        <div class="loadingForm hidden"
+            style="top:0;bottom:0;left:0;right:0;align-items: center;justify-content: center;margin-top: 200px;">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" />
+            </svg>
+        </div>
+    </div>
+    </div>
+    <button class="btn"><i class="fa-solid fa-arrow-up"></i></button>
+    <script src="BigProjectJS.js"></script>
     <script src="all.js"></script>
 </body>
 
