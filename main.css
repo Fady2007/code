@@ -189,7 +189,7 @@ footer a:hover {
 input[type="text"] {
   background: #f0f0f0;
   color: rgb(0, 68, 255);
-  padding: 14px;
+  padding: 15px;
   border: none;
   border-radius: 3px;
   font-size: 1.5rem;
@@ -345,5 +345,9 @@ ul li {
     text-transform: uppercase;
     padding: 10px;
     font-size: 0.5em;
+  }
+  input[type="text"] {
+    padding: 12px;
+    font-size: 1.4rem;
   }
 }
