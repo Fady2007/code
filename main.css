@@ -15,6 +15,7 @@ body {
 .appear {
   display: block;
 }
+
 .hovering_Yellow:hover {
   color: yellow;
   cursor: pointer;
@@ -65,7 +66,6 @@ header {
 .menuBar {
   box-sizing: border-box;
   padding-right: 30px;
-  font-size: 20px;
   color: white;
   display: flex;
   justify-content: center;
@@ -73,7 +73,14 @@ header {
   flex-wrap: wrap;
   gap: 20px;
 }
-.menuBar p:hover {
+.menuBar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+.menuBar a:hover,
+.menuBar a .active {
   color: red;
   cursor: pointer;
   transition: 0.1s ease-in;
@@ -143,6 +150,51 @@ footer a {
 
 footer a:hover {
   color: #c9c9c9;
+}
+.btn {
+  background: rgb(14, 50, 255);
+  padding: 10px;
+  color: white;
+  border: 1px solid black;
+  font-size: 1.5em;
+  border-radius: 6px;
+  right: 20px;
+  position: fixed;
+  bottom: 20px;
+  display: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: rgb(0, 68, 255);
+  transition: 0.2s ease-in;
+}
+.buttonB {
+  background-color: rgb(53, 53, 53);
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.buttonB:hover {
+  background-color: rgb(68, 68, 68);
+}
+
+input[type="text"] {
+  background: #f0f0f0;
+  color: rgb(0, 68, 255);
+  padding: 14px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
 }
 .container {
   padding-left: 160px;
@@ -241,8 +293,8 @@ ul li {
   .menulogo {
     font-size: 1.2em;
   }
-  header p {
-    font-size: 0.9em;
+  .menuBar a {
+    font-size: 1.1em;
   }
   .container {
     padding-left: 70px;
@@ -251,7 +303,7 @@ ul li {
   }
 }
 @media (max-width: 576px) {
-  header p {
+  header a {
     display: none;
   }
   .mobileP {
@@ -265,14 +317,13 @@ ul li {
   nav {
     position: fixed;
     top: 0;
-    right: 0;
     left: 0;
     height: 100%;
     width: 150px;
     z-index: 9999;
     overflow-y: auto;
     padding: 20px;
-    background-color: rgba(67, 67, 67, 0.8);
+    background-color: rgba(67, 67, 67, 0.9);
   }
 
   nav ul {
