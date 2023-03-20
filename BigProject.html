@@ -38,7 +38,7 @@
     </header>
 
     <!-- Home page -->
-    <div id="allSite">
+    <div id="allSite" class="hidden">
         <div id="Home">
             <div class="get-div">
                 <h1 style="text-align: center;padding-top: 100px;">Welcome to our site</h1>
@@ -148,17 +148,23 @@
             </div>
         </footer>
     </div>
-    <div class="notes hidden">
-        <div class="get-div">
-            <h1 style="padding-top: 70px;text-align: center;font-family: cursive;">
-                Your Nota is here
+    <div class="notes">
+        <div class="get-div" style="border-radius: 6px;">
+            <h1
+                style="margin-top: 60px;text-align: center;font-family: cursive; background-color:#1b36ce;padding:10px;border:1px solid #ccc">
+                Write your notes here
             </h1>
-            <h3>Don't worry Your Notes is secure , No one can see it</h3>
+            <ul>
+                <li>Don't worry Your Notes is secure , No one can see it.</li>
+                <li>You can set a password for more security</li>
+            </ul>
         </div>
 
-        <div class="notaProject" style="padding: 15px;color:#434343"></div>
-
-        <div style="padding: 10px;color:#434343" id="form">
+        <div class="notaProject" style="padding: 15px;color:#434343">
+            <textarea class="area" style="display: none;"></textarea>
+        </div>
+        <!-- Div form -->
+        <div style="padding: 10px;color:#434343;" id="form">
             <h1 style="text-align: center;margin-bottom: 30px;">Enter inputs to continue</h1>
             <h1>Enter Your Name:</h1>
             <input type="text" placeholder="Name" name="Name" maxlength="8">
@@ -166,18 +172,19 @@
             <input type="text" placeholder="Title" name="Title">
             <br><br>
             <button class="buttonB" style="width: 100%;">Continue</button>
-            <h1 style="background: orange;font-weight: bolder;padding: 10px;color:whitesmoke;font-size: 1.2em;">
+            <h1
+                style="background: rgb(231, 150, 0);font-weight: bolder;padding: 10px;color:whitesmoke;font-size: 1.2em;">
                 <i class="fa-solid fa-triangle-exclamation"></i> Warning:
                 You Can't change this form after click continue
             </h1>
         </div>
+        <!-- loading circle -->
         <div class="loadingForm hidden"
             style="top:0;bottom:0;left:0;right:0;align-items: center;justify-content: center;margin-top: 200px;">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" />
             </svg>
         </div>
-    </div>
     </div>
     <button class="btn"><i class="fa-solid fa-arrow-up"></i></button>
     <script src="BigProjectJS.js"></script>
