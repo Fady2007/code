@@ -54,14 +54,18 @@ emailIcon.addEventListener("click", () => {
 
 // Mobiles functions
 let allSite = document.getElementById("allSite"); // window without header
+let moMenu = document.querySelector(".mobileMenu");
 function appearMenu() {
-  let moMenu = document.querySelector(".mobileMenu");
   moMenu.classList.toggle("appear");
   allSite.addEventListener("click", () => {
     moMenu.classList.add("hidden");
     moMenu.classList.remove("appear");
   });
 }
+document.querySelector(".notes").addEventListener("click", () => {
+  moMenu.classList.add("hidden");
+  moMenu.classList.remove("appear");
+});
 // don't repeat yourself functions
 function headerColorToBlack() {
   header.style.cssText = `
@@ -77,11 +81,11 @@ function noHeaderColor() {
   header.style.background = "";
 }
 // Nota page
+
 let notes = document.querySelector(".notes");
 function openNotaPage() {
   allSite.style.display = "none";
   notes.style.display = "block";
-  inpName.focus();
 }
 function openHomePage() {
   allSite.style.display = "block";
@@ -95,19 +99,22 @@ let divProj = document.querySelector(".notaProject");
 // onblur inputs it will save values
 inpName.onblur = function () {
   localStorage.setItem("nameBlur", inpName.value);
+  sessionStorage.setItem("nameBlurSe", inpName.value);
 };
 inpTitle.onblur = function () {
   localStorage.setItem("titleBlur", inpTitle.value);
+  sessionStorage.setItem("titleBlurSe", inpTitle.value);
 };
+
 // if there is a name or title value it'll save
 if (
-  localStorage.getItem("nameBlur") ||
-  (localStorage.getItem("titleBlur") &&
+  sessionStorage.getItem("nameBlurSe") ||
+  (sessionStorage.getItem("titleBlurSe") &&
     inpName.value !== "" &&
     inpTitle.value !== "")
 ) {
-  inpName.value = localStorage.nameBlur;
-  inpTitle.value = localStorage.titleBlur;
+  inpName.value = sessionStorage.nameBlurSe;
+  inpTitle.value = sessionStorage.titleBlurSe;
 }
 
 // set variables
@@ -121,7 +128,7 @@ con.onclick = () => {
     localStorage.setItem("displayDiv", "none");
     form.style.display = "none";
     loadingForm.style.display = "flex";
-    setTimeout(afterCon, 1000);
+    setTimeout(afterCon, 800);
   } else {
     return;
   }
@@ -130,6 +137,8 @@ con.onclick = () => {
 function afterCon() {
   // loading is none
   loadingForm.style.display = "none";
+  // display area text
+  txArea.style.display = "block";
   // create Elements in divProj
   let welH1 = document.createElement("h1");
   let titleValue = document.createElement("h1");
@@ -139,22 +148,39 @@ function afterCon() {
   text-align: center;
   `;
   titleValue.style.cssText = `
-  margin-top: 50px;
+  margin-top: 40px;
+  margin-bottom: 0;
+  background-color: rgb(164 179 255);
+  padding: 7px;
+  border: 1px solid black;
+  width: 99%;
+  display:inline-flex;
+  color: revert;
   `;
   // save h1 texts by input'
   welH1.innerHTML = `Welcome ${localStorage.nameBlur},`;
-  titleValue.innerHTML = `Title: ${localStorage.titleBlur}`;
+  titleValue.innerHTML = `1) Title: ${localStorage.titleBlur}`;
   // appending
-  divProj.appendChild(welH1);
-  divProj.appendChild(titleValue);
+  divProj.prepend(titleValue);
+  divProj.prepend(welH1);
   // push div with outerHTML in dataOfDiv
   dataOfDiv.push(divProj.outerHTML);
   localStorage.setItem("divProj", JSON.stringify(dataOfDiv));
 }
+
+// area on blur save data
+
 // if displayDiv are exist in localStorage or user clicked continue
 if (localStorage.getItem("displayDiv")) {
   form.style.display = localStorage.getItem("displayDiv");
   // dataOfDiv equal divProj that saved by JSON.stringify
   dataOfDiv = JSON.parse(localStorage.getItem("divProj"));
   divProj.innerHTML = dataOfDiv;
+}
+let txArea = document.querySelector(".area");
+txArea.onkeyup = function () {
+  localStorage.setItem("notaArea", txArea.value);
+};
+if (localStorage.getItem("notaArea")) {
+  txArea.value = localStorage.notaArea;
 }
