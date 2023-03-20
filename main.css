@@ -151,6 +151,7 @@ footer a {
 footer a:hover {
   color: #c9c9c9;
 }
+/* Form */
 .btn {
   background: rgb(14, 50, 255);
   padding: 10px;
@@ -196,6 +197,23 @@ input[type="text"] {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   font-weight: 600;
 }
+textarea {
+  border: 1px solid #ccc;
+  padding: 10px 0px 20px 12px;
+  font-size: 22px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #dfdfdf;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  resize: vertical; /* allow the user to resize vertically */
+  font-weight: 600;
+  width: 99%;
+  height: 30vh;
+  display: inline-flex;
+  outline: none;
+}
+
 .container {
   padding-left: 160px;
   margin: 0 auto;
@@ -203,9 +221,8 @@ input[type="text"] {
 }
 /* List , ul */
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding-left: 20px;
 }
 ul li {
   margin-bottom: 10px;
@@ -347,7 +364,7 @@ ul li {
     font-size: 0.5em;
   }
   input[type="text"] {
-    padding: 12px;
+    padding: 10px;
     font-size: 1.4rem;
   }
 }
