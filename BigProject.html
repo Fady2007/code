@@ -11,13 +11,13 @@
 
 <body>
     <header>
-        <h2 style="color:white" class="menulogo">Fady.com</h2>
+        <h2 style="color:white" class="menuLogo">Fady.com</h2>
         <div class="menuBar">
             <a href="#Home" onclick="openHomePage()">Home</a>
-            <a href="#footer">About</a>
-            <a>Profile</a>
-            <a>Services</a>
+            <a onclick="openProfilePage()">Profile</a>
+            <a onclick="openSchoolPage()">School</a>
             <a onclick="openNotaPage()">Notes</a>
+            <a id="optionBtn"><i class="fa fa-gear"></i> Preferences </a>
         </div>
         <div class="icon mobileP">
             <i class="fa-solid fa-bars moBarI" onclick="appearMenu()"></i>
@@ -26,9 +26,8 @@
                     <ul>
                         <li><a href="#" style="padding:60px 0 60px 0">Fady.com</a></li>
                         <li><a href="#" onclick="openHomePage()">Home</a></li>
-                        <li><a href="#footer">About</a></li>
                         <li><a href="#">Profile</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a onclick="openSchoolPage()">School</a></li>
                         <li><a href="#Nota" onclick="openNotaPage()">Notes</a></li>
                     </ul>
                 </nav>
@@ -38,13 +37,13 @@
     </header>
 
     <!-- Home page -->
-    <div id="allSite" class="hidden">
+    <div id="allSite">
         <div id="Home">
             <div class="get-div">
                 <h1 style="text-align: center;padding-top: 100px;">Welcome to our site</h1>
                 <h3 style="text-align: center;">There are a lot of things for you I hope to the site will be good.</h3>
                 <h1><u>Our Services</u></h1>
-                <div class="icon">
+                <div class="icon" onclick="openSchoolPage()">
                     <i class="fa-solid fa-graduation-cap" title="School Job"></i>
                 </div>
                 <div class="icon">
@@ -56,10 +55,18 @@
                 <div class="icon">
                     <i class="fa-brands fa-js hovering_Yellow" title="Modern Information about Javascript"></i>
                 </div>
+                <!-- <center>
+                    <div style="padding: 12px;">
+                        <button class="buttonB" id="optionBtn" style="width: auto;padding: 20px;font-size: 1.3em;">
+                            <i class="fa fa-gear"></i>
+                            Preferences
+                        </button>
+                    </div>
+                </center> -->
             </div>
         </div>
         <!-- Topics -->
-        <div class="get-div" style="background-color:rgb(236, 236, 236);color:black;">
+        <div class="get-divChild" style="color:black;">
             <div class="Topics">
                 <h1 class="centerText">Important Topics</h1>
                 <div class="TopicDiv">
@@ -85,12 +92,13 @@
                         <i class="fa-solid fa-quote-left woh"></i>
                     </div>
 
-                    <h1 class="Topic hovering_Red"></h1>
+                    <h1 class="Topic hovering_Red" onclick="openSchoolPage()"></h1>
                 </div>
             </div>
         </div>
+
         <!-- Contact us -->
-        <div class="get-div" style="background-color:#d8d8d8;color:#434343">
+        <div class="get-divChild">
             <h1 class="centerText">Contact Us</h1>
             <div class="TopicDiv">
                 <a href="mailto:fadye9007@gmail.com">
@@ -126,12 +134,214 @@
                 <p>Facebook</p>
             </div>
         </div>
+
         <!-- footer -->
+
+    </div>
+    <!-- options -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <br>
+            <h2> <i class="fa fa-gear"></i>
+                Preferences</h2>
+            <p>Color: </p>
+            <div class="circles">
+                <div class="circle blue active" data-color="rgb(0, 99, 230)"></div>
+                <div class="circle black" data-color="#333"></div>
+                <div class="circle purple" data-color="#9d25ff"></div>
+                <div class="circle brown" data-color="brown"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Div -->
+    <div class="notes hidden">
+        <div class="get-div" style="border-radius: 6px;" id="getN">
+            <h1 style="margin-top: 80px;text-align: center;font-family: cursive; padding:10px;">
+                <i class="fa fa-book"></i> Nota
+            </h1>
+            <ul>
+                <li>Don't worry Your Notes is secure , No one can see it.</li>
+                <li>You can set a password for more security</li>
+                <li>
+                    There aren't buttons to submit password , While writing the password correct page'll change
+                    automatically
+                </li>
+            </ul>
+
+            <div class="passToLogin hidden">
+                <center>
+                    <h2>Enter password to show your last Notes</h2>
+                    <input type="password" placeholder="Password" name="logPass">
+                </center>
+            </div>
+
+        </div>
+
+        <div class="notaProject" style="color:#434343;">
+            <textarea class="area" style="display: none;font-family: monospace;"></textarea>
+            <br>
+        </div>
+        <div class="notaProj2"></div>
+        <button class="buttonG hidden" id="addBtn"><i class="fa fa-plus"></i> Add</button>
+
+        <div class="formToAdd hidden">
+            <input type="text" placeholder="Title" id="titleAddInp">
+            <button class="buttonG" id="addDivBtn">Add</button>
+        </div>
+        <br>
+
+        <div class="passToClear">
+            <h1 class="infoTxt">
+                <i class="fa-solid fa-info-circle"></i> Info:
+                Sometimes you should clear all data and sign in again to use new futures and services for note page
+            </h1>
+            <center>
+                <h1 id="passValid">Enter password if you want to clear data</h1>
+                <input type="password" placeholder="Password" name="pass">
+            </center>
+
+
+        </div>
+        <!-- Div form -->
+        <div style="padding: 10px;color:#434343;" id="form">
+            <h1 style="text-align: center;margin-bottom: 30px;">Enter inputs to continue</h1>
+            <h1
+                style="background: rgb(231, 150, 0);font-weight: bolder;padding: 10px;color:whitesmoke;font-size: 1.2em;">
+                <i class="fa-solid fa-triangle-exclamation"></i> Warning:
+                You Can't change this form after click continue
+            </h1>
+            <h1>Enter Your Name:</h1>
+            <input type="text" placeholder="Name" name="Name" maxlength="8">
+            <h1>Title of your first Notes:</h1>
+            <input type="text" placeholder="Title" name="Title">
+            <h1>Your Password: </h1>
+            <input type="password" placeholder="Password" name="passForm">
+            <h1 class="infoTxt" id="infoForm">
+                <i class="fa-solid fa-info-circle"></i> Info:
+                You will need this password to login or when you want to clear all data
+            </h1>
+            <button class="buttonB" style="width: 100%;">Continue</button>
+        </div>
+        <!-- loading circle -->
+        <div class="loadingForm hidden"
+            style="top:0;bottom:0;left:0;right:0;align-items: center;justify-content: center;margin-top: 200px;">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- School -->
+    <div class="school hidden">
+        <div class="get-div">
+            <h1 style="margin-top: 80px;text-align: center;font-family: cursive; padding:10px;">
+                <i class="fa-solid fa-graduation-cap"></i> School
+            </h1>
+
+            <h1 class="hovering_LBlue"
+                style="display: inline-block;margin-left: 0px;font-family: 'Courier New', Courier, monospace;font-weight: 700;">
+                Questions</h1>
+            <h1 class="hovering_LBlue"
+                style="display: inline-block;margin-left: 20px;font-family: 'Courier New', Courier, monospace;font-weight: 700;">
+                Tests</h1>
+            <h1 class="hovering_LBlue"
+                style="display: inline-block;margin-left: 20px;font-family: 'Courier New', Courier, monospace;font-weight: 700;">
+                Education</h1>
+
+        </div>
+        <div id="editor">
+        </div>
+
+
+        <div class="mainQue">
+            <div class="userSchoolDivMain">
+                <h1 class="userSchoolMainH1"></h1>
+            </div>
+
+            <div class="h1WriterDiv">
+                <textarea class="areaWriterMain" disabled></textarea>
+            </div>
+        </div>
+        <!-- 
+        <h2 style="padding-left: 8px;text-align: center;">
+            Here some Important question click the question if you want to know the answer.
+        </h2> -->
+
+        <div class="que">
+            <div class="userSchoolDiv">
+                <h1 class="userSchoolH1"></h1>
+            </div>
+
+            <div class="h1WriterDiv">
+                <textarea class="areaWriter hidden" disabled></textarea>
+            </div>
+        </div>
+
+        <div class="que">
+            <div class="userSchoolDiv">
+                <h1 class="userSchoolH1"></h1>
+            </div>
+
+            <div class="h1WriterDiv">
+                <textarea class="areaWriter hidden" disabled></textarea>
+            </div>
+        </div>
+
+        <div class="que">
+            <div class="userSchoolDiv">
+                <h1 class="userSchoolH1"></h1>
+            </div>
+
+            <div class="h1WriterDiv">
+                <textarea class="areaWriter hidden" disabled></textarea>
+            </div>
+        </div>
+
+        <div class="que">
+            <div class="userSchoolDiv">
+                <h1 class="userSchoolH1"></h1>
+            </div>
+
+            <div class="h1WriterDiv">
+                <textarea class="areaWriter hidden" disabled></textarea>
+            </div>
+        </div>
+
+        <div class="que">
+            <div class="userSchoolDiv">
+                <h1 class="userSchoolH1"></h1>
+            </div>
+
+            <div class="h1WriterDiv">
+                <textarea class="areaWriter hidden" disabled></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile section -->
+    <div class="proDiv hidden">
+        <div class="get-div">
+
+            <div style="margin-top: 80px;background-color: #8a8a8a;padding: 10px;">
+                <div class="avatarP">
+                    <img src="img_avatar.png" alt="Avatar icon">
+                    <div class="username">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
         <footer>
             <div class="container" id="footer">
                 <div class="row">
                     <div class="col-md-4">
-                        <p>
+                        <p id="copyR">
                             Made By <i class="fa-solid fa-heart" style="color:rgb(0, 89, 255)"></i> Fady Emad © 2023
                         </p>
                     </div>
@@ -147,48 +357,10 @@
                 </div>
             </div>
         </footer>
-    </div>
-    <div class="notes">
-        <div class="get-div" style="border-radius: 6px;">
-            <h1
-                style="margin-top: 60px;text-align: center;font-family: cursive; background-color:#1b36ce;padding:10px;border:1px solid #ccc">
-                Write your notes here
-            </h1>
-            <ul>
-                <li>Don't worry Your Notes is secure , No one can see it.</li>
-                <li>You can set a password for more security</li>
-            </ul>
-        </div>
-
-        <div class="notaProject" style="padding: 15px;color:#434343">
-            <textarea class="area" style="display: none;"></textarea>
-        </div>
-        <!-- Div form -->
-        <div style="padding: 10px;color:#434343;" id="form">
-            <h1 style="text-align: center;margin-bottom: 30px;">Enter inputs to continue</h1>
-            <h1>Enter Your Name:</h1>
-            <input type="text" placeholder="Name" name="Name" maxlength="8">
-            <h1>Title of your first Notes:</h1>
-            <input type="text" placeholder="Title" name="Title">
-            <br><br>
-            <button class="buttonB" style="width: 100%;">Continue</button>
-            <h1
-                style="background: rgb(231, 150, 0);font-weight: bolder;padding: 10px;color:whitesmoke;font-size: 1.2em;">
-                <i class="fa-solid fa-triangle-exclamation"></i> Warning:
-                You Can't change this form after click continue
-            </h1>
-        </div>
-        <!-- loading circle -->
-        <div class="loadingForm hidden"
-            style="top:0;bottom:0;left:0;right:0;align-items: center;justify-content: center;margin-top: 200px;">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" />
-            </svg>
-        </div>
-    </div>
-    <button class="btn"><i class="fa-solid fa-arrow-up"></i></button>
-    <script src="BigProjectJS.js"></script>
-    <script src="all.js"></script>
+        <button class="btn"><i class="fa-solid fa-arrow-up"></i></button>
+        <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+        <script src="BigProjectJS.js"></script>
+        <script src="all.js"></script>
 </body>
 
 </html>
