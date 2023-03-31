@@ -163,6 +163,7 @@ let divProj = document.querySelector(".notaProject");
 let passToClear = document.querySelector(".passToClear");
 let passFormInp = document.querySelector("input[name='passForm']");
 let optionBtn = document.getElementById("optionBtn");
+let optionBtnMo = document.getElementById("optionBtnMo");
 let addBtn = document.getElementById("addBtn");
 
 // onblur inputs it will save values
@@ -346,6 +347,14 @@ optionBtn.addEventListener("click", function () {
   modal.style.display = "flex";
   // prevent scroll
   body.style.overflow = "hidden";
+});
+
+optionBtnMo.addEventListener("click", function () {
+  // appear modal option that have bg : rgba(0, 0, 0, 0.5)
+  modal.style.display = "flex";
+  // prevent scroll
+  body.style.overflow = "hidden";
+  moMenu.classList.remove("appear");
 });
 
 window.addEventListener("click", (e) => {
@@ -639,7 +648,7 @@ areas.forEach((li) => {
 
 let avatarName = document.querySelector(".username");
 
-avatarName.innerHTML = `${n ? n : "Anonymous"}`
+avatarName.innerHTML = `${n ? n : "Anonymous"}`;
 
 btn.addEventListener("click", () => {
   localStorage.clear();
