@@ -639,4 +639,4 @@ areas.forEach((li) => {
 
 let avatarName = document.querySelector(".username");
 
-avatarName.innerHTML = `${n ? n : "Anonymous"}`;
+avatarName.innerHTML = `${n ? n : "Anonymous"}`
