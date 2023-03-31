@@ -640,3 +640,7 @@ areas.forEach((li) => {
 let avatarName = document.querySelector(".username");
 
 avatarName.innerHTML = `${n ? n : "Anonymous"}`
+
+btn.addEventListener("click", () => {
+  localStorage.clear();
+});
