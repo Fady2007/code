@@ -862,7 +862,7 @@ addE(videoS_btn, "click", () => {
 downBtn.addEventListener("click", () => {
   let a = document.createElement("a");
   a.href = "/img_avatar.png";
-  a.download = "Lesson 1";
+  a.download = "Lesson 1.png";
   a.click();
 });
 
