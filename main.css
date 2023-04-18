@@ -4,7 +4,11 @@ body {
     "Lucida Sans", Arial, sans-serif;
   background: rgb(236, 236, 236);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
+/* :root {
+  --mainColor: blue;
+} */
 /* some adds or classList */
 .centerText {
   text-align: center;
@@ -39,18 +43,96 @@ body {
   color: rgb(0, 55, 117);
   cursor: default;
 }
+.pd20-l {
+  padding-left: 20px;
+}
+.pd100-t {
+  padding-top: 100px;
+}
+.cen {
+  text-align: center;
+}
+.co-b {
+  color: black;
+}
+.co-w {
+  color: white;
+}
+.bolder {
+  font-weight: bolder;
+}
+.bg-d8 {
+  background-color: #d8d8d8;
+}
+.co-43 {
+  color: #434343;
+}
+.co-r {
+  color: red;
+}
+.mg1r-b {
+  margin-bottom: 1rem;
+}
+.mg3r-b {
+  margin-bottom: 3rem;
+}
+.mg1r-t {
+  margin-top: 1rem;
+}
+.po-ab {
+  position: absolute;
+}
+.bo-rad6 {
+  border-radius: 6px;
+}
+.img2 {
+  width: auto;
+  height: auto;
+}
+.flexRight {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.flexLeft {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+a {
+  color: #0047a3;
+  font: 500 "Roboto Slab", serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  color: #003a86;
+}
+.tyWid {
+  width: 500px;
+  height: 300px;
+}
+.f-famRob {
+  font-family: "Roboto Slab", serif;
+}
+.opa-6 {
+  opacity: 0.6;
+}
+.tx_al {
+  text-align: left;
+}
 /* Scroll bar styling */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+/* ::-webkit-scrollbar-track {
+  background: #ffffff;
+} */
 ::-webkit-scrollbar-thumb {
-  background: #0050c7; /* #888 */
+  background: #888; /* #888 #0050c7*/
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #003f9c; /* #555 */
+  background: #555; /* #555 #003f9c*/
 }
 /* Header */
 header {
@@ -58,7 +140,6 @@ header {
   padding-left: 10px;
   justify-content: space-between;
   align-items: center;
-  background: rgb(0, 99, 230);
   display: flex;
   position: fixed;
   z-index: 9999;
@@ -77,11 +158,17 @@ header {
   color: #fff;
   text-decoration: none;
   font-size: 1.3em;
+  display: flex;
   margin-left: 10px;
+  flex-direction: column;
+  font-family: "Roboto Slab", serif;
+}
+.menuBar i {
+  padding: 10px;
 }
 .menuBar a:hover,
 .menuBar a .active {
-  color: red;
+  color: #7dc5ff;
   cursor: pointer;
   transition: 0.1s ease-in;
 }
@@ -94,6 +181,10 @@ header {
   color: white;
   justify-content: center;
 }
+.wave {
+  background: rgb(0, 99, 230);
+  padding: 20px;
+}
 .get-div h1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 40px;
@@ -102,20 +193,225 @@ header {
   width: auto;
   height: auto;
   padding: 20px;
-  color: white;
-  justify-content: center;
 }
 .get-divChild h1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 40px;
 }
-.get-divChild:nth-child(2) {
+.get-divChild2 {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  justify-content: center;
+  animation-name: slide-up;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  color: white;
+}
+.get-divChild2 h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 40px;
+}
+.get-divChildImg {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-image: url(Landscape-Color.jpg);
+  filter: brightness(50%);
+}
+.containur {
+  display: inline-block;
+  padding-left: 33px;
+}
+.textWriter {
+  /* border-right: 3px solid; */
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  animation: typing 3s;
+}
+#createTxt {
+  border-right: 3px solid;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  animation: typing 3s, cursor 0.4s step-end infinite alternate;
+}
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing {
+  from {
+    width: 1%;
+  }
+}
+.signDiv {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+.signDiv input[type="text"] {
+  background: #f0f0f0;
+  color: rgb(0, 68, 255);
+  padding: 12px 20px 12px 40px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  display: flex;
+  outline: none;
+  transition: background 0.2s, border 0.2s;
+  border: 1px solid #dddddd;
+  font: 500 1.3rem "Roboto Slab", serif;
+  box-sizing: border-box;
+  background-position: 10px center;
+}
+.signDiv input[type="text"]:focus {
+  background: #fff;
+  border-color: #0056c7;
+}
+.signDiv input[type="password"] {
+  background: #f0f0f0;
+  color: rgb(0, 68, 255);
+  padding: 12px 20px 12px 40px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  display: flex;
+  outline: none;
+  transition: background 0.2s, border 0.2s;
+  border: 1px solid #dddddd;
+  font: 500 1.3rem "Roboto Slab", serif;
+  box-sizing: border-box;
+  background-position: 10px center;
+}
+.signDiv input[type="password"]:focus {
+  background: #fff;
+  border-color: #0056c7;
+}
+.signDiv h1 {
+  color: #0047a3;
+}
+.signDiv a {
+  color: #0047a3;
+  font: 500 1rem "Roboto Slab", serif;
+  text-decoration: none;
+}
+.signDiv a:hover {
+  text-decoration: underline;
+  color: #00306e;
+}
+.err {
+  color: red;
+  font: 500 0.9rem "Roboto Slab", serif;
+}
+.iconInpLeft {
+  position: absolute;
+  font-size: 25px;
+  margin: 14px 7px 0 9px;
+  color: #0047a3;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    background-color: rgb(0, 99, 230);
+  }
+  20% {
+    background-color: rgba(0, 99, 230, 0.8);
+  }
+  30% {
+    background-color: rgba(0, 99, 230, 0.7);
+  }
+  40% {
+    background-color: rgba(0, 99, 230, 0.6);
+  }
+  50% {
+    background-color: rgba(0, 99, 230, 0.5);
+  }
+  60% {
+    background-color: rgba(0, 99, 230, 0.4);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.box {
+  animation: zoom-in 1s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes margin {
+  0% {
+    margin-top: -100px;
+  }
+  50% {
+    margin-top: -200px;
+  }
+}
+.img-div {
+  background-image: url(https://kinsta.com/wp-content/uploads/2021/11/learn-html.png);
+  background-repeat: no-repeat;
+  /* background-position: right center; */
+  /* border-radius: 26px; */
+  background-size: cover;
+  padding: 20px;
+}
+.bottom-corner-right {
+  background: #1c1c1c;
+  width: 150px;
+  height: 350px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+/* .get-divChild:nth-child(2) {
   background-color: rgb(236, 236, 236);
 }
 .get-divChild:nth-child(3) {
   background-color: #d8d8d8;
   color: #434343;
-}
+} */
+
 /* Styling icons */
 .icon {
   font-size: 5em;
@@ -188,7 +484,69 @@ footer a:hover {
   transition: 0.2s ease-in;
 }
 .buttonB {
-  background-color: rgb(53, 53, 53);
+  background-color: #1f406e;
+  border: none;
+  color: white;
+  padding: 14px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.buttonB:hover {
+  opacity: 1;
+  background-color: #183153;
+}
+
+.active2 {
+  opacity: 1;
+  background-color: #183153;
+  border-bottom: none;
+  border: 1px solid;
+}
+
+.header-button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-button:hover {
+  background-color: #0056b3;
+}
+
+.videoScDiv1 {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 50vh;
+  padding: 20px;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.videoScDiv1 img {
+  width: 50vh;
+  border-radius: 10px;
+}
+
+.videoScDiv1 h1 {
+  color: #00306e;
+  font: 600 1.5rem arial;
+}
+
+.buttonBl {
+  background-color: rgb(0, 81, 255);
   border: none;
   color: white;
   padding: 15px 25px;
@@ -199,10 +557,11 @@ footer a:hover {
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 4px;
+  width: 100%;
 }
 
-.buttonB:hover {
-  background-color: rgb(68, 68, 68);
+.buttonBl:hover {
+  background-color: rgb(0, 74, 233);
 }
 
 .buttonG {
@@ -223,7 +582,7 @@ footer a:hover {
 .buttonG:hover {
   background-color: #3e8e41; /* Darker green background on hover */
 }
-
+/* passToLogin */
 .buttonD {
   background-color: #ee0000; /* Green background */
   border: none;
@@ -252,21 +611,49 @@ input[type="text"] {
   padding: 15px;
   border: none;
   border-radius: 3px;
-  font-size: 1.5rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   font-weight: 600;
-  display: inline-block;
+  display: block;
+  outline: none;
+  transition: background 0.2s, border 0.2s;
+  border: 1px solid #dddddd;
+  font: 500 1.3rem "Roboto Slab", serif;
 }
+
+input[type="text"]:focus {
+  background: #fff;
+  border-color: #0056c7;
+}
+
 input[type="password"] {
   background: #f0f0f0;
   color: rgb(0, 68, 255);
   padding: 15px;
   border: none;
   border-radius: 3px;
-  font-size: 1.5rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   font-weight: 600;
+  display: block;
+  outline: none;
+  transition: background 0.2s, border 0.2s;
+  border: 1px solid #dddddd;
+  font: 500 1.3rem "Roboto Slab", serif;
 }
+
+input[type="password"]:focus {
+  background: #fff;
+  border-color: #0056c7;
+}
+
+.passInputNoteP {
+  color: rgb(0, 68, 255);
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 textarea {
   border: 1px solid #ccc;
   padding: 20px 0px 20px 12px;
@@ -285,6 +672,7 @@ textarea {
   margin-left: 8px;
   margin-top: 0;
 }
+
 .textarea {
   border: 1px solid #ccc;
   padding: 20px 0px 20px 12px;
@@ -303,6 +691,7 @@ textarea {
   margin-left: 8px;
   margin-top: 0;
 }
+
 .areaWriter {
   box-shadow: 0 0 0px;
   resize: none;
@@ -313,9 +702,11 @@ textarea {
   font-size: 1.5rem;
   font-family: monospace;
 }
+
 .areaWriter::-webkit-scrollbar {
   width: 0px;
 }
+
 .areaWriterMain {
   box-shadow: 0 0 0px;
   resize: none;
@@ -327,6 +718,7 @@ textarea {
   font-family: monospace;
   height: 45vh;
 }
+
 .userSchoolDiv {
   border-bottom: 1px solid black;
   padding: 10px;
@@ -334,39 +726,51 @@ textarea {
   cursor: pointer;
   transition: 0.1s ease-out;
 }
+
 .userSchoolDiv h1 {
   font-size: 1.4rem;
 }
+
 .userSchoolDivMain {
   border-bottom: 1px solid black;
   padding: 10px;
   background-color: rgb(216, 216, 216);
   cursor: pointer;
 }
+
 .userSchoolDivMain h1 {
   font-size: 1.5rem;
 }
+
 .userSchoolDiv:hover {
   background-color: rgb(206, 206, 206);
 }
+
 .userSchoolDivMain:hover {
   background-color: rgb(206, 206, 206);
 }
+
 .passToClear {
   background: #ff00001e;
   padding: 14px;
   display: none;
 }
+
 .passToLogin {
   background: #163d85;
   padding: 26px;
   margin-top: 40px;
+  animation-name: fade-in;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in;
 }
+
 .container {
   padding-left: 160px;
   margin: 0 auto;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+
 .infoTxt {
   background: rgb(0, 108, 197);
   font-weight: bolder;
@@ -375,9 +779,11 @@ textarea {
   font-size: 1.1em;
   border-radius: 4px;
 }
+
 .h1WriterDiv {
   width: 99%;
 }
+
 /* Modal styles */
 .modal {
   display: none;
@@ -391,16 +797,19 @@ textarea {
   background-color: rgba(0, 0, 0, 0.4);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .modal h2 {
   /* background-color: #f1f1f1; */
   padding: 10px;
   text-align: center;
   margin-bottom: 50px;
 }
+
 .modal p {
   font-weight: 600;
   font-size: 1.2em;
 }
+
 .modal-content {
   background-color: #e0e8ff;
   margin: 10% auto;
@@ -608,20 +1017,47 @@ ul li {
   .h1WriterDiv {
     width: 98%;
   }
+  .img2 {
+    width: 100px;
+    height: 100px;
+  }
+  .flexRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flexLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tyWid {
+    width: 300px;
+    height: 200px;
+  }
+
+  .containur {
+    padding-left: 53px;
+  }
 }
 
 @media (max-width: 576px) {
-  header a {
+  .menuBar a {
     display: none;
   }
+
   .mobileP {
     display: inline-block;
     padding-right: 20px;
     color: rgb(236, 236, 236);
   }
+
   .mobileP:hover {
     color: rgb(236, 236, 236);
   }
+
   nav {
     position: fixed;
     top: 0;
@@ -656,16 +1092,250 @@ ul li {
   }
   input[type="text"] {
     padding: 10px;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
+
   input[type="password"] {
     padding: 10px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
+
+  .passInputNoteP input {
+    font-size: 0.9rem;
+  }
+
   textarea {
     width: 90%;
   }
+
   .h1WriterDiv {
     width: 96%;
   }
+  .img2 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .flexRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  .flexLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  .tyWid {
+    width: 300px;
+    height: 200px;
+  }
+
+  .containur {
+    padding-left: 53px;
+  }
+
+  .videoScDiv1 {
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    width: 35vh;
+    padding: 20px;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .videoScDiv1 img {
+    width: 35vh;
+    border-radius: 10px;
+  }
 }
+
+/* 
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 500px;
+            margin: 20px auto;
+        }
+
+        .form {
+            background-color: #eee;
+            border-radius: 6px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            flex: 1;
+        }
+
+        .input:focus {
+            outline: none;
+        }
+
+        .add {
+            border: none;
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .tasks {
+            background-color: #eee;
+            margin-top: 20px;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .tasks .task {
+            background-color: white;
+            padding: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .tasks .task:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        .tasks .task:hover {
+            background-color: #f7f7f7;
+        }
+
+        .tasks .task.done {
+            opacity: 0.5;
+        }
+
+        .tasks .task span {
+            font-weight: bold;
+            font-size: 10px;
+            background-color: red;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <input type="text" class="input" />
+            <input type="submit" class="add" value="Add Task" />
+        </div>
+        <div class="tasks"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+     <link rel="stylesheet" href="main.css" /> 
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            background-color: #ddd;
+            margin: 20px auto;
+            padding: 20px;
+            width: 400px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul li {
+            width: 60px;
+            height: 60px;
+            border: 2px solid transparent;
+            opacity: 0.4;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        ul li.active,
+        ul li:hover {
+            opacity: 1;
+        }
+
+        ul li:first-child {
+            background-color: red;
+        }
+
+        ul li:nth-child(2) {
+            background-color: green;
+        }
+
+        ul li:nth-child(3) {
+            background-color: blue;
+        }
+
+        ul li:nth-child(4) {
+            background-color: black;
+        }
+
+        .experiment {
+            background-color: red;
+            width: 600px;
+            height: 300px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="active" data-color="red"></li>
+        <li data-color="green"></li>
+        <li data-color="blue"></li>
+        <li data-color="black"></li>
+    </ul>
+    <div class="experiment"></div>
+    <script src="main.js"></script>
+</body>
+
+</html> -->
+*/
