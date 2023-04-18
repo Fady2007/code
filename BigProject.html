@@ -7,17 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fady.com</title>
     <link rel="stylesheet" href="main.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<bo>
     <header>
         <h2 style="color:white" class="menuLogo">Fady.com</h2>
         <div class="menuBar">
-            <a href="#Home" onclick="openHomePage()">Home</a>
-            <a onclick="openProfilePage()">Profile</a>
-            <a onclick="openSchoolPage()">School</a>
-            <a onclick="openNotaPage()">Notes</a>
-            <a id="optionBtn"><i class="fa fa-gear"></i> Preferences </a>
+
+            <a href="#Home" onclick="openHomePage()" style="line-height: 1.8;"><i class="fa fa-house"></i> Home</a>
+            <a onclick="openProfilePage()" style="line-height: 1.8;"><i class="fa fa-user-circle"></i> Profile</a>
+            <a onclick="openSchoolPage()" style="line-height: 1.8;"><i class="fa-solid fa-school"></i> School</a>
+            <a onclick="openNotaPage()" style="line-height: 1.8;"><i class="fa fa-book"></i> Notes</a>
+            <a id="optionBtn" style="line-height: 1.8;"><i class="fa fa-gear"></i> Preferences </a>
         </div>
         <div class="icon mobileP">
             <i class="fa-solid fa-bars moBarI" onclick="appearMenu()"></i>
@@ -26,7 +32,7 @@
                     <ul>
                         <li><a href="#" style="padding:60px 0 60px 0">Fady.com</a></li>
                         <li><a href="#" onclick="openHomePage()">Home</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li><a onclick="openProfilePage()">Profile</a></li>
                         <li><a onclick="openSchoolPage()">School</a></li>
                         <li><a href="#Nota" onclick="openNotaPage()">Notes</a></li>
                         <li><a id="optionBtnMo">Preferences </a></li>
@@ -41,11 +47,11 @@
     <div id="allSite">
         <div id="Home">
             <div class="get-div">
-                <h1 style="text-align: center;padding-top: 100px;">Welcome to our site</h1>
-                <h3 style="text-align: center;">There are a lot of things for you I hope to the site will be good.</h3>
+                <h1 class="pd100-t cen">مرحبا بك في موقعنا</h1>
+                <h3 class="cen">There are a lot of things for you I hope to the site will be good.</h3>
                 <h1><u>Our Services</u></h1>
                 <div class="icon" onclick="openSchoolPage()">
-                    <i class="fa-solid fa-graduation-cap" title="School Job"></i>
+                    <i class="fa-solid fa-school" title="school"></i>
                 </div>
                 <div class="icon">
                     <i class="fa-solid fa-table-cells hovering_Red" title="Creating tables"></i>
@@ -66,8 +72,74 @@
                 </center> -->
             </div>
         </div>
+
+        <div class="get-divChild bg-d8 f-famRob"
+            style="display:flex;justify-content: flex-start;background-color: #ececec;">
+            <img src="img_avatar.png" class="img2 bo-rad6">
+            <div style="margin:30px">
+                <h1>Front-end road map</h1>
+                <h2 class="co-r"><i class="fa-brands fa-html5"></i> HTML</h2>
+                <h2 class="co-43" style="color: #005eff;"><i class="fa-brands fa-css3-alt"></i> CSS</h2>
+                <h2 class="co-43" style="color: #b400cc;"><i class="fa-brands fa-bootstrap"></i> Bootstrap</h2>
+                <h2 class="co-43" style="color: rgb(255, 217, 0);"><i class="fa-brands fa-js"></i> Javascript</h2>
+                <!-- <h2 class="co-43" style="color: #007acc;display: flex;align-items: center;"><img
+                        src="https://seanbarry.dev/media/typescript_logo.png" class="bo-rad6"
+                        style="width: 30px;height: 30px;margin: 0 10px 0 0;"> TypeScript</h2> -->
+                <h2 class="co-43" style="color: #244375;"><i class="fa-brands fa-react"></i> React.js</h2>
+            </div>
+        </div>
+
+        <div class="get-divChild flexRight co-43" style="background-color: #fff0d6;">
+            <img src="JavaScriptCourses.png" class="tyWid bo-rad6">
+            <h2 style="margin: 20px;line-height: 1.4;">
+                JavaScript is a popular programming language used for developing dynamic and interactive web pages. It
+                is a client-side scripting language that runs on the user's web browser, providing enhanced
+                functionality to web pages. JavaScript is used for adding interactivity to web pages, validating forms,
+                creating animations, and building complex applications. With JavaScript, developers can create
+                responsive and interactive web pages that can be accessed on various devices. It is a versatile language
+                that is constantly evolving, with new libraries and frameworks being developed to simplify web
+                development.
+            </h2>
+        </div>
+        <div class="get-divChild flexLeft co-43" style="background-color: #3176c3;color: white;">
+            <img src="cssImage.png" class="tyWid bo-rad6">
+            <h2 style="margin: 20px;line-height: 1.4;">
+                Cascading Style Sheets, or CSS, is a powerful tool for web developers to create visually appealing and
+                responsive websites. With CSS, developers can control the layout, colors, fonts, and other visual
+                elements of a website, making it easier to create a consistent and professional-looking design. CSS is
+                also essential for creating responsive web designs that adapt to different screen sizes and devices,
+                which is critical in today's mobile-first world. By separating the presentation layer from the content
+                layer, CSS makes it easier to maintain and update a website's design without affecting the underlying
+                code. Overall, CSS is a fundamental technology for modern web development, allowing developers to create
+                beautiful and functional websites with ease.
+            </h2>
+        </div>
+
+        <div class="get-divChild flexRight co-43" style="background-color: #ff5252;color: white;">
+            <img src="googlefontImgae.png" class="tyWid bo-rad6">
+            <h3 style="margin: 10px;line-height: 1.3;">
+                Overall, Google Fonts is a valuable resource for web designers and developers looking to enhance the
+                typography and visual appeal of their websites and digital projects.
+            </h3>
+            <h3 style="margin: 10px;line-height: 1.3;">
+                Another benefit of using Google Fonts is that they are hosted on Google's servers, which can improve
+                website loading times and performance. Additionally, Google Fonts are free to use, making them a
+                cost-effective solution for designers and developers.
+            </h3>
+            <h3 style="margin: 10px;line-height: 1.3;">
+                One of the main advantages of using Google Fonts is the vast variety of font styles available, ranging
+                from classic and traditional to modern and innovative. The fonts are optimized for web use and can be
+                easily integrated into a website by linking to them in the HTML or CSS code.
+            </h3>
+            <h3 style="margin: 10px;line-height: 1.3;">
+                Google Fonts is a collection of over 1000 free and open-source fonts that can be used on websites,
+                applications, and other digital media. It was launched in 2010 by Google, and since then, it has become
+                a popular resource for web designers and developers.
+            </h3>
+        </div>
+
         <!-- Topics -->
-        <div class="get-divChild" style="color:black;">
+        <div class="get-divChild co-b">
             <div class="Topics">
                 <h1 class="centerText">Important Topics</h1>
                 <div class="TopicDiv">
@@ -99,7 +171,7 @@
         </div>
 
         <!-- Contact us -->
-        <div class="get-divChild">
+        <div class="get-divChild bg-d8">
             <h1 class="centerText">Contact Us</h1>
             <div class="TopicDiv">
                 <a href="mailto:fadye9007@gmail.com">
@@ -113,7 +185,7 @@
                     <svg class="circular" viewBox="25 25 50 50">
                         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" />
                     </svg>
-                    <h4 style="padding-left: 20px;">Opening email...</h4>
+                    <h4 class="pd-l">Opening email...</h4>
                 </div>
             </div>
 
@@ -135,6 +207,9 @@
                 <p>Facebook</p>
             </div>
         </div>
+    </div>
+
+
 
     </div>
     <!-- options -->
@@ -171,15 +246,19 @@
 
             <div class="passToLogin hidden">
                 <center>
-                    <h2>Enter password to show your last Notes</h2>
-                    <input type="password" placeholder="Password" name="logPass">
+                    <h2 id="passTxtToShow"></h2>
+                    <div id="logPassDiv">
+                        <div class="passInputNoteP">
+                            <input type="password" placeholder="Password" name="logPass">
+                        </div>
+                    </div>
                 </center>
             </div>
 
         </div>
 
         <div class="notaProject" style="color:#434343;">
-            <textarea class="area" style="display: none;font-family: monospace;"></textarea>
+            <textarea class="area" style="display: none;font-family: 'Roboto Slab', serif;"></textarea>
             <br>
         </div>
         <div class="notaProj2"></div>
@@ -204,25 +283,29 @@
 
         </div>
         <!-- Div form -->
-        <div style="padding: 10px;color:#434343;" id="form">
-            <h1 style="text-align: center;margin-bottom: 30px;">Enter inputs to continue</h1>
-            <h1
-                style="background: rgb(231, 150, 0);font-weight: bolder;padding: 10px;color:whitesmoke;font-size: 1.2em;">
-                <i class="fa-solid fa-triangle-exclamation"></i> Warning:
-                You Can't change this form after click continue
-            </h1>
-            <h1>Enter Your Name:</h1>
-            <input type="text" placeholder="Name" name="Name" maxlength="8">
-            <h1>Title of your first Notes:</h1>
-            <input type="text" placeholder="Title" name="Title">
-            <h1>Your Password: </h1>
-            <input type="password" placeholder="Password" name="passForm">
-            <h1 class="infoTxt" id="infoForm">
-                <i class="fa-solid fa-info-circle"></i> Info:
-                You will need this password to login or when you want to clear all data
-            </h1>
-            <button class="buttonB" style="width: 100%;">Continue</button>
+        <div class="upForm" style="align-items: center;display: flex;flex-direction: column;" id="form">
+            <div style="padding: 20px;color:#434343;background-color: #e5e5e5;box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);">
+                <h1 style="text-align: center;margin-bottom: 30px;">Enter inputs to continue</h1>
+                <h1
+                    style="background: rgb(231, 150, 0);font-weight: bolder;padding: 10px;color:whitesmoke;font-size: 1.2em;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Warning:
+                    You Can't change this form after click continue
+                </h1>
+                <h1>Enter Your Name:</h1>
+                <input type="text" placeholder="Name" name="Name" maxlength="12">
+                <h1>Title of your first Notes:</h1>
+                <input type="text" placeholder="Title" name="Title">
+                <h1>Your Password: </h1>
+                <input type="password" placeholder="Password" name="passForm">
+                <h1 class="infoTxt" id="infoForm">
+                    <i class="fa-solid fa-info-circle"></i> Info:
+                    You will need this password to login or when you want to clear all data
+                </h1>
+                <button class="buttonB" style="width: 100%;display: block;border-right: none;">Continue</button>
+            </div>
+            <br>
         </div>
+
         <!-- loading circle -->
         <div class="loadingForm hidden"
             style="top:0;bottom:0;left:0;right:0;align-items: center;justify-content: center;margin-top: 200px;">
@@ -234,95 +317,173 @@
 
     <!-- School -->
     <div class="school hidden">
-        <div class="get-div">
+        <!-- <div class="get-div" style="border-radius: 1px;">
             <h1 style="margin-top: 80px;text-align: center;font-family: cursive; padding:10px;">
-                <i class="fa-solid fa-graduation-cap"></i> School
+                <i class="fa-solid fa-school"></i> School
             </h1>
+        </div> -->
+        <div style="background-color: #183153;width: 100%;">
 
-            <h1 class="hovering_LBlue"
-                style="display: inline-block;margin-left: 0px;font-family: 'Courier New', Courier, monospace;font-weight: 700;">
-                Questions</h1>
-            <h1 class="hovering_LBlue"
-                style="display: inline-block;margin-left: 20px;font-family: 'Courier New', Courier, monospace;font-weight: 700;">
-                Tests</h1>
-            <h1 class="hovering_LBlue"
-                style="display: inline-block;margin-left: 20px;font-family: 'Courier New', Courier, monospace;font-weight: 700;">
-                Education</h1>
-
-        </div>
-        <div id="editor">
-        </div>
-
-
-        <div class="mainQue">
-            <div class="userSchoolDivMain">
-                <h1 class="userSchoolMainH1"></h1>
+            <div style="display: flex;color: white;">
+                <button class="buttonB sH opa-6 active2" id="AboutSchoolBtn"
+                    style="font-family: 'Courier New', Courier, monospace;font-weight: 700;margin-top: 65px;">
+                    <i class="fa-solid fa-circle-info"></i> About</button>
             </div>
 
-            <div class="h1WriterDiv">
-                <textarea class="areaWriterMain" disabled></textarea>
+            <div style="display: flex;color: white;">
+                <button class="buttonB sH opa-6" id="VideosSchoolBtn"
+                    style="font-family: 'Courier New', Courier, monospace;font-weight: 700;">
+                    <i class="fa-brands fa-youtube"></i> Videos
+                </button>
+            </div>
+
+            <div style="display: flex;color: white;">
+                <button class="buttonB sH opa-6" id="TestsSchoolBtn"
+                    style="font-family: 'Courier New', Courier, monospace;font-weight: 700;">
+                    <i class="fa-solid fa-square-poll-vertical"></i> Tests</button>
+            </div>
+            <div style="display: flex;color: white;">
+                <button class="buttonB sH opa-6" id="EducationSchoolBtn"
+                    style="font-family: 'Courier New', Courier, monospace;font-weight: 700;">
+                    <i class="fa-solid fa-graduation-cap"></i> Education</button>
             </div>
         </div>
-        <!-- 
+
+        <div id="aboutSchoolDiv">
+
+            <div class="mainQue">
+                <div class="userSchoolDivMain">
+                    <h1 class="userSchoolMainH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriterMain" disabled></textarea>
+                </div>
+
+                <!-- <input type="text" id="code-input"> -->
+            </div>
+            <!-- 
         <h2 style="padding-left: 8px;text-align: center;">
             Here some Important question click the question if you want to know the answer.
         </h2> -->
 
-        <div class="que">
-            <div class="userSchoolDiv">
-                <h1 class="userSchoolH1"></h1>
+            <div class="que">
+                <div class="userSchoolDiv">
+                    <h1 class="userSchoolH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriter hidden" disabled></textarea>
+                </div>
             </div>
 
-            <div class="h1WriterDiv">
-                <textarea class="areaWriter hidden" disabled></textarea>
+            <div class="que">
+                <div class="userSchoolDiv">
+                    <h1 class="userSchoolH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriter hidden" disabled></textarea>
+                </div>
+            </div>
+
+            <div class="que">
+                <div class="userSchoolDiv">
+                    <h1 class="userSchoolH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriter hidden" disabled></textarea>
+                </div>
+            </div>
+
+            <div class="que">
+                <div class="userSchoolDiv">
+                    <h1 class="userSchoolH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriter hidden" disabled></textarea>
+                </div>
+            </div>
+
+            <div class="que">
+                <div class="userSchoolDiv">
+                    <h1 class="userSchoolH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriter hidden" disabled></textarea>
+                </div>
+            </div>
+
+            <div class="que">
+                <div class="userSchoolDiv">
+                    <h1 class="userSchoolH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriter hidden" disabled></textarea>
+                </div>
+            </div>
+
+            <div class="que">
+                <div class="userSchoolDiv">
+                    <h1 class="userSchoolH1"></h1>
+                </div>
+
+                <div class="h1WriterDiv">
+                    <textarea class="areaWriter hidden" disabled></textarea>
+                </div>
             </div>
         </div>
 
-        <div class="que">
-            <div class="userSchoolDiv">
-                <h1 class="userSchoolH1"></h1>
-            </div>
+        <div id="videosSchoolDiv" style="padding: 10px;display: none;">
+            <center>
+                <div class="videoScDiv1">
+                    <img src="https://cdn.alweb.com/thumbs/eijaby/article/fit710x532/%D8%A3%D9%81%D8%B6%D9%84-%D8%A7%D9%84%D8%B7%D8%B1%D9%82-%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.jpg"
+                        alt="">
+                    <h1>Lesson 1</h1>
 
-            <div class="h1WriterDiv">
-                <textarea class="areaWriter hidden" disabled></textarea>
-            </div>
-        </div>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Anonymous
+                    </h3>
 
-        <div class="que">
-            <div class="userSchoolDiv">
-                <h1 class="userSchoolH1"></h1>
-            </div>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 32MB
+                    </h3>
 
-            <div class="h1WriterDiv">
-                <textarea class="areaWriter hidden" disabled></textarea>
-            </div>
-        </div>
+                    <button class="buttonBl down">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
 
-        <div class="que">
-            <div class="userSchoolDiv">
-                <h1 class="userSchoolH1"></h1>
-            </div>
+                <div class="videoScDiv1">
+                    <img src="https://cdn.alweb.com/thumbs/eijaby/article/fit710x532/%D8%A3%D9%81%D8%B6%D9%84-%D8%A7%D9%84%D8%B7%D8%B1%D9%82-%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1.jpg"
+                        alt="">
+                    <h1>Lesson 2</h1>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Anonymous
+                    </h3>
 
-            <div class="h1WriterDiv">
-                <textarea class="areaWriter hidden" disabled></textarea>
-            </div>
-        </div>
-
-        <div class="que">
-            <div class="userSchoolDiv">
-                <h1 class="userSchoolH1"></h1>
-            </div>
-
-            <div class="h1WriterDiv">
-                <textarea class="areaWriter hidden" disabled></textarea>
-            </div>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 32MB
+                    </h3>
+                    <button class="buttonBl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+            </center>
         </div>
     </div>
 
     <!-- Profile section -->
     <div class="proDiv hidden">
-        <div class="get-div">
-
+        <!-- <div class="get-div">
             <div style="margin-top: 80px;background-color: #8a8a8a;padding: 10px;">
                 <div class="avatarP">
                     <img src="img_avatar.png" alt="Avatar icon">
@@ -330,14 +491,52 @@
 
                     </div>
                 </div>
+            </div> -->
+        <div class="get-divChildImg">
+        </div>
+        <div class="signDiv">
+            <!-- <span class="close" id="closePro">&times;</span> -->
+            <div class="containur">
+                <h1 class="cen mg3r-b" id="createTxt">Create an account</h1>
             </div>
+            <form action="" method="" class="formPro">
+                <i class="fa fa-user iconInpLeft"></i>
+                <input type="text" placeholder="Username" class="mg1r-b" name="usernamePro" maxlength="12">
+                <p id="errorName" class="err hidden"></p>
+                <i class="fa-solid fa-envelope iconInpLeft"></i>
+                <input type="text" placeholder="Email Address" class="mg1r-b" name="emailPro">
+                <p id="errorEmail" class="err hidden"></p>
+                <i class="fa-solid fa-lock iconInpLeft"></i>
+                <input type="password" placeholder="Password" class="mg1r-b" name="passPro">
+                <p id="errorPass" class="err hidden"></p>
+                <i class="fa-solid fa-phone iconInpLeft"></i>
+                <input type="text" placeholder="Phone number" class="mg1r-b" name="phone">
+                <p id="errorNum" class="err hidden"></p>
+
+                <button type="submit" class="buttonBl mg1r-b" id="submit"><i class=" fa fa-sign-in"></i> Sign
+                    in</button>
+                <center>
+                    <a href="#">Already have an account ? Log in</a>
+                </center>
+            </form>
 
         </div>
+
+    </div>
+
+    <!-- <div class="get-divChild2">
+        <h1 class="animH1"></h1>
+    </div>
+    <div class="get-divChild bg-d8">
+        <input type="text" name="regexInput">
+        <h1 id="reCount"></h1>
+        <h1 id="reWords"></h1>
+    </div> -->
     </div>
 
 
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -361,6 +560,6 @@
     <button class="btn" onclick="clL()"><i class="fa-solid fa-arrow-up"></i></button>
     <script src="BigProjectJS.js"></script>
     <script src="all.js"></script>
-</body>
+    </body>
 
 </html>
