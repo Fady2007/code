@@ -1,4 +1,3 @@
-// Test function for HTML
 function test() {
   document.body.innerHTML += "ok";
 }
@@ -22,27 +21,29 @@ btn.onclick = () => {
     behavior: "smooth",
   });
 };
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-});
+// document.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+// });
 function scrollFunction() {
   if (document.documentElement.scrollTop > 60 /*780*/) {
     header.style.cssText = `
     background:rgba(67, 67, 67 , 0.8);
     `;
   } else {
-    header.style.background = "";
+    header.style.backgroundColor = "";
   }
 }
 
+let footer = document.querySelector("#footer");
+
 // Topics Div
 let questionsDiv = document.querySelector(".Topics");
-let questions = ["Javascript", "Church", "School"];
+let questions = ["Javascript", "English", "School"];
 let questionH1 = document.querySelectorAll(".Topic");
 for (let i = 0; i < questionH1.length; i++) {
   questionH1[i].textContent = questions[i];
 }
-
+// form
 // Contact us Div and loading function
 let emailIcon = document.querySelector(".email");
 let loading = document.querySelector(".loading");
@@ -80,13 +81,8 @@ function headerColorToBlack() {
     background:rgba(67, 67, 67 , 0.5);
     `;
 }
-function headerColorToBlack() {
-  header.style.cssText = `
-    background:rgba(67, 67, 67 , 0.5);
-    `;
-}
 function noHeaderColor() {
-  header.style.background = "";
+  header.style.backgroundColor = "transparent";
 }
 // Nota page
 
@@ -98,7 +94,18 @@ function openNotaPage() {
   allSite.style.display = "none";
   notes.style.display = "block";
   schDiv.style.display = "none";
+  profileDiv.style.display = "none";
   moMenu.classList.remove("appear");
+  document.body.style.overflow = "visible";
+  footer.style.display = "none";
+  let passTxtToShow = document.querySelector("#passTxtToShow");
+  let countInterNota;
+  typewriterDiv(
+    "Enter password to show your last Notes",
+    passTxtToShow,
+    60,
+    countInterNota
+  );
   // let scHeight2 = areas[0].scrollHeight;
   // areas[0].style.height = `${scHeight2}px`;
   // header.style.backgroundColor = colorL;
@@ -111,6 +118,7 @@ function openHomePage() {
   schDiv.style.display = "none";
   profileDiv.style.display = "none";
   moMenu.classList.remove("appear");
+  document.body.style.overflow = "visible";
 }
 
 function openSchoolPage() {
@@ -119,25 +127,48 @@ function openSchoolPage() {
   moMenu.classList.remove("appear");
   schDiv.style.display = "block";
   profileDiv.style.display = "none";
+  footer.style.display = "none";
+  let countInterSchool;
   if (localStorage.getItem("countClickL")) {
     areaWriterMain.value = txt1;
     areaWriterMain.classList.add("hidden");
   } else {
-    typewriterArea(txt1, areaWriterMain);
+    typewriterArea(txt1, areaWriterMain, 50, countInterSchool);
     setTimeout(function () {
       areaWriterMain.classList.add("hidden");
-    }, 20000);
+    }, 30000);
   }
+  document.body.style.overflow = "visible";
 }
-
+let clicked = 0;
 function openProfilePage() {
   allSite.style.display = "none";
   notes.style.display = "none";
   schDiv.style.display = "none";
   moMenu.classList.remove("appear");
   profileDiv.style.display = "block";
+  document.body.style.overflow = "hidden";
+  scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+  noHeaderColor();
+  let crTx = document.querySelector("#createTxt");
+  // let countInterPro;
+  // typewriterDiv("Create an account", crTx, 100, countInterPro);
+  if (clicked === 0) {
+    clicked = 1;
+    setTimeout(() => {
+      crTx.style.border = "0";
+    }, 5000);
+  } else {
+    crTx.style.borderRight = "3px solid";
+    setTimeout(() => {
+      crTx.style.border = "0";
+    }, 4000);
+  }
 }
-
 // user object that have all data (`)
 const user = {
   theName: localStorage.nameBlur,
@@ -176,6 +207,13 @@ inpTitle.onblur = function () {
 passFormInp.onblur = function () {
   localStorage.setItem("password", passFormInp.value);
 };
+
+addE(inpName, "keyup", () => {
+  inpName.value =
+    inpName.value.charAt(0).toUpperCase() + inpName.value.slice(1);
+  inpName.value = inpName.value.replace(/\s/gi, "_");
+});
+
 // set variables
 let loadingForm = document.querySelector(".loadingForm");
 let form = document.getElementById("form");
@@ -193,7 +231,7 @@ con.onclick = () => {
     localStorage.setItem("displayDLo", "display");
     form.style.display = "none";
     loadingForm.style.display = "flex";
-    setTimeout(afterCon, 100);
+    setTimeout(afterCon, 1500);
   } else {
   }
 };
@@ -316,7 +354,7 @@ inpPass.onkeyup = () => {
       "passValid"
     ).innerHTML = `<i class="fa fa-check"></i> Password is correct`;
     document.getElementById("passValid").style.color = "green";
-    setTimeout(clearNotesOnly, 100);
+    setTimeout(clearNotesOnly, 200);
   } else {
     document.getElementById("passValid").style.color = "red";
     document.getElementById(
@@ -381,8 +419,12 @@ let txt1 = `
 Welcome${
   n ? ` ${n}` : ``
 } to our school, you will see all news about education in Egypt
-and revision important points in your subject , There are a lot of tests for you..
-Good Luck!
+and revision important points in your subject , There are a lot of tests for you.
+You will also see important videos with the best teachers without payment or code..
+I hope that you will be enjoy..
+create an account and enjoy
+thank you ! and have a nice day!
+Good Luck !
 `;
 
 let areaWriters = document.querySelectorAll(".areaWriter");
@@ -400,11 +442,13 @@ let USH1 = document.querySelectorAll(".userSchoolH1");
 let queDivs = document.querySelectorAll(".que");
 let uscDivs = document.querySelectorAll(".userSchoolDiv");
 let quArr = [
-  "Is Nota page connect with school page ?",
+  "Is Note page connect with school page ?",
   "Can I change my name ?",
   "What forms in this site do ?",
   "How inputs work ?",
   "What the system of forms in this site ?",
+  "What about security in this site ?",
+  "Where data of user go ?",
 ];
 let answerArr = [
   "No, School page not connected with school page but, We use your name from nota page to improve the services",
@@ -412,12 +456,14 @@ let answerArr = [
   "In this site there is an only form for notes page [name , title , password] and you'll create your own password to edit your notes and to clear all data",
   "password inputs work if the password you write in input is correct it work on key up input , and there is not an submit buttons or something..",
   "Inputs mustn't be empty, Continue and Add buttons in Nota page don't working if inputs are empty.",
+  "Security in this site weak So, You shouldn't write any sensitive information, But don't worry, Soon we will build a secure system and will build sign in system to make site more useful for you.",
+  "user's data save in local storage in site in your device So, It maybe unsecure",
 ];
 
 for (let i = 0; i < USH1.length; i++) {
   USH1[i].innerHTML = `
   <div class="avatarS">
-<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar icon">
+<img src="img_avatar.png" alt="Avatar icon">
 : ${quArr[i]}
 </div> 
   `;
@@ -434,24 +480,25 @@ for (let i = 0; i < uscDivs.length; i++) {
 }
 
 // type speed
-function typewriterArea(txt, area) {
+function typewriterArea(txt, area, speed, countInter) {
   localStorage.setItem("countClickL", countClick);
-  let countInter = setInterval(function () {
+  countInter = setInterval(function () {
     area.value += txt[xs];
     xs++;
-    if (xs === txt.length) {
+    if (xs >= txt.length) {
       clearInterval(countInter);
+      area.value = area.value.replace("undefined", "");
     }
   }, speed);
 }
 
-function typewriterDiv(txt, div) {
-  localStorage.setItem("countClickL", countClick);
-  let countInter = setInterval(function () {
+function typewriterDiv(txt, div, speed, countInter) {
+  countInter = setInterval(function () {
     div.innerHTML += txt[xs];
     xs++;
-    if (xs === txt.length) {
+    if (xs >= txt.length) {
       clearInterval(countInter);
+      div.innerHTML = div.innerHTML.replace("undefined", "");
     }
   }, speed);
 }
@@ -476,7 +523,7 @@ if (localStorage.getItem("bg")) {
   getN.forEach((el) => {
     el.style.backgroundColor = colorL;
   });
-  header.style.backgroundColor = colorL;
+  noHeaderColor();
   window.addEventListener("scroll", scrollFunctionNote);
 }
 
@@ -517,7 +564,7 @@ function scrollFunctionNote() {
     background:rgba(67, 67, 67 , 0.8);
     `;
   } else {
-    header.style.background = colorL;
+    header.style.background = "";
   }
 }
 
@@ -644,12 +691,194 @@ areas.forEach((li) => {
   });
 });
 
+let logPassDiv = document.getElementById("logPassDiv");
+
+if (window.innerWidth >= 576) {
+  logPassDiv.classList.add("passInputNoteP");
+}
 // Profile Page
+let usInpPro = document.querySelector("[name=usernamePro]");
+let e_InpPro = document.querySelector("[name=emailPro]");
+let psInpPro = document.querySelector("[name=passPro]");
+let subBtn = document.querySelector("#submit");
+let errMsgName = document.querySelector("#errorName");
+let errMsgNum = document.querySelector("#errorNum");
+let errMsgEmail = document.querySelector("#errorEmail");
+let errMsgPass = document.querySelector("#errorPass");
+let phoneInp = document.querySelector("[name=phone]");
+let conBoolObj = {
+  conBoolU: false,
+  conBoolE: false,
+  conBoolPh: false,
+  conBoolPs: false,
+};
+let rexEmpty = /\w+\s?/i;
+let rexNameUnder_ = /\w+\s+/i;
+let rexNameNumber = /^(?![a-zA-Z]|\s[a-zA-Z])/gi;
+let rexNumber = /^01\d{9}$/;
 
-let avatarName = document.querySelector(".username");
+// function for userName Input
+function userNameValid() {
+  if (rexEmpty.test(usInpPro.value) === false || usInpPro.value === "") {
+    errMsgName.style.display = "block";
+    errMsgName.innerHTML = `Username mustn't be empty`;
+    usInpPro.style.borderColor = "red";
+  } else if (rexNameNumber.test(usInpPro.value)) {
+    errMsgName.style.display = "block";
+    errMsgName.innerHTML = `Username mustn't start with number`;
+    usInpPro.style.borderColor = "red";
+  } else if (usInpPro.value.length <= 3) {
+    errMsgName.style.display = "block";
+    errMsgName.innerHTML = `Username characters must be bigger than 3`;
+    usInpPro.style.borderColor = "red";
+  } else {
+    errMsgName.style.display = "none";
+    usInpPro.style.borderColor = "";
+    usInpPro.value =
+      usInpPro.value.charAt(0).toUpperCase() + usInpPro.value.slice(1);
+    conBoolObj.conBoolU = true;
+  }
+}
 
-avatarName.innerHTML = `${n ? n : "Anonymous"}`;
+function phoneNumValid() {
+  if (!rexEmpty.test(phoneInp.value) || phoneInp.value === "") {
+    errMsgNum.style.display = "block";
+    errMsgNum.innerHTML = `Phone number mustn't be empty`;
+    phoneInp.style.borderColor = "red";
+  } else if (!/\d/.test(phoneInp.value)) {
+    errMsgNum.style.display = "block";
+    errMsgNum.innerHTML = "This input for phone number so please enter numbers";
+    phoneInp.style.borderColor = "red";
+  } else if (!rexNumber.test(phoneInp.value)) {
+    errMsgNum.style.display = "block";
+    errMsgNum.innerHTML = "Must be 11 Numbers and an Egyptian number";
+    phoneInp.style.borderColor = "red";
+  } else {
+    phoneInp.style.borderColor = "";
+    errMsgNum.style.display = "none";
+    conBoolObj.conBoolPh = true;
+  }
+}
 
+function emailValid() {
+  if (!rexEmpty.test(e_InpPro.value) || e_InpPro.value === "") {
+    errMsgEmail.style.display = "block";
+    errMsgEmail.innerHTML = `Email mustn't be empty`;
+    e_InpPro.style.borderColor = "red";
+  } else if (!/\w{3,}@\w{1,10}\.\w+/i.test(e_InpPro.value)) {
+    errMsgEmail.style.display = "block";
+    errMsgEmail.innerHTML = `Invalid Email`;
+    e_InpPro.style.borderColor = "red";
+  } else {
+    e_InpPro.style.borderColor = "";
+    errMsgEmail.style.display = "none";
+    conBoolObj.conBoolE = true;
+  }
+}
+
+function passValid() {
+  if (!rexEmpty.test(psInpPro.value) || psInpPro.value === "") {
+    errMsgPass.style.display = "block";
+    errMsgPass.innerHTML = `Password mustn't be empty`;
+    psInpPro.style.borderColor = "red";
+  } else if (psInpPro.value.length <= 5) {
+    errMsgPass.style.display = "block";
+    errMsgPass.innerHTML = `Username characters must be bigger than 5`;
+    psInpPro.style.borderColor = "red";
+  } else {
+    errMsgPass.style.display = "none";
+    psInpPro.style.borderColor = "";
+    conBoolObj.conBoolPs = true;
+  }
+}
+
+usInpPro.addEventListener("keyup", () => {
+  if (rexNameUnder_.test(usInpPro.value)) {
+    errMsgName.style.display = "none";
+    usInpPro.style.borderColor = "";
+    usInpPro.value = usInpPro.value.replace(/\s/gi, "_");
+  }
+});
+usInpPro.addEventListener("keyup", () => {
+  usInpPro.value =
+    usInpPro.value.charAt(0).toUpperCase() + usInpPro.value.slice(1);
+});
+
+function goodBoy(obj, event) {
+  Array.from(Object.values(obj), (el) => {
+    el === true ? "" : event.preventDefault();
+  });
+}
+
+function addE(listener, event, fun) {
+  listener.addEventListener(event, fun);
+}
+
+document.querySelector(".formPro").onsubmit = (e) => {
+  goodBoy(conBoolObj, e);
+  userNameValid();
+  phoneNumValid();
+  emailValid();
+  passValid();
+  addE(usInpPro, "blur", userNameValid);
+  addE(phoneInp, "blur", phoneNumValid);
+  addE(e_InpPro, "blur", emailValid);
+  addE(psInpPro, "blur", passValid);
+};
+
+// for github
 btn.addEventListener("click", () => {
   localStorage.clear();
 });
+
+// school menu
+let sH = document.querySelectorAll(".sH");
+let aboutS_btn = document.querySelector("#AboutSchoolBtn");
+let videoS_btn = document.querySelector("#VideosSchoolBtn");
+let EduS_btn = document.querySelector("#EducationSchoolBtn");
+let aboutSchoolDiv = document.querySelector("#aboutSchoolDiv");
+let videosSchoolDiv = document.querySelector("#videosSchoolDiv");
+let downBtn = document.querySelector(".down");
+
+sH.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    sH.forEach((el2) => {
+      el2.classList.remove("active2");
+    });
+    e.currentTarget.classList.add("active2");
+  });
+});
+
+addE(aboutS_btn, "click", () => {
+  aboutSchoolDiv.style.display = "block";
+  videosSchoolDiv.style.display = "none";
+});
+
+addE(videoS_btn, "click", () => {
+  aboutSchoolDiv.style.display = "none";
+  videosSchoolDiv.style.display = "block";
+});
+
+downBtn.addEventListener("click", () => {
+  let a = document.createElement("a");
+  a.href = "/FinalLesson.mp4";
+  a.download = "Lesson 1";
+  a.click();
+});
+
+// chatGPT Codes for more security videos future code
+// get random text
+function generateRandomText(length) {
+  let result = "";
+  const characters = "abcdefghijklmnopqrstuvwxyz";
+  const numC = "123456789";
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+    result += numC.charAt(Math.floor(Math.random() * numC.length));
+  }
+  cl(Math.floor(Math.random() * characters.length));
+  return result;
+}
+
+const randomText = generateRandomText(9);
+console.log(randomText);
