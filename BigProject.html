@@ -44,25 +44,26 @@
     </header>
 
     <!-- Home page -->
-    <div id="allSite">
+    <div id="allSite" class="hidden">
         <div id="Home">
-            <div class="get-div">
-                <h1 class="pd100-t cen">مرحبا بك في موقعنا</h1>
-                <h3 class="cen">There are a lot of things for you I hope to the site will be good.</h3>
-                <h1><u>Our Services</u></h1>
-                <div class="icon" onclick="openSchoolPage()">
-                    <i class="fa-solid fa-school" title="school"></i>
-                </div>
-                <div class="icon">
-                    <i class="fa-solid fa-table-cells hovering_Red" title="Creating tables"></i>
-                </div>
-                <div class="icon">
-                    <i class="fa-solid fa-list-check hovering_LBlue" title="Todo List"></i>
-                </div>
-                <div class="icon">
-                    <i class="fa-brands fa-js hovering_Yellow" title="Modern Information about Javascript"></i>
-                </div>
-                <!-- <center>
+            <div class="base-layout">
+                <div class="get-divHeader">
+                    <h1 class="pd100-t cen co-w">مرحبا بك في موقعنا</h1>
+                    <h3 class="cen co-w">There are a lot of things for you I hope to the site will be good.</h3>
+                    <h1 class="co-w"><u>Our Services</u></h1>
+                    <div class="icon" onclick="openSchoolPage()">
+                        <i class="fa-solid fa-school" title="school"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-table-cells hovering_Red" title="Creating tables"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-list-check hovering_LBlue" title="Todo List"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-brands fa-js hovering_Yellow" title="Modern Information about Javascript"></i>
+                    </div>
+                    <!-- <center>
                     <div style="padding: 12px;">
                         <button class="buttonB" id="optionBtn" style="width: auto;padding: 20px;font-size: 1.3em;">
                             <i class="fa fa-gear"></i>
@@ -70,6 +71,7 @@
                         </button>
                     </div>
                 </center> -->
+                </div>
             </div>
         </div>
 
@@ -200,7 +202,7 @@
 
             <div class="TopicDiv">
                 <a href="https://www.facebook.com/fdfdsoli/" target="_blank">
-                    <div class="icon facebook">
+                    <div class="icon" style="color:rgb(0, 99, 230)">
                         <i class="fa-brands fa-facebook"></i>
                     </div>
                 </a>
@@ -308,15 +310,15 @@
 
         <!-- loading circle -->
         <div class="loadingForm hidden"
-            style="top:0;bottom:0;left:0;right:0;align-items: center;justify-content: center;margin-top: 200px;">
+            style="top:0;bottom:0;left:0;right:0;align-items: center;justify-content: center;">
             <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="7" />
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="8" />
             </svg>
         </div>
     </div>
 
     <!-- School -->
-    <div class="school hidden">
+    <div class="school">
         <!-- <div class="get-div" style="border-radius: 1px;">
             <h1 style="margin-top: 80px;text-align: center;font-family: cursive; padding:10px;">
                 <i class="fa-solid fa-school"></i> School
@@ -342,6 +344,14 @@
                     style="font-family: 'Courier New', Courier, monospace;font-weight: 700;">
                     <i class="fa-solid fa-square-poll-vertical"></i> Tests</button>
             </div>
+
+            <div style="display: flex;color: white;">
+                <button class="buttonB sH opa-6" id="TopicSchoolBtn"
+                    style="font-family: 'Courier New', Courier, monospace;font-weight: 700;">
+                    <i class="fa-solid fa-book"></i> Topics
+                </button>
+            </div>
+
             <div style="display: flex;color: white;">
                 <button class="buttonB sH opa-6" id="EducationSchoolBtn"
                     style="font-family: 'Courier New', Courier, monospace;font-weight: 700;">
@@ -440,18 +450,41 @@
 
         <div id="videosSchoolDiv" style="padding: 10px;display: none;">
             <center>
+                <h1 class="co-43 fam-changa">الصف الاول الثانوي</h1>
+                <h1 style="color: #3176c3;cursor: default;">___</h1>
+                <br>
                 <div class="videoScDiv1">
-                    <img src="chemistimg.jpg" alt="">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
+
+                    <div class="image-text">
+
+                    </div>
                     <h1>Lesson 1</h1>
 
                     <h3 class="tx_al">
                         <i class="fa-solid fa-chalkboard-user"></i>
-                        Teacher: Anonymous
+                        Teacher: Mohamed Abd ElGwad
                     </h3>
 
                     <h3 class="tx_al">
                         <i class="fa-solid fa-file"></i>
-                        File Size: 32MB
+                        File Size: 1GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 01 min
                     </h3>
 
                     <button class="buttonBl down">
@@ -460,23 +493,438 @@
                 </div>
 
                 <div class="videoScDiv1">
-                    <img src="chemistimg.jpg" alt="">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
                     <h1>Lesson 2</h1>
                     <h3 class="tx_al">
                         <i class="fa-solid fa-chalkboard-user"></i>
-                        Teacher: Anonymous
+                        Teacher: Mohamed Abd ElGwad
                     </h3>
 
                     <h3 class="tx_al">
                         <i class="fa-solid fa-file"></i>
-                        File Size: 32MB
+                        File Size: 1.2GB
                     </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Test</a> and <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 32 min
+                    </h3>
+
                     <button class="buttonBl">
                         <i class="fa-solid fa-download"></i> Download
                     </button>
                 </div>
+
+                <div class="videoScDiv1" style="display: none;">
+                    <span class="newBox">New</span>
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+
+                    </div>
+
+                    <h1>Lesson 3</h1>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1.2GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Test</a> and <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 32 min
+                    </h3>
+
+                    <button class="buttonBl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+
+                <div class="chevron">
+                    <i class="fa-solid fa-chevron-right" style="margin: 20px 20px 200px 0;
+                    font-size: 2.4rem;
+                    color: #8f8f8f;"></i>
+                </div>
+
+                <h2 class="co-43" style="cursor: default;">...</h2>
+                <button class="buttonB fam-notoG" style="width: 66%;font-size: 21px;">مشاهدة فيديوهات اخرى
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <br>
+                <hr>
+                <br>
+                <h1 class="co-43 fam-changa">الصف الثاني الثانوي</h1>
+                <h1 style="color: #3176c3;cursor: default;">___</h1>
+                <br>
+                <div class="videoScDiv1">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
+                    <h1>Lesson 1</h1>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 01 min
+                    </h3>
+
+                    <button class="buttonBl down">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+
+                <div class="videoScDiv1">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
+                    <h1>Lesson 2</h1>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1.2GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Test</a> and <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 32 min
+                    </h3>
+
+                    <button class="buttonBl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+
+                <div class="videoScDiv1">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
+                    <h1>Lesson 3</h1>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1.6GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Test</a> and <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 45 min
+                    </h3>
+
+
+
+                    <button class="buttonBl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+                <h2 class="co-43" style="cursor: default;">...</h2>
+                <button class="buttonB fam-notoG" style="width: 66%;font-size: 21px;">مشاهدة فيديوهات اخرى
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <br>
+                <hr>
+                <br>
+                <h1 class="co-43 fam-changa">الصف الثالث الثانوي</h1>
+                <h1 style="color: #3176c3;cursor: default;">___</h1>
+                <br>
+                <div class="videoScDiv1">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
+                    <h1>Lesson 1</h1>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Homework</a>
+                    </h3>
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 01 min
+                    </h3>
+
+                    <button class="buttonBl down">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+
+                <div class="videoScDiv1">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
+                    <h1>Lesson 2</h1>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1.2GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Test</a> and <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 32 min
+                    </h3>
+
+                    <button class="buttonBl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+
+                <div class="videoScDiv1">
+
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+                    </div>
+
+                    <h1>Lesson 3</h1>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1.6GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Test</a> and <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 45 min
+                    </h3>
+
+
+
+                    <button class="buttonBl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+                <h2 class="co-43" style="cursor: default;">...</h2>
+                <button class="buttonB fam-notoG" style="width: 66%;font-size: 21px;">مشاهدة فيديوهات اخرى
+                    <i class="fa-solid fa-play"></i>
+                </button>
             </center>
         </div>
+
+        <div id="topicSchoolDiv" class="fam-changa hidden" style="line-height: 2;">
+            <h2 class="borR2px co-43">
+                مرحبا بك في موضوعتنا سنشارك اهم الموضوعات لك لقرائتها
+                <br><br>
+                الموضوعات مُجابة من عدة مصادر فقد تكون القراءة طويلة
+                ولكن يمكنك ان تكتفي بمصدر واحد للقراءة
+                ويوجد ايضا ملخص حول ما يشترك به المصادر في الاجابة عن الموضوع
+            </h2>
+            <hr>
+
+            <h2 class="underline">
+                الموضوع الاول: كيفية تربية الكلاب والتعامل معهم ؟
+            </h2>
+
+            <p class="f-size22px cen">ChatGPT:</p>
+            <p class="f-size18px">
+                تربية الكلاب والتعامل معها يحتاج إلى بعض العناية والاهتمام، ويمكن اتباع بعض النصائح الأساسية التالية
+
+                <br>
+
+                تدريب الكلب: يجب تدريب الكلب على الأوامر الأساسية، مثل الجلوس والبقاء والعدو والمشي على الحبل يمكن
+                استخدام المكافآت والإشادة لتشجيع الكلب على الاستجابة للأوامر
+
+                <br>
+
+                الرعاية الصحية: يجب تقديم الرعاية الصحية الكاملة للكلب، والتي تشمل تطعيمها بانتظام وتنظيف أسنانها
+                وأظافرها واستحمامها بانتظام
+
+                <br>
+
+                النشاط البدني: يجب توفير النشاط البدني الكافي للكلب، مثل المشي واللعب والركض هذا يساعد على تحسين الصحة
+                واللياقة البدنية للكلب
+
+                <br>
+
+                التغذية السليمة: يجب توفير التغذية السليمة للكلب، والتي تشمل الأطعمة المتوازنة والمغذية وتجنب الأطعمة
+                الضارة
+
+                <br>
+
+                العناية بالفراء: يجب توفير العناية الكاملة بفراء الكلب، والتي تشمل تنظيفه وتقليمه بانتظام
+
+                <br>
+
+                الاهتمام والتفاعل: يجب توفير الاهتمام والتفاعل مع الكلب، والتحدث معها واللعب معها وتوفير الوقت الكافي
+                لتقضية الوقت معها
+
+                <br>
+
+                التعلم المستمر: يجب التعلم المستمر عن كيفية رعاية الكلاب وتدريبها، ويمكن الحصول على المعلومات من الكتب
+                والمواقع المتخصصة والمدربين المحترفين
+
+                <br>
+
+                تذكر أن تعامل الكلب بالحب والاحترام، وتكون صبورًا ومثابرًا في تدريبها ورعايتها
+            </p>
+
+            <p class="f-size22px cen">Google:</p>
+            <p class="f-size18px">
+                يفضل الكثير من الأشخاص تربية الكلاب في المنزل، ولكن تختلف طريقة تربية الكلاب على عادات المنزل الذي يقيم
+                فيه، لذلك نشر موقع "بيدجري" مجموعة من النصائح الذي يمكن أن تجعل تدريب الكلب الصغير سهلة بعض الشيء.
+
+            <p class="underline f-size18px">
+                اختيار اسم الكلب بحكمة
+            </p>
+            جزء من متعة إحضار كلب جديد إلى المنزل هو العثور على الاسم المثالي لهم، لكن هل تعلم أن أسماء معينة أفضل
+            للتدريب؟ لذلك يجب من التفكير في اسم قصير ينتهي بحرف ساكن قوي بحيث يمكنهم دائمًا سماعه بوضوح، كما في
+            الأسماء "Jasper" و"Jack" و"Ginger"، إذ ترفع أذان الكلب خاصةً عندما تركز في النهاية.
+
+            <p class="underline f-size18px">
+                حدد قواعد المنزل
+            </p>
+            قبل أن يأتي الكلب الجديد إلى المنزل، يجب تحديد ما يمكن وما لا يمكنه فعله وهل مسموح بها على السرير أو
+            الأثاث؟ هل أجزاء المنزل محظورة؟ هل سيكون لديهم كرسيهم الخاص على طاولة طعامك؟ إذا تم تحديد القواعد في وقت
+            مبكر، فيمكن تجنب الالتباس للكلب وأصحاب المنزل.
+
+            <p class="underline f-size18px">
+                التخلص من جميع فرص وقوع الحوادث:
+            </p>
+            يجب تجنب فرص وقوع أي نوع من الحوادث، خاصة في الأيام الأولى للكلب الجديد داخل المنزل، وذلك عن طريق إخراج
+            الكلب من المنزل إلى المكان الذي سيصبح خاص به كل 30 دقيقة، وذلك لأنه يهضم الطعام والماء بسرعة كبيرة،
+            والحرص على استخدام كلمة ثابتة تريد إرفاقها بفكرة الذهاب.
+
+            <p class="underline f-size18px">
+                جدول زمني
+            </p>
+            يحتاج كل شخص إلى جدول زمني، وكذلك الكلاب تحتاج إلى جدول زمني، وذلك عن طريق الحرص علي إطعامه في نفس الوقت
+            كل يوم، والخروج في نزهة على الأقدام خلال 15-20 دقيقة من تناول الطعام، وعدم محاولة تغيير الجدول في وقت
+            مبكر.
+            <p class="underline f-size18px">
+                التنظيف
+            </p>
+            سوف يرتكب الكلب الصغير الجديد أخطاء في البداية وهذا أمر لا مفر منه، لذلك لا تمنعهم من ارتكاب الأخطاء
+            ولكن يجب تنظيف المناطق المصابة جيدًا، حيث تحتاج إلى منظف إنزيمي أو أي شيء مصمم خصيصًا لإزالة جميع بقع
+            وروائح البول والبراز، وذلك لأن المنظفات المنزلية العادية لن تفي بالغرض.
+            <p class="underline f-size18px">
+                _ كافئ الجرو على حسن السلوك
+            </p>
+            يجب تجنب معاقبة الكلب عندما يخطئ، ولكن عندما يتصرف بشكل جيد، يجب التأكد من مكافأتهم في كل مرة، وذلك عن
+            طريق محاولة التصحيح له عندما يفعل شئ خطأ، والحرص علي جعله يفهم كلمات "نعم" و "لا" بوضوح شديد، وذلك لأن
+            هذا سوف يساعده على التصرف السليم فيما بعد.
+            </p>
+
+            <p class="f-size22px cen">Fady.com</p>
+            <p class="f-size18px">
+                لتلخيص المقالات السابقة
+                ارى انه اذا اردت ان تُربي كلبا فعليك
+                معرفة احتياجات ومسؤولوياتك امام الكلب
+                فاذا قرأت من جوجل سوف ترى انه يجب ان تراعي عدة عوامل
+                ونرى ان من اهم هذه العوامل : الوقت والصبر
+                فلا يمكن ان تأتي بكلب ايام عمل او ايام دراسية
+                لانه سوف تظلمه معك
+                وايضا اذا حددث الوقت واشتريت الكلب
+                فرجاء الصبر فقد يستغرق شهور للتعلم والتكيف مع قوانينك كما ذُكر
+                في اجابة جوجل (قواعد المنزل)
+                اتمنى ان يكون المقال مفيدا
+                يمكنك تسجيل الملاحظات
+                <a onclick="openNotaPage()">
+                    هنا
+                </a>
+            </p>
+            <hr>
+        </div>
+
     </div>
 
     <!-- Profile section -->
@@ -495,7 +943,7 @@
         <div class="signDiv">
             <!-- <span class="close" id="closePro">&times;</span> -->
             <div class="containur">
-                <h1 class="cen mg3r-b" id="createTxt">Create an account</h1>
+                <h1 class="cen" id="createTxt">Create an account</h1>
             </div>
             <form action="" method="" class="formPro">
                 <i class="fa fa-user iconInpLeft"></i>
@@ -534,12 +982,13 @@
 
 
     <!-- Footer -->
-    <footer id="footer">
+    <footer id="footer" class="hidden">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <p id="copyR">
-                        Made By <i class="fa-solid fa-heart" style="color:rgb(0, 89, 255)"></i> Fady Emad © 2023
+                        Made By <i class="fa-solid fa-heart" style="color:rgb(0, 89, 255)"></i> Fady Emad ©
+                        <a style="cursor:text;color: white;" id="yearTxt"></a>
                     </p>
                 </div>
                 <!-- <div class="col-md-4">
@@ -554,6 +1003,7 @@
             </div>
         </div>
     </footer>
+
 
     <button class="btn" onclick="clL()"><i class="fa-solid fa-arrow-up"></i></button>
     <script src="BigProjectJS.js"></script>
