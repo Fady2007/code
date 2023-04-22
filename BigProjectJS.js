@@ -119,6 +119,7 @@ function openHomePage() {
   profileDiv.style.display = "none";
   moMenu.classList.remove("appear");
   document.body.style.overflow = "visible";
+  footer.style.display = "block";
 }
 
 function openSchoolPage() {
@@ -231,7 +232,7 @@ con.onclick = () => {
     localStorage.setItem("displayDLo", "display");
     form.style.display = "none";
     loadingForm.style.display = "flex";
-    setTimeout(afterCon, 1500);
+    setTimeout(afterCon, 3000);
   } else {
   }
 };
@@ -838,7 +839,9 @@ let videoS_btn = document.querySelector("#VideosSchoolBtn");
 let EduS_btn = document.querySelector("#EducationSchoolBtn");
 let aboutSchoolDiv = document.querySelector("#aboutSchoolDiv");
 let videosSchoolDiv = document.querySelector("#videosSchoolDiv");
+let topicSchoolDiv = document.querySelector("#topicSchoolDiv");
 let downBtn = document.querySelector(".down");
+let topicS_Btn = document.querySelector("#TopicSchoolBtn");
 
 sH.forEach((el) => {
   el.addEventListener("click", (e) => {
@@ -849,20 +852,32 @@ sH.forEach((el) => {
   });
 });
 
-addE(aboutS_btn, "click", () => {
-  aboutSchoolDiv.style.display = "block";
+function openAboutSchoolDiv() {
   videosSchoolDiv.style.display = "none";
-});
-
-addE(videoS_btn, "click", () => {
+  topicSchoolDiv.style.display = "none";
+  aboutSchoolDiv.style.display = "block";
+}
+function openVideoSchoolDiv() {
   aboutSchoolDiv.style.display = "none";
+  topicSchoolDiv.style.display = "none";
   videosSchoolDiv.style.display = "block";
-});
+}
+function openTopicSchoolDiv() {
+  aboutSchoolDiv.style.display = "none";
+  videosSchoolDiv.style.display = "none";
+  topicSchoolDiv.style.display = "block";
+}
+
+addE(aboutS_btn, "click", openAboutSchoolDiv);
+
+addE(videoS_btn, "click", openVideoSchoolDiv);
+
+addE(topicS_Btn, "click", openTopicSchoolDiv);
 
 downBtn.addEventListener("click", () => {
   let a = document.createElement("a");
   a.href = "/img_avatar.png";
-  a.download = "Lesson 1.png";
+  a.download = "img_avatar.png";
   a.click();
 });
 
@@ -873,12 +888,112 @@ function generateRandomText(length) {
   const characters = "abcdefghijklmnopqrstuvwxyz";
   const numC = "123456789";
   for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-    result += numC.charAt(Math.floor(Math.random() * numC.length));
+    result +=
+      characters.charAt(Math.floor(Math.random() * characters.length)) +
+      numC.charAt(Math.floor(Math.random() * numC.length));
   }
   cl(Math.floor(Math.random() * characters.length));
   return result;
 }
 
-const randomText = generateRandomText(9);
+const randomText = generateRandomText(5);
 console.log(randomText);
+
+// OOP codes
+class User {
+  #e;
+  static count = 0;
+
+  constructor(id, username, eS) {
+    this.i = id;
+    this.u = username;
+    this.#e = eS;
+    User.count++;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+  static numOfUsers() {
+    return `${this.count} members created`;
+  }
+  getSalary() {
+    return parseInt(this.#e);
+  }
+}
+class Admin extends User {
+  constructor(id, username, salary) {
+    super(id, username);
+    this.s = salary < 6000 ? salary + 500 : salary;
+  }
+}
+Object.prototype.showProp = function () {
+  for (let prop in this) {
+    console.log(prop, this[prop]);
+  }
+};
+let userOne = new User(12, "Fady", "3000 dollar");
+cl(User.numOfUsers());
+cl(userOne.getSalary());
+User.prototype.email = function () {
+  return `Expected email: ${this.u}${this.getSalary()}@gmail.com`;
+};
+String.prototype.addNum = function () {
+  return `${this}-2348`;
+};
+let str = "Fady";
+cl(str.addNum());
+
+let my_Obj = {
+  a: 1,
+  b: 2,
+};
+Object.defineProperties(my_Obj, {
+  c: {
+    configurable: true, // loop
+    writable: true, // edit value
+    enumerable: true, // delete
+    value: 3,
+  },
+  d: {
+    configurable: false, // writable and enumerable are false
+    value: 4,
+  },
+});
+cl(Object.getOwnPropertyDescriptors(my_Obj));
+console.log(delete my_Obj.d); // false
+
+//  createTxt
+let dataNow = new Date();
+let birthday = new Date("Sep 17, 07");
+let dateDiff = dataNow - birthday;
+cl("####");
+console.log(Math.floor(dateDiff / 1000 / 60 / 60 / 24 / 365));
+
+let yearTxt = document.querySelector("#yearTxt");
+yearTxt.innerHTML = new Date().getFullYear();
+
+let chevronR = document.querySelector(".chevron");
+let videoScDivs = document.querySelectorAll(".videoScDiv1");
+chevronR.style.cursor = "pointer";
+chevronR.onclick = () => {
+  setTimeout(function () {
+    videoScDivs[0].style.display = "none";
+  }, 50);
+  videoScDivs[2].style.display = "";
+  videoScDivs[2].style.animation = "fade-in 0.7s ease";
+  chevronR.style.display = "none";
+};
+function moveDiv() {
+  var currentRight = parseInt(videoScDivs[0].style.right) || 0;
+  for (let i = 0; i < videoScDivs.length; i++) {
+    videoScDivs[i].style.right = currentRight + 10 + "px";
+    videoScDivs[i].style.transition = "right 0.2s ease-in-out";
+    document.body.style.overflowX = "hidden";
+    setTimeout(function () {
+      videoScDivs[i].remove();
+    }, 9000);
+  }
+}
+
+let h = new Date("2007 9 17");
+console.log(h);
