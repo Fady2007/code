@@ -16,7 +16,11 @@
 
 <bo>
     <header>
-        <h2 style="color:white" class="menuLogo">Fady.com</h2>
+        <h2 style="color:white;cursor: pointer;" class="menuLogo" onclick="openHomePage()">
+            <div class="logo">F</div>
+            Fady.com
+        </h2>
+
         <div class="menuBar">
 
             <a href="#Home" onclick="openHomePage()" style="line-height: 1.8;"><i class="fa fa-house"></i> Home</a>
@@ -30,7 +34,18 @@
             <div class="mobileMenu hidden">
                 <nav>
                     <ul>
-                        <li><a href="#" style="padding:60px 0 60px 0">Fady.com</a></li>
+                        <li>
+                            <a style="padding: 40px 0 40px 0;" onclick="openProfilePage()">
+                                <div class="logo bg-Green"></div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a style="padding: 40px 0 40px 0;">
+                                Fady.com
+                            </a>
+                        </li>
+
                         <li><a href="#" onclick="openHomePage()">Home</a></li>
                         <li><a onclick="openProfilePage()">Profile</a></li>
                         <li><a onclick="openSchoolPage()">School</a></li>
@@ -139,7 +154,6 @@
                 a popular resource for web designers and developers.
             </h3>
         </div>
-
         <!-- Topics -->
         <div class="get-divChild co-b">
             <div class="Topics">
@@ -325,6 +339,7 @@
             </h1>
         </div> -->
         <div style="background-color: #183153;width: 100%;">
+            <br>
 
             <div style="display: flex;color: white;">
                 <button class="buttonB sH opa-6 active2" id="AboutSchoolBtn"
@@ -526,7 +541,7 @@
                     </button>
                 </div>
 
-                <div class="videoScDiv1" style="display: none;">
+                <div class="videoScDiv1">
                     <span class="newBox">New</span>
                     <div class="banner">
                         <img src="chemistimg.jpg" alt="">
@@ -536,6 +551,41 @@
                     </div>
 
                     <h1>Lesson 3</h1>
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Teacher: Mohamed Abd ElGwad
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-file"></i>
+                        File Size: 1.2GB
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-solid fa-link"></i>
+                        Links: <a>Test</a> and <a>Homework</a>
+                    </h3>
+
+                    <h3 class="tx_al">
+                        <i class="fa-regular fa-clock"></i>
+                        Time: 1 hour 32 min
+                    </h3>
+
+                    <button class="buttonBl">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </div>
+
+                <div class="videoScDiv1" style="display: none;">
+                    <span class="newBox">New</span>
+                    <div class="banner">
+                        <img src="chemistimg.jpg" alt="">
+                        <p class="heading">كيمياء</p>
+                        <p class="textOfHeadingImg">التفاعلات النووية</p>
+
+                    </div>
+
+                    <h1>Lesson 4</h1>
                     <h3 class="tx_al">
                         <i class="fa-solid fa-chalkboard-user"></i>
                         Teacher: Mohamed Abd ElGwad
@@ -804,14 +854,23 @@
         <div id="topicSchoolDiv" class="fam-changa hidden" style="line-height: 2;">
             <h2 class="borR2px co-43">
                 مرحبا بك في موضوعتنا سنشارك اهم الموضوعات لك لقرائتها
-                <br><br>
+                <br>
                 الموضوعات مُجابة من عدة مصادر فقد تكون القراءة طويلة
                 ولكن يمكنك ان تكتفي بمصدر واحد للقراءة
                 ويوجد ايضا ملخص حول ما يشترك به المصادر في الاجابة عن الموضوع
             </h2>
+            <h3 class="borR2px co-43">
+                <a href="#dogsTopic">
+                    كيفية تربية الكلاب والتعامل معهم ؟
+                </a>
+                <br>
+                <a href="#cleaness">
+                    مرض هوس النظافة
+                </a>
+            </h3>
             <hr>
 
-            <h2 class="underline">
+            <h2 class="underline" id="dogsTopic">
                 الموضوع الاول: كيفية تربية الكلاب والتعامل معهم ؟
             </h2>
 
@@ -923,6 +982,25 @@
                 </a>
             </p>
             <hr>
+            <h2 class="underline" id="cleaness">
+                الموضوع الثاني: مرض هوس النظافة
+            </h2>
+            <p class="f-size22px cen">ChatGPT:</p>
+            <p class="f-size18px">
+                يعد مرض هوس النظافة اضطراباً نفسياً يتميز بوجود أفكار غير مرغوب
+                فيها
+                والتي يصعب التحكم بها، والتي تتضمن بعض الأفكار المتعلقة بالنظافة والتطهير، ويجد المصاب
+                بالمرض
+                نفسه يقوم بأفعال متكررة كالتنظيف بشكل مفرط، والتي تقلل من شعوره بالقلق أو الخوف الذي يرافق
+                تلك
+                الأفكار.
+                قد يتم تشخيص المرض إذا كان المصاب يقوم بأفعال التنظيف والتطهير بشكل مفرط وتؤثر على حياته اليومية
+                والعلاقات
+                الاجتماعية والعملية، ويعاني من قلق شديد يتعلق بالأمور المتعلقة بالنظافة والتطهير.
+                يمكن علاج هوس النظافة من خلال جلسات العلاج النفسي السلوكي المعرفي، والذي يهدف إلى تغيير سلوكيات المريض
+                وأفكاره الخاطئة، كما يمكن استخدام العلاج الدوائي في بعض الحالات الشديدة التي يحتاج فيها المريض إلى دعم
+                إضافي.
+            </p>
         </div>
 
     </div>
@@ -1005,7 +1083,7 @@
     </footer>
 
 
-    <button class="btn" onclick="clL()"><i class="fa-solid fa-arrow-up"></i></button>
+    <button class="btn" onclick="clL()"><i class="fa-solid fa-chevron-up"></i></button>
     <script src="BigProjectJS.js"></script>
     <script src="all.js"></script>
     </body>
