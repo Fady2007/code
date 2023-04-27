@@ -1,6 +1,3 @@
-function test() {
-  document.body.innerHTML += "ok";
-}
 function cl(el) {
   console.log(el);
 }
@@ -11,6 +8,7 @@ window.onscroll = () => {
   scrollFunction();
   if (scrollY >= 600) {
     btn.style.display = "block";
+    btn.style.animation = "fade-in 0.7s ease";
   } else {
     btn.style.display = "none";
   }
@@ -433,10 +431,8 @@ let areaWriterMain = document.querySelector(".areaWriterMain");
 let userSchoolDivMain = document.querySelector(".userSchoolDivMain");
 let userSchoolMainH1 = document.querySelector(".userSchoolMainH1");
 userSchoolMainH1.innerHTML = `
-<div class="avatarS">
-<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar icon">
+<div class="logo bg-Green">${n ? n.charAt(0).toUpperCase() : `U`}</div>
 ${n ? `${n}` : `user`}: What is school ?
-</div>
 `;
 
 let USH1 = document.querySelectorAll(".userSchoolH1");
@@ -697,6 +693,7 @@ let logPassDiv = document.getElementById("logPassDiv");
 if (window.innerWidth >= 576) {
   logPassDiv.classList.add("passInputNoteP");
 }
+
 // Profile Page
 let usInpPro = document.querySelector("[name=usernamePro]");
 let e_InpPro = document.querySelector("[name=emailPro]");
@@ -866,6 +863,7 @@ function openTopicSchoolDiv() {
   aboutSchoolDiv.style.display = "none";
   videosSchoolDiv.style.display = "none";
   topicSchoolDiv.style.display = "block";
+  btn.style.display = "none";
 }
 
 addE(aboutS_btn, "click", openAboutSchoolDiv);
@@ -895,72 +893,7 @@ function generateRandomText(length) {
   cl(Math.floor(Math.random() * characters.length));
   return result;
 }
-
 const randomText = generateRandomText(5);
-console.log(randomText);
-
-// OOP codes
-class User {
-  #e;
-  static count = 0;
-
-  constructor(id, username, eS) {
-    this.i = id;
-    this.u = username;
-    this.#e = eS;
-    User.count++;
-  }
-  sayHello() {
-    return `Hello ${this.u}`;
-  }
-  static numOfUsers() {
-    return `${this.count} members created`;
-  }
-  getSalary() {
-    return parseInt(this.#e);
-  }
-}
-class Admin extends User {
-  constructor(id, username, salary) {
-    super(id, username);
-    this.s = salary < 6000 ? salary + 500 : salary;
-  }
-}
-Object.prototype.showProp = function () {
-  for (let prop in this) {
-    console.log(prop, this[prop]);
-  }
-};
-let userOne = new User(12, "Fady", "3000 dollar");
-cl(User.numOfUsers());
-cl(userOne.getSalary());
-User.prototype.email = function () {
-  return `Expected email: ${this.u}${this.getSalary()}@gmail.com`;
-};
-String.prototype.addNum = function () {
-  return `${this}-2348`;
-};
-let str = "Fady";
-cl(str.addNum());
-
-let my_Obj = {
-  a: 1,
-  b: 2,
-};
-Object.defineProperties(my_Obj, {
-  c: {
-    configurable: true, // loop
-    writable: true, // edit value
-    enumerable: true, // delete
-    value: 3,
-  },
-  d: {
-    configurable: false, // writable and enumerable are false
-    value: 4,
-  },
-});
-cl(Object.getOwnPropertyDescriptors(my_Obj));
-console.log(delete my_Obj.d); // false
 
 //  createTxt
 let dataNow = new Date();
@@ -979,12 +912,13 @@ chevronR.onclick = () => {
   setTimeout(function () {
     videoScDivs[0].style.display = "none";
   }, 50);
-  videoScDivs[2].style.display = "";
-  videoScDivs[2].style.animation = "fade-in 0.7s ease";
+  videoScDivs[3].style.display = "";
+  videoScDivs[3].style.animation = "fade-in 0.7s ease";
   chevronR.style.display = "none";
 };
+
 function moveDiv() {
-  var currentRight = parseInt(videoScDivs[0].style.right) || 0;
+  let currentRight = parseInt(videoScDivs[0].style.right) || 0;
   for (let i = 0; i < videoScDivs.length; i++) {
     videoScDivs[i].style.right = currentRight + 10 + "px";
     videoScDivs[i].style.transition = "right 0.2s ease-in-out";
@@ -995,5 +929,5 @@ function moveDiv() {
   }
 }
 
-let h = new Date("2007 9 17");
-console.log(h);
+let logoPro = document.querySelectorAll(".logo")[1];
+logoPro.textContent = `${n ? n.charAt(0).toUpperCase() : logoPro.remove()}`;
