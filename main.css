@@ -8,8 +8,14 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --mainColor: rgb(0, 99, 230);
+  --fmAR: "Changa", sans-serif;
+  --fmKa: "Katibeh", cursive;
+  --fmMainAR: "Noto Sans Arabic", sans-serif;
 }
 /* some adds or classList */
 .centerText {
@@ -71,6 +77,9 @@ body {
 }
 .bg-d8 {
   background-color: #d8d8d8;
+}
+.bg-Green {
+  background-color: #00a955 !important;
 }
 .co-43 {
   color: #434343;
@@ -145,7 +154,7 @@ body {
 }
 
 #topicSchoolDiv {
-  padding: 40px 70px;
+  padding: 40px 60px;
   text-align: right;
 }
 
@@ -193,6 +202,17 @@ header {
   display: flex;
   position: fixed;
   z-index: 9999;
+  transition: 0.3s ease;
+}
+.logo {
+  display: inline-block;
+  border-radius: 17%;
+  background-color: #5587af;
+  padding: 10px 20px 10px 19px;
+  font-size: 25px;
+  margin: 0 0 0 5px;
+  color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 .menuBar {
   box-sizing: border-box;
@@ -222,6 +242,7 @@ header {
   cursor: pointer;
   transition: 0.1s ease-in;
 }
+/* school */
 /* Main Divs */
 .get-div {
   background: rgb(0, 99, 230);
@@ -571,11 +592,11 @@ footer a:hover {
 }
 /* Form */
 .btn {
-  background: rgb(14, 50, 255);
+  background: rgb(0 102 255);
   padding: 10px;
   color: white;
-  border: 1px solid black;
-  font-size: 1.5em;
+  border: 1px solid #f1f1f1;
+  font-size: 1em;
   border-radius: 6px;
   right: 20px;
   position: fixed;
@@ -651,6 +672,25 @@ footer a:hover {
   position: relative;
   margin: 0 auto;
 }
+/* 145 */
+.tool {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40px;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: rgb(63, 58, 58);
+}
+.tool h1 {
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+  color: blue;
+  font-size: 18px;
+}
 /* .banner p {
   position: absolute;
   top: 50%;
@@ -717,6 +757,7 @@ footer a:hover {
   transition: background-color 0.3s ease;
   margin-left: 10px;
 }
+/* btn */
 .buttonG:hover {
   background-color: #3e8e41; /* Darker green background on hover */
 }
@@ -947,7 +988,7 @@ textarea {
   font-weight: 600;
   font-size: 1.2em;
 }
-
+/* btn */
 .modal-content {
   background-color: #e0e8ff;
   margin: 10% auto;
@@ -1131,6 +1172,52 @@ ul li {
     justify-content: center;
     padding-left: 50px;
   }
+  .menuBar a {
+    display: none;
+  }
+
+  .mobileP {
+    display: inline-block;
+    padding-right: 20px;
+    color: rgb(236, 236, 236);
+  }
+
+  .mobileP:hover {
+    color: rgb(236, 236, 236);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 180px;
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: rgba(67, 67, 67, 0.9);
+  }
+
+  nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+  /* fade-in */
+  nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 0.46em;
+  }
   .icon {
     font-size: 3em;
     padding-left: 10px;
@@ -1142,7 +1229,7 @@ ul li {
     font-size: 0.9em;
   }
   .menuLogo {
-    font-size: 1.2em;
+    font-size: 1.4em;
   }
   .menuBar a {
     font-size: 1em;
@@ -1313,6 +1400,25 @@ ul li {
   }
   .chevron {
     display: none;
+  }
+  #topicSchoolDiv {
+    padding: 10px 25px;
+  }
+  .f-size18px {
+    font-size: 14px;
+  }
+  .f-size22px {
+    font-size: 20px;
+  }
+  .borR2px {
+    font-size: 18px;
+  }
+  .underline {
+    font-size: 20px;
+    background-color: #00306e;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
   }
 }
 
