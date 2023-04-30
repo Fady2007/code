@@ -1538,6 +1538,12 @@ ul li {
     padding: 10px;
     text-decoration: none;
   }
+  .toolbar a {
+    font-size: 11px !important;
+  }
+  .toolbar {
+    padding: 2px;
+  }
 }
 
 /* 
