@@ -104,6 +104,7 @@ function openNotaPage() {
     60,
     countInterNota
   );
+  rotateLogo();
   // let scHeight2 = areas[0].scrollHeight;
   // areas[0].style.height = `${scHeight2}px`;
   // header.style.backgroundColor = colorL;
@@ -118,6 +119,7 @@ function openHomePage() {
   moMenu.classList.remove("appear");
   document.body.style.overflow = "visible";
   footer.style.display = "block";
+  rotateLogo();
 }
 
 function openSchoolPage() {
@@ -138,8 +140,11 @@ function openSchoolPage() {
     }, 30000);
   }
   document.body.style.overflow = "visible";
+  rotateLogo();
 }
+
 let clicked = 0;
+
 function openProfilePage() {
   allSite.style.display = "none";
   notes.style.display = "none";
@@ -167,6 +172,13 @@ function openProfilePage() {
       crTx.style.border = "0";
     }, 4000);
   }
+  rotateLogo();
+}
+function rotateLogo() {
+  logoImg.classList.add("rotate2");
+  setTimeout(() => {
+    logoImg.classList.remove("rotate2");
+  }, 1000);
 }
 // user object that have all data (`)
 const user = {
@@ -931,3 +943,8 @@ function moveDiv() {
 
 let logoPro = document.querySelectorAll(".logo")[1];
 logoPro.textContent = `${n ? n.charAt(0).toUpperCase() : logoPro.remove()}`;
+
+let logoImg = document.querySelector(".logoImg");
+
+const shakeBtn = document.getElementById("shake-btn");
+const box = document.getElementById("box");
