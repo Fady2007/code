@@ -235,6 +235,57 @@ a:hover {
 .tx_al {
   text-align: left;
 }
+
+.dateTxt {
+  background: #c3d9ff;
+  border: 1px solid blue;
+  padding: 10px;
+  display: inline-block;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: var(--fmAR);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+th {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #cecece;
+}
+
+tr:hover {
+  background-color: #cdd9ff;
+  transition: 0.3s ease;
+}
+
+td:first-child,
+th:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+td:last-child,
+th:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 /* Scroll bar styling */
 ::-webkit-scrollbar {
   width: 8px;
