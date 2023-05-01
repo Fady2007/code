@@ -1,6 +1,7 @@
 function cl(el) {
   console.log(el);
 }
+let logoImg = document.querySelector(".logoImg");
 // header and scroll up button functions
 let header = document.querySelector("header");
 let btn = document.querySelector(".btn");
@@ -849,6 +850,7 @@ let EduS_btn = document.querySelector("#EducationSchoolBtn");
 let aboutSchoolDiv = document.querySelector("#aboutSchoolDiv");
 let videosSchoolDiv = document.querySelector("#videosSchoolDiv");
 let topicSchoolDiv = document.querySelector("#topicSchoolDiv");
+let privatePage = document.querySelector("#privatePage");
 let downBtn = document.querySelector(".down");
 let topicS_Btn = document.querySelector("#TopicSchoolBtn");
 
@@ -864,18 +866,27 @@ sH.forEach((el) => {
 function openAboutSchoolDiv() {
   videosSchoolDiv.style.display = "none";
   topicSchoolDiv.style.display = "none";
+  privatePage.style.display = "none";
   aboutSchoolDiv.style.display = "block";
 }
 function openVideoSchoolDiv() {
   aboutSchoolDiv.style.display = "none";
   topicSchoolDiv.style.display = "none";
+  privatePage.style.display = "none";
   videosSchoolDiv.style.display = "block";
 }
 function openTopicSchoolDiv() {
   aboutSchoolDiv.style.display = "none";
   videosSchoolDiv.style.display = "none";
+  privatePage.style.display = "none";
   topicSchoolDiv.style.display = "block";
-  btn.style.display = "none";
+}
+
+function openPrivateSchoolDiv() {
+  aboutSchoolDiv.style.display = "none";
+  videosSchoolDiv.style.display = "none";
+  privatePage.style.display = "block";
+  topicSchoolDiv.style.display = "none";
 }
 
 addE(aboutS_btn, "click", openAboutSchoolDiv);
@@ -883,6 +894,11 @@ addE(aboutS_btn, "click", openAboutSchoolDiv);
 addE(videoS_btn, "click", openVideoSchoolDiv);
 
 addE(topicS_Btn, "click", openTopicSchoolDiv);
+
+addE(EduS_btn, "click", openPrivateSchoolDiv);
+
+openSchoolPage();
+openPrivateSchoolDiv();
 
 downBtn.addEventListener("click", () => {
   let a = document.createElement("a");
@@ -941,10 +957,46 @@ function moveDiv() {
   }
 }
 
-let logoPro = document.querySelectorAll(".logo")[1];
+let logoPro = document.querySelector(".logo");
 logoPro.textContent = `${n ? n.charAt(0).toUpperCase() : logoPro.remove()}`;
 
-let logoImg = document.querySelector(".logoImg");
+// Define your secret code here
+const secretCode = "mySecretCode2";
+let loadingCode = document.querySelector(".loadingCode");
+let clashLockDiv = document.querySelector(".clashLockDiv");
+let afterClashDiv = document.querySelector(".afterClashDiv");
 
-const shakeBtn = document.getElementById("shake-btn");
-const box = document.getElementById("box");
+// Define an obfuscation function
+function obfuscateCode(code) {
+  let obfuscated = "";
+  for (let i = 0; i < code.length; i++) {
+    obfuscated += String.fromCharCode(code.charCodeAt(i) + 1);
+  }
+  cl(obfuscated);
+  return obfuscated;
+}
+
+// Obfuscate your secret code
+const obfuscatedCode = obfuscateCode(secretCode);
+
+// Use the obfuscated code in your program
+const codeInp = document.getElementById("codeToCon");
+codeInp.addEventListener("keyup", function () {
+  if (codeInp.value === obfuscatedCode) {
+    localStorage.setItem("blockDiv", "block");
+    localStorage.setItem("noneDiv", "none");
+    loadingCode.style.display = "block";
+    clashLockDiv.style.display = "none";
+    setTimeout(() => {
+      loadingCode.style.display = "none";
+      afterClashDiv.style.display = "block";
+    }, 4000);
+  } else {
+    console.log("Incorrect code entered!");
+  }
+});
+
+if (localStorage.getItem("noneDiv") && localStorage.getItem("blockDiv")) {
+  clashLockDiv.style.display = localStorage.getItem("noneDiv");
+  afterClashDiv.style.display = localStorage.getItem("blockDiv");
+}
