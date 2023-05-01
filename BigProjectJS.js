@@ -897,9 +897,6 @@ addE(topicS_Btn, "click", openTopicSchoolDiv);
 
 addE(EduS_btn, "click", openPrivateSchoolDiv);
 
-openSchoolPage();
-openPrivateSchoolDiv();
-
 downBtn.addEventListener("click", () => {
   let a = document.createElement("a");
   a.href = "/img_avatar.png";
