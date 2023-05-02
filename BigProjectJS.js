@@ -997,3 +997,25 @@ if (localStorage.getItem("noneDiv") && localStorage.getItem("blockDiv")) {
   clashLockDiv.style.display = localStorage.getItem("noneDiv");
   afterClashDiv.style.display = localStorage.getItem("blockDiv");
 }
+
+// let newInpIntro = document.querySelector("#newInpIntro");
+// let txtIntro = "Smart Input, will save your time in our website.";
+// typewriterDiv(txtIntro, newInpIntro, 100, introInterval);
+// cl(newInpIntro);
+
+window.addEventListener("scroll", () => {
+  setTimeout(() => {
+    let introInterval;
+    let introTxt = `search in google: What is hybrid vehicle ? `;
+    let inpTxtIntro = document.querySelector("#inpTxtIntro");
+    typewriterArea(introTxt, inpTxtIntro, 100, introInterval);
+  }, 2000);
+
+  setTimeout(() => {
+    if (inpTxtIntro.value.includes("search")) {
+      inpTxtIntro.style.color = "#240087";
+    } else {
+      cl("not");
+    }
+  }, 3000);
+});
