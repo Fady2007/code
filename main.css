@@ -158,7 +158,6 @@ html {
   display: block;
 }
 .intro {
-  clip-path: polygon(0 0%, 100% 0, 100% 94%, 0 100%);
   background: linear-gradient(
     60deg,
     #002bff,
@@ -208,6 +207,17 @@ html {
 
 .intro-svg path {
   fill: #00368b;
+}
+
+.inp-svg {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  margin-top: -1px;
+}
+
+.inp-svg path {
+  fill: #ff5252;
 }
 
 /* 
