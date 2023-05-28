@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa&family=Katibeh&family=Noto+Sans+Arabic&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+/* footer */
+:root {
+  --mainColor: rgb(0, 99, 230);
+  --fmAR: "Changa", sans-serif;
+  --fmKa: "Katibeh", cursive;
+  --fmMainAR: "Noto Sans Arabic", sans-serif;
+}
+/* some adds or classList */
+.centerText {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.appear {
+  display: block;
+}
+
+.hovering_Yellow:hover {
+  color: yellow;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.hovering_LBlue:hover {
+  color: rgb(177, 211, 255);
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.hovering_Red:hover {
+  color: rgb(233, 0, 0);
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.hovering-mainCo:hover {
+  color: var(--mainColor);
+}
+.removeHover:hover {
+  color: "";
+}
+.woh {
+  color: rgb(0, 55, 117);
+  cursor: default;
+}
+.woh:hover {
+  color: rgb(0, 55, 117);
+  cursor: default;
+}
+.pd20-l {
+  padding-left: 20px;
+}
+.pd100-t {
+  padding-top: 100px;
+}
+.cen {
+  text-align: center;
+}
+.co-b {
+  color: black;
+}
+.co-w {
+  color: white !important;
+}
+.bolder {
+  font-weight: bolder;
+}
+.bg-d8 {
+  background-color: #d8d8d8;
+}
+.bg-Green {
+  background-color: #00a955 !important;
+}
+.co-43 {
+  color: #434343;
+}
+.co-r {
+  color: red;
+}
+.mg1r-b {
+  margin-bottom: 1rem;
+}
+.mg3r-b {
+  margin-bottom: 3rem;
+}
+.mg1r-t {
+  margin-top: 1rem;
+}
+.po-ab {
+  position: absolute;
+}
+.bo-rad6 {
+  border-radius: 6px;
+}
+.fam-changa {
+  font-family: "Changa", sans-serif;
+}
+.fam-kat {
+  font-family: "Katibeh", cursive;
+}
+.fam-notoG {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+.borR2px {
+  border-right: 2px solid var(--mainColor);
+  padding: 0 10px 0 0;
+}
+.underline {
+  text-decoration: underline;
+}
+.f-size18px {
+  font-size: 18px;
+}
+.f-size22px {
+  font-size: 22px;
+}
+#video-container {
+  position: relative;
+  width: 640px;
+  height: 360px;
+}
+.mg10p {
+  margin: 20px !important;
+}
+.pd20p {
+  padding: 20px;
+}
+.flex {
+  display: flex;
+}
+.wd50 {
+  width: 50%;
+}
+.view {
+  display: block;
+}
+.transP {
+  background: transparent !important;
+}
+.chevron {
+  display: inline;
+}
+.blue {
+  background-color: rgb(0, 99, 230);
+}
+.black {
+  background-color: #333;
+}
+.red {
+  background-color: red;
+}
+.wd14 {
+  width: 20%;
+  height: 20%;
+}
+.wd30 {
+  width: 30%;
+}
+.purple {
+  background-color: #9d25ff;
+}
+.brown {
+  background-color: brown;
+  color: #333;
+}
+.intro-svg {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  margin-top: -1px;
+}
+.intro-svg path {
+  fill: #002e74;
+}
+.inp-svg {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  margin-top: -1px;
+}
+.inp-svg path {
+  fill: #ff5252;
+}
+.textWriter {
+  /* border-right: 3px solid; */
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  animation: typing 3s;
+}
+.txWrWithCur {
+  border-right: 3px solid;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  animation: typing 3s, cursor 0.4s alternate;
+}
+.curAni {
+  animation: cursorBg 0.4s ease;
+}
+.bg-f8 {
+  background-color: #f8f8f8;
+}
+.loadCirc {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  /* <svg class="circular" viewBox="25 25 50 50">
+<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" />
+</svg> */
+}
+.rightCorner {
+  padding: 10px;
+  color: white;
+  border: 1px solid #f1f1f1;
+  font-size: 1em;
+  border-radius: 6px;
+  right: 20px;
+  position: fixed;
+  bottom: 20px;
+  background-color: #ff5252;
+  z-index: 9999;
+}
+.cenCorner {
+  padding: 12px;
+  color: white;
+  border: 1px solid #f1f1f1;
+  font-size: 1em;
+  border-radius: 6px;
+  position: fixed;
+  bottom: 20px;
+  background-color: #3b3b3b;
+  z-index: 9999;
+  left: 20px;
+}
+.pointer {
+  cursor: pointer;
+}
+.defC {
+  cursor: default;
+}
+.bigIcon {
+  font-size: 5em;
+  color: #333;
+}
+.inBl {
+  display: inline-block;
+}
+.heg200p {
+  height: 200px;
+}
+.inFl {
+  display: inline-flex;
+}
+.bordS1p {
+  border: 1px solid #363636;
+}
+.inBl p {
+  font-weight: 600;
+  font-size: 1em;
+}
+.co-blu {
+  color: #0d6efd;
+}
+.wdcalc {
+  min-width: calc((100vh - 200px) / 2);
+  display: inline-block;
+}
+.bold {
+  font-weight: 600;
+}
+.pd20p .bg-f8:hover {
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: #cecece;
+}
+.bg-blu {
+  background-color: #003f9e;
+  padding: 50px;
+}
+.mg10p {
+  margin: 10px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 100%;
+  background-color: #414141;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar a {
+  color: #ececec;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 8px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sidebar a:hover {
+  background: #0f8bff;
+  color: white;
+}
+
+.slider .checked {
+  background: #0f8bff;
+}
+
+.sidebar i {
+  font-size: 27px;
+}
+.quizAppDiv {
+  padding: 0px 6px 10px 120px;
+}
+.select {
+  background: orange !important;
+}

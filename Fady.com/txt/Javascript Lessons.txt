@@ -1,0 +1,2327 @@
+/* Lesson 1 - 7 */
+// document.querySelector("h1").style.color = "blue"
+// window , document and console are objects that have a lot of details
+// document.createElement() ---> better than document.write()
+// document.write()
+// window.alert() ---> bad way to use alert
+// console.log("hello") ---> message in console
+// window onload = function() ----> we use that if we write our script in the first page
+// using console will be better during learning
+
+/* Lesson 8 (console methods) */
+// console.log("log")
+// console.error("error")
+// console.table(["Fady", "Emad" , "As3d"])
+// console.log("Hello From %c JS %cFile" , "color: orange; font-size: 24px;" , "color:red; font-size: 30px")
+
+/* Lesson 9 (Ecma script 6) */
+// Ecma ---> ma3eer L codes in different shapes
+// example--> console.log("Hello " + name) = console.log("Hello ${name}")
+
+/* Lesson 10 (Data types) */
+// Types of data: string , number , Array => Object , Boolean(true and false) , undefined
+// Types of object: Array[] , object{key: value} , null
+// to know type of date we use "typeof" ex --> console.log(typeof undefined)
+
+/* Lesson 11 - 12 (Variables and rules) */
+// var name = "Fady" --> syntax(keyword | variable name | = | var value)
+// name = "Fady" will work but it's better to use var
+// id in html = variable ---> I can use it as var
+// we can use many var in one var ex(var name = "Fady" , age="0")
+// we can't use words that have a usage in js ex(var var = "fady")
+// we can't put number in the first var name ex(var 1name = "fady")
+
+/* Lesson 13 - 15 (Var , Let , Const compare , Escape{\} , Concatenation) */
+// Redeclare(var) ex(var a = 1; var a = 2) variable "a" will be equal 2 in var only
+// Access before declare (err in const and let , undefined in var) ex(console.log(a); var a = 2;)
+// variable scope drama[added to window object] (var only) ex(var a = 1) you can check var "a" in console by window.a
+// escape (\) ex --> console.log("Fady \"Emad\"") , ex2 --> console.log("Fady \\ Emad") note: \\ = \
+// \n --> new line , \" = "  note: In Ecma script you needn't to use escape \
+// ex for con ---> (let a = "Fady" , b = " " , c = "Emad") document.write(a + b + c)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Lesson 16 - 18 (`${}`) , (Operators) */
+// we will use new way to write code
+// in this way `` this will read space and can make new line without escape \n
+// NaN => Not A Number   *note: console.log(typeof NaN) => number
+// this lesson about operators (+ - * ** / %)  ^note: % --> ba2e el2sma   ex: console.log(11%5) => 1
+// Increment (post - pre)  ex--> num = 1; num++;  Result: 1  note:post Increment will print number first and add 1
+// Increment (post - pre)  ex--> num = 1; ++num;  Result: 2  note:pre Increment will add 1 first and print
+
+/* Lesson 19 - 22 (unary plus and negative) , (Type Coercion) , (Assignment operators) */
+// ex: console.log(+"1") result:1  , console.log(-"-1") result:1
+// console.log(0xff) result:255
+// console.log(Number("10")) result:10   note: unary plus faster and better than Number()
+// "" - 2 = -2  , "" => 0
+// ex: let a = "10" , b = 5; console.log(a - b) => 5
+// ex2: console.log(a + b) => 105  ,  console.log(+a + b) => 15
+// let a = 10; a += 10 --> a = a + 10  Result = 20    note: there are more of this such as (-= , %= , *= , etc)
+
+/* Lesson 23 - 24 (Number) , (Number Methods) */
+// console will ignore "_" in numbers
+// console.log(1e6) => 1_000_000
+// typeof Number is function
+// console.log(Number.MAX_SAFE_INTEGER)  , console.log(Number.MAX_VALUE)
+// MAX_VALUE + Number = MAX_VALUE
+// MAX_SAFE_INTEGER + Number = not real result
+// ^Search: Double Precision^
+// num..toString() , toFixed(num) --> تقريب , parseInt() --> تطلع العدد الصحيح فقط اللي انت كتبته في الاول
+// parseFloat() , isInteger() --> عدد صحيح فقط , isNaN() [ES6]
+// *ex: console.log(parseInt("100.5 Fady")) Result: 100
+// *ex2: console.log(parseFloat("100.5 100 Fady")) Result: 100.5
+// *ex3 console.log(Number("100 fady")) Result: NaN
+// *ex4: console.log(isInteger(100.5)) Result: False   note:because it has a 0.5
+// *ex5: console.log(isNaN("Fady")) Result: False  note:NaN happen if you put a math equation with string and number.
+
+/* Lesson 25 - 26 (Math Object) */
+// تقريب الاعداد العشريه الى اقرب عدد صحيح:()Math.round
+// تقريب العدد العشري الى اكبر قيمه:()Math.ceil --> سقف
+// تقريب العدد العشري الى اصغر قيمه:()Math.floor --> ارضية
+// استخراج اصغر قيمه:()Math.min
+// استخراج اكبر قيمه:()Math.max
+// للعمليات الأسية:(num , num)Math.pow --> power **
+// اضهار رقم عشوائي:()Math.random
+// حذف الرقم العشري:()Math.trunc
+// codepen.io
+
+/* Lesson 27 - 30 (String Methods) */
+// ضهارالقيمة  حسب كتابة رقم ترتيب القيمة داخل القوس:()charAt
+// نفس عمل التشارات لكن يحذف المسافات :()trim
+// تحويل الحرف الصغير الى حرف كبير:()toUpperCase
+// تحويل الحرف الكبير الى حرف صغير:()toLowerCase
+// حساب عدد العناصر داخل المتغير : Length.
+//
+// let theName = "  Ahmed  "; name[0] --> f
+// ex: console.log(theName.trim().charAt(2).toUpperCase()) => M --> Chain Methods
+// charAt is a good method for string and [] is a good for array
+//
+// استخراج اجداثيات القيمه المدخلة من بدايه السطر :()IndexOf (search , result: num of index)
+// استخراج اجداثيات القيمه المدخلة نهاية السطر :()LastIndexOf (search , result: num of index)
+// حذف القيم حسب احداثيات البداية والنهاية المعطاة :()Slice
+// تكرار القيم  : ()repeat
+// تقسيم السلسلة حسب اللقيمه المدخلة في القوس وتترتب الى مصفوفة :()split
+//
+// let a = "Fady Emad as3d"
+// ex1: console.log(a.IndexOf("d")) => 2
+// ex2: console.log(a.LastIndexOf("d")) => 13
+// ex3: console.log(a.slice(5 , 9)) => Emad    *note:Not including end!
+// ex4: console.log(a.split(" " , 2)) => ['Fady' , 'Emad']
+// ex5: console.log(a.length) => 14
+// console.log(a.charAt(0)) => F
+//
+// قطع النص حسب الاحداثيات المعطاة :()SubString
+// قطع النص حسب الاحداثيات المعطاة والفرق تقدر ان تعطي العناصر الذي تريد حذفها ,و الادخال في السالب:()SubStr
+// التحقق اذا كانت القيمة المعطاة موجودة ام لا في النص المكتوب :()Includes [ES6]
+// التحقق اذا كانت القيمة المعطاة موجودة ام لا في النص المكتوب وتحسب من البداية :()StartWiths [ES6]
+// التحقق اذا كانت القيمة المعطاة موجودة ام لا في النص المكتوب وتحسب من النهاية :()EndWiths   [ES6]
+//
+// ex1: console.log(a.substring(9 , 5)) Result: Emad   *note:substring swap if Start > End
+// ex2: console.log(a.substr(6 , 3))    Result: mad    *note:substr(Start , count after start)
+// ex3: console.log(a.includes("Emad")) Result: True   *note:includes("word" , numIndex to start search)
+// ex4: console.log(a.startsWith("F" , 1)) Result: False
+// ex4: console.log(a.endsWith("y" , 4)) Result: True  *note:endsWith("word or letter" , number of length)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Lesson 31 - 33 (Comparison Operators) , (Logical Operators) , (If Conditions) ,  */
+// == Equal  note: Compare Value Only
+// === Identical  note: Compare Value + Type
+// !== Not Identical , < > <= >=
+// ex: console.log(typeof "Fady" === typeof "Emad") Result: True
+// Logical Operators: || && !
+// ex: console.log(10 == "10" && 10 > 8) Result: True
+// if (Condition) {Block of Code}
+// else if => || (or)
+
+/* Lesson 34 - 35 (Nested If Condition) , (Conditional Ternary Operator) */
+// if(){
+//    else if() {}
+//     else {}
+// } --> Nested If Condition
+// Example for Ternary Operator:
+// theAge = "f";
+// theAge == 20
+// ? console.log("20")
+// : theAge > 20 && theAge < 60
+// ? console.log("from 20 to 60")
+// : theAge > 60
+// ? console.log("older than 60")
+// : console.log("unknown");
+// note: you can make a variable equal a condition .. as Ternary Operator
+
+/* Lesson 36 - 37 (Nullish Coalescing Operator And Logical Or) */
+// let price = 0;
+// console.log(`the price is ${price || 10}`); // 10 (Or) Falsy value
+// console.log(`the price is ${price ?? 10}`); // 0 (Nullish)
+// To check Falsy value you will use console.log(Boolean("")) // R: False
+
+/* Lesson 38 - 39 (Switch Statement) */
+// Switch(expression){
+    Default: 
+    Code Block
+    break;
+    Case 1: 
+    Code Block
+    break;
+}
+
+/* Lesson 40 - 42 (Array) , (Array Methods) */
+// To check array use *Array.isArray(arr)
+// ex1: let friends = ["Fady" , "Abanoub" , ["Micheal" , "Kamal"]]
+// console.log(friends[0][0] + friends[1][5] + friends[2][0][2] + friends[2][1][0]) R: Fuck
+// Length method is a best way to edit array automatic  [Logical]
+// for example --> friends[2][friends.length - 1] = "Jerom" console.log(friends)
+// Result: ["Fady" , "Abanoub" , [Micheal , "Jerom"]]
+ unshift(): اضافة العناصر في بداية المجموعة.
+ push(): اضافة العناصر في نهاية المجموعة.
+ shift(): حذف العناصر في بداية المجموعة. } *you can use it as a variable
+ pop(): حذف العناصر في نهاية المجموعة.   } *you can use it as a variable
+// length = Index + 1
+
+*Advise: Go to the problem solving sites and learn.
+
+/* Lesson 43 - 44 (Searching Array) , (Sorting Array) */
+// IndexOf(Serch:Element , From index) , LastIndexOf(Serch:Element , From negative Index) => R: A Number
+// includes(Serch:Element , From index): to check if Element exist or no => R: True , False
+// note: if you're searching an Element doesn't exist in array the result of index will be -1
+// sort(): ترتيب القيم حسب ابجدية الحروف والارقام  
+// reverse(): عكس ترتيب القيم
+
+*Remember: How to Chain Methods in one line.
+ex: console.log(array.sort().reverse().charAt(0))
+
+/* Lesson 45 - 47 (Slicing Array) , (Joining Arrays) */
+// Slice( Start [opt] , End [opt] ) , Splice( start [Mand] , Delete Count , Add Items)  
+// note: NOT Including End in slice()
+// note2: Items you add in splice() will be add in array from index 0
+// note3: Splice() change array , Slice() create new array with slicing old array
+- Joining Arrays Methods:
+// Concat(): To Concatenation arrays in one array and you can add any items to this array.
+// ex: console.log(array1.Concat(array2 , array3, "Str")) R: all arrays 
+// ex2: let all_arrays = array1.Concat(array2 , array3, "Str")
+// Join(): To Make an array string. ----- Example:
+// let array1 = ["str1" , "str2"] , array2 = [1 , 2]
+   let all_arrays = array1.Concat(array2 , +"3")
+   console.log(all_arrays.Join("|")) 
+   Result: str1|str2|1|2|3
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Lesson 48 - 50 (for loop) , (Looping On Sequences) , (Nested Loops) */
+// for ([1 set a variable] , [2 condition] , [3 ++]) { Block of code }
+ex1: for (let i = 0; i < 10; i++) {  // i --> index [start from 0]
+  console.log(i);
+}
+// Looping on array example: let myfriends = ["Fady","Leo","Emad",1,2];
+let onlyNames = [];
+for (let i = 0; i < myfriends.length; i++) {
+  if (typeof myfriends[i] === "string") {
+    onlyNames.push(myfriends[i]);
+  }
+} console.log(onlyNames)
+// Nested Loops: for( for(){} ) {}
+
+/* Lesson 51 (loop control) */
+Example:
+let products = ["keyboard", "pen", "Mouse", "Mobile", "ipad"];
+let colors = ["red", "green", "black"];
+mainLoop: for (let i = 0; i < products.length; i++) {
+  console.log(products[i]);
+  nestedloop: for (let j = 0; j < colors.length; j++) {
+    console.log(`- ${colors[j]}`);
+    if (colors[j] === "green") {
+      break nestedloop;
+    }
+  }
+}
+
+/* Lesson 52 - 53 (Loop - For Advanced Example) , (Practice - Add Products To Page) */
+let i = 0;
+let sites = ["face" , "insta"]
+for (;;) {
+  console.log(`${i + 1}. ${sites[i]}`);
+  i++;
+  if (i === sites.length) break;
+}
+
+/* Lesson 54 - 56 (Loop - While) , (Do while) */
+let i = 0;
+while (condition) {
+  console.log();
+  i++;
+}
+Do while:
+do {
+  console.log(i); i++;
+} while(false);
+console.log(i)
+// Result: 0 , 1
+
+Css Lesson @media
+Note: @media print --> responsive design  (576px , 768px , 992px , 1200px , 1400px) @media () and ()
+
+/* Lesson 57 - 59 (function) , (Function Advanced Examples) , (Function Return And Use Cases) */
+function nameOfFunction(Parameter) {
+ task
+}
+nameOfFunction(Argument)
+return example:
+function generate(start, end){
+  for(let i = start;i <= end; i++) {
+    console.log(i)
+    If(i === 15){
+      return;
+    }
+  }
+}
+generate(10 , 20)  Result: 10 , 11 , 12, 13 , 14, 15
+
+/* Lesson 60 (Function Default Parameters) */
+- Here a 4 ways to set a Default value:
+function sayHello(userName , age = "Unknown"){
+  // if(age === undefined) age = "Unknown"
+  // age === undefined ? age = "Unknown" : age;
+  // age = age || "Unknown"
+  return `Hello ${userName} Your age is ${age}`
+}
+let result = sayHello("Fady")
+console.log(result)
+
+/* Lesson 61 (Function Rest Parameters) */
+Notes:
+    1) Only One Allowed
+    2) Must be last Element
+Example:
+  function calc(...numbers){  // note: typeof numbers is array(object)
+   let result = 0;
+    for (let i = 0; i < numbers.length; i++){
+      result += numbers[i]
+    }
+    return `Final Result is: ${result}`
+  }
+  console.log(calc(1, 2, 3, 4)) // Final Result is: 10
+
+  /* Lesson 62 - 63 (Function Ultimate Practice) , (Random Arguments Function Challenge) */
+  Return to Youtube,
+  these lessons for Practice if condition and loops and function 
+
+  /* Lesson 64 (Anonymous Function And Practice) */
+  - You can use function as variable
+  ex: let calc = function() {block of code} // Anonymous Function
+  - Anonymous function in variable:
+    1) to use it, you'll use name of variable to set function
+    2) Access before declare will make error in console because it is a variable.
+Anonymous function // make for one task 
+  - setTimeout(function () {
+     console.log("Good")
+  }, 2000)
+
+ /* Lesson 65 (Return Nested Function) */
+ - we use nested function to make a big task simple and not in one function but in more than function
+ example:
+ function sayMessage(fName , lName){
+  let msg = `Hello`;
+   function concatMsg(){
+      function getFullName(){
+        return `${fName} ${lName}`;
+      }
+    return `${msg} ${getFullName()}`;
+   }
+   return concatMsg()
+ }
+console.log(sayMessage("Fady" , "Emad")) // Hello Fady Emad
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Lesson 66 (Arrow Function Syntax) */
+- we knew 3 kind of functions
+  1) Regular Function
+    ex: function print() {return 10;}
+  2) Anonymous Function
+    ex: let print = function () {return 10;}
+
+3) Arrow function: 
+  ex1: let as = (num1) => {return num1;} 
+  console.log(as(10)); // R: 10
+
+  ex2: let as = num1 => num1
+  console.log(as(10)); // R: 10
+
+  ex3: let as = (num1 , num2) => num1 + num2 
+  console.log(as(10 , 10)); // R: 20
+
+  ex4: let as = _ => 10
+  console.log(as()); // R: 10
+_ = ()
+
+ /* Lesson 67 - 70 (Scope - Global and Local) , (Scope - Block) , (Scope - Lexical (Static)) */
+- Global Variables: you can use it in any other usage
+ let a = 1
+ var b = 2
+ function showtxt(){
+  // Local Variables: you can't check it in console , it is espacially for function only
+  let a = 2
+  var b = 3 
+ }
+ Note: function will use scope - Global if there aren't a local variables
+ Note2: Local Variables don't happen overwrite.
+- Scope - Block example
+var x = 10
+if (10 === 10){var x = 50} 
+// var x = 50 is not a local scope it is a global and will overwrite var x = 10 and this hapeen when using var only
+// let , const in scope - block will make a variable Local. 
+ Note: scope such as new page.
+- Scope - Lexical (Static)
+ function parent() {
+  let a = 10
+  function child() {
+    let a = 20
+    function grand() {
+      let a = 30
+    }
+  }
+ }
+ Grand: a = 30 , child: a = 20 , parent a = 10
+ - Search: Lexical Environment , Execution Context
+
+ /* Lesson 71 - 72 (Higher Order Functions - Map) , (Practice) */
+- Map = loop   // map create new array of old array with some of condition you want!
+  let ignoreNumbers = "F1a2d3y4";
+  let ign = ignoreNumbers
+    .split("")
+    .map(function (ele) {
+      return isNaN(+ele) ? ele : "";
+    })
+    .join("");
+  console.log(ign); // R: Fady
+Note: ign now is an new array without join method 
+  Remember: +"" --> Number   ,  parseInt("") ---> Not a Number
+
+/* Lesson 73 - 74 (Higher Order Functions - Filter) , (Practice) */
+- Filter(callbackfunction(element)) = map
+Filter --> condition if true return element if false return "" ,, and this sentence you don't have to write it in Filter
+Example: 
+let mix = "A13BS2ZX";
+let Challenges = mix.split("").filter(function (ele1) {
+    return !isNaN(parseInt(ele1)); // if it a string method will remove it
+  }).map((ele2) => return ele2 * ele2;).join(" "); // adding numbers
+console.log(Challenges); // R: 1 9 4
+
+/* Lesson 75 - 76 (Higher Order Functions - Reduce) , (Practice) */
+- Reduce (function(acc , current , index , arr) , initialValue //startOf index...)
+Example1:
+let nnn = [];
+for (let i = 0; i < 10; i++){nnn.push(i + 1);}
+let nnn2 = nnn.reduce(function (pre, curr_value, index, arr) {
+  return pre + nnn[index] // nnn[index] => currant value => arr[index];
+});
+console.log(nnn2); // R: 55
+
+- Note: find() is a function
+
+/* Lesson 77 - 78 (Higher Order Functions - ForEach And Practice) */
+- ForEach (functon (element, index , array))
+- ForEach() return undefined; it changes only!
+
+// --------------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------------
+
+/* Lesson 79 - 80 (object) , (Dot Notation vs Bracket Notation) */
+object => كائن له خواص و دالات
+Example:
+let myVar = "country"
+let user = {
+  the_name: "Fady" ,
+  theAge: 16 ,
+  country: "Egypt"
+  sayHello: () => `Hello` ,
+}
+console.log(user.sayHello()) // Hello
+console.log(user["country of"]) // Egypt
+console.log(user."country of") // !!!ERROR  -  Because "country of" you can use it only in Bracket[]
+console.log(user.[myVar]) // Egypt   - myVar = country  and country in user object = "Egypt"
+- Note: window => object , window.location => object , window.location.href => proparties
+- Note2: if you want to put space or - between proparty in object , you must put it as string ""
+- Note3: you can use variable
+
+/* Lesson 81 - 82 (Nested Object And Advanced Trainings) , (Create Object With New Keyword) */
+let user = {
+  name: "",
+  adresses: {           // Nested object
+    egypt: {            // Nested object
+      one: "Cairo" ,
+      two: "Giza" ,
+    }
+  }
+}
+console.log(user.ad.egypt.one); // Cairo
+- Note: You can use new Object() to create object
+Example: 
+let user = new Object({
+  age: 999
+})
+user.name = "Fady"
+console.log(user.age) // 999
+console.log(user.name) // Fady
+
+Search: Strict Mode
+
+/* Lesson 83 (This Keyword) */
+let user = new Object({
+  name: "Fady",
+  age: 16,
+  age_in_days: function () {
+    console.log(this); // user object (owner)
+    return this.age * 365.25;
+  },
+});
+console.log(this); // window object (owner)
+console.log(user.age_in_days());
+
+/* Lesson 84 (Create Object With Create Method) */
+let user = {
+  age: 10,
+  double_age: () => {
+    return user.age * 2  // this.age * 2 better
+  }
+}
+console.log(user.double_age()) // 20
+let copyObj = Object.create(user) // copy user object
+copyObj.age = 30
+console.log(copyObj.double_age()) // 20 *method returns user.age * 2 NOT returns copyObj.age * 2
+- Note: to solve this problem use "this" keyword
+
+/* Lesson 85 (Create Object With Assign Method) */
+- Object.assign(object that you'll append in it (targe obj) , object that you will copy in target object) // you can copy more than 1 object
+Example:
+let obj1 = {
+  prop1: 1,
+  prop2: 2,
+};
+let targetobj = {
+  prop3: 3
+}
+let newobj = Object.assign(targetobj , obj1)
+console.log(newobj);
+- Note: target object can be empty!   ex: Object.assign({} , {prop1: 2} , obj1) 
+
+--------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+
+/* Lesson 86 (What Is DOM And Select Elements) */
+DOM => Document Object Model
+with DOM you'll get elements in page in html not in console only.
+Example:
+// HTML file: <a href="https://google.com">Google</a>
+// JS file: document.links[0].href => https://google.com
+-- You can get elements by id , className , tagName ("p") or ("a") , CSS selectors (querySelector) , collections (queryselectorAll) 
+** There are a ready elements to use
+  1)title  2)forms  3)body  4)links  5)images
+Just search about document.. and find what is you need to use it in document
+- Note1: using querySelector is the best choice to get element
+- Note2: if there are many elements that get the same class you can get one by [number of index]
+- Note3: you can get input value if his name for example called "one" by document.forms[0].one.value
+
+/* Lesson 87 (Get Set Elements Content And Attributes) */
+- textContent , innerHTML , getAttreibute , setAttribute(qualifiedName , value) , innerText
+textContent: Only return the text and NOT returns any <html code> (read html code as a text NOT HTMl)
+innerHTML: Return text and html code "" (read HTML code)
+- Important Note: you use createAttribute or setAttribute NOT element.attributeName = "" when the attribute is not exist like href or id
+
+/* Lesson 88 (Check Attributes And Examples) */
+  DOM [Check Attributes]
+  - Element.attributes
+  - Element.hasAttribute(qualifiedName)
+  - Element.hasAttributes()
+  - Element.removeAttribute(qualifiedName)
+console.log(document.getElementsByTagName("p")[0].attributes);
+let myP = document.getElementsByTagName("p")[0];
+Example:
+if (myP.hasAttribute("data-src")) {
+  if (myP.getAttribute("data-src") === "") {
+    myP.removeAttribute("data-src");
+  } else {
+    myP.setAttribute("data-src", "New Value");
+  }
+} else {
+  console.log(`Not Found`);
+}
+
+if (myP.hasAttributes()) {
+  console.log(`Has Attributes`);
+}
+
+if (document.getElementsByTagName("div")[0].hasAttributes()) {
+  console.log(`Has Attributes`);
+} else {
+  console.log(`Div Has No Attributes`);
+}
+
+/* Lesson 89 (Create And Append Elements) */
+- createElement() , createComment() , document.createAttribute(localName) + Element.setAttributeNode() , createTextNode() , appendChild() , prepend()
+Exampke:
+let myElement = document.createElement("div");
+let myAttr = document.createAttribute("data-Fady");
+let myTxt = document.createTextNode("product one");
+let myComment = document.createComment("This is Div");
+myElement.className = "product";
+myElement.setAttributeNode(myAttr);
+myElement.setAttribute("data-test", "Testing");
+myElement.appendChild(myComment);
+myElement.appendChild(myTxt);
+document.body.appendChild(myElement);
+console.log(myElement);
+// Result: 
+<div class="product" data-fady data-test="Testing">
+<!-- This is Div -->
+product one
+</div>
+
+/* Lesson 90 (Product With Title And Description Practice) */
+for (let i = 0; i < 10; i++) {
+  let myDiv = document.createElement("div");
+  let myH = document.createElement("h2");
+  let myP = document.createElement("p");
+  let myH_txt = document.createTextNode(`Product Title ${i + 1}`);
+  let myP_txt = document.createTextNode(`Product Paragraph ${i + 1}`);
+
+  myH.appendChild(myH_txt);
+  myDiv.appendChild(myH);
+  myP.appendChild(myP_txt);
+  myDiv.appendChild(myP);
+  myDiv.className = "product";
+
+  document.body.appendChild(myDiv);
+}
+/* Lesson 91 (Deal With Children) */
+  DOM [Deal With Children]
+  - children
+  - childNodes
+  - firstChild
+  - lastChild
+  - firstElementChild
+  - lastElementChild
+HTML File:
+<div><!-- Fady -->Hello Div<p>Hello P</p><span>Hello Span</span><!-- Comment -->Hello</div>
+JS File:
+let myElement = document.querySelector("div");
+console.log(myElement);
+console.log(myElement.children); // All Elements
+console.log(myElement.children[0]); // <p></p>
+console.log(myElement.childNodes); // Elements + texts + comments
+console.log(myElement.childNodes[0]); // <!-- Fady -->
+console.log(myElement.firstChild); // <!-- Fady -->
+console.log(myElement.lastChild); // <!-- Comment -->
+console.log(myElement.firstElementChild); // <p></p>
+console.log(myElement.lastElementChild); // <span></span>
+
+/* Lesson 92 (DOM Events) */
+/*
+  DOM [Events]
+  - Use Events On HTML
+  - Use Events On JS
+  --- onclick
+  --- oncontextmenu // right click
+  --- onmouseenter
+  --- onmouseleave
+
+  --- onload
+  --- onscroll
+  --- onresize
+
+  --- onfocus
+  --- onblur // Leave input
+  --- onsubmit
+*/
+let myBtn = document.getElementById("btn");
+myBtn.onmouseleave = function () {
+  console.log("Clicked");
+};
+window.onresize = function () {
+  console.log("Scroll");
+};
+
+/* Lesson 93 (Validate Form And Prevent Default) */
+/*
+  DOM [Events]
+  - Validate Form Practice
+  - Prevent Default منع التصرف الافتراضي
+*/
+- HTML File:
+<form action="">
+<input type="text" name="username">
+<input type="number" name="age">
+<input type="submit">
+</form>
+- JS File:
+let userInput = document.querySelector("[name='username']");
+let ageInput = document.querySelector("[name='age']");
+document.forms[0].onsubmit = function (e) {
+  let userValid = false;
+  let ageValid = false;
+  if (userInput.value !== "" && userInput.value.length <= 10) {
+    userValid = true;
+  }
+  if (ageInput.value !== "") {
+    ageValid = true;
+  }
+  if (userValid === false || ageValid === false) {
+    e.preventDefault();
+  }
+};
+document.links[0].onclick = function (event) {
+  console.log(event);
+  event.preventDefault();
+};
+
+/* Lesson 94 (Event Simulation – Click, Focus, Blur) */
+/* 
+  DOM [Events Simulation]
+  - click
+  - focus
+  - blur
+*/Example:
+let one = document.querySelector(".one");
+let two = document.querySelector(".two");
+window.onload = function () {
+  two.focus();
+};
+one.onblur = function () {
+  document.links[0].click();
+};
+reload
+/* Lesson 95 (Class List Object And Methods) */
+/*
+  DOM [Class List]
+  - classList
+  --- length
+  --- contains // return Boolean value
+  --- item(index)
+  --- add(tokens: string)
+  --- remove(tokens)
+  --- toggle(token: string)
+*/
+let element = document.getElementById("my-div");
+console.log(element.classList);
+console.log(typeof element.classList);
+console.log(element.classList.contains("osama"));
+console.log(element.classList.contains("show"));
+console.log(element.classList.item("3"));
+element.onclick = function () {
+  element.classList.toggle("show");
+};
+
+/* Lesson 96 (CSS Styling And Stylesheets) */
+- DOM[CSS] 
+  - style , cssText
+  - removeProperty(propertyName)
+  - setProperty(propertyName , value , priority(Important))
+
+/* Lesson 97 (Before, After, Prepend, Append, Remove) */
+/*
+  DOM [Deal With Elements]
+  - before [Element || String]
+  - after [Element || String]
+  - append [Element || String]
+  - prepend [Element || String]
+  - remove
+*/
+let element = document.getElementById("my-div");
+let createdP = document.createElement("p");
+
+element.remove(); // replace to display none in css to hide it in console
+
+/* Lesson 98 (DOM Traversing) */
+/*
+  DOM [Traversing]
+  - nextSibling
+  - previousSibling
+  - nextElementSibling
+  - previousElementSibling
+  - parentElement
+*/
+sibling --> شقيق
+let span = document.querySelector(".two");
+
+console.log(span.parentElement);
+
+span.onclick = function () {
+  span.parentElement.remove();
+}
+
+/* Lesson 99 (DOM Cloning) */
+  DOM [Cloning]
+  - cloneNode(Deep)
+
+let myP = document.querySelector("p").cloneNode(true); // False is Default to not take elements and text
+let myDiv = document.querySelector("div");
+myP.id = `${myP.id}-clone`;
+myDiv.appendChild(myP);
+
+/* Lesson 100 - 101 (AddEventListener) */
+  DOM [Add Event Listener]
+  - addEventListener
+  - Use Without On
+  - Attach Multiple Events
+  - Error Test
+
+  Search
+  - Capture & Bubbling JavaScript
+  - removeEventListener
+
+let myP = document.querySelector("p");
+// myP.onclick = one;
+// myP.onclick = two; // The second function will overwrite on first function So we use addEL to do two function in the same time.
+// function one() {
+//   console.log("Message From OnClick 1");
+// }
+// function two() {
+//   console.log("Message From OnClick 2");
+// }
+
+// myP.addEventListener("click", function () {
+//   console.log("Message From OnClick 1 Event");
+// });
+// myP.addEventListener("click", one);
+// myP.addEventListener("click", two);
+// myP.addEventListener("click", "String"); // Error , Because "String" is not typof object
+
+myP.onclick = function () {
+  let newP = myP.cloneNode(true);
+  newP.className = "clone";
+  document.body.appendChild(newP);
+};
+
+// let cloned = document.querySelector(".clone"); // Error
+
+// cloned.onclick = function () {
+//   console.log("Iam Cloned"); // Not working because the element is not exist in the page
+// };
+
+document.addEventListener("click", function (e) { // the best thing that we use addEventListener to do a function to the element is not exist
+  if (e.target.className === "clone") {
+    console.log("Iam Cloned");
+  }
+});
+px
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Lesson 102 - 103 (What Is BOM?) , (Alert, Confirm, Prompt) */
+BOM --> Browser Object Model
+- document , console , alert , ... : are members in window object
+In these lessons we will learn about Browser and his methods (about window)
+ - alert("Hello JS") = window.alert("Hello JS")
+ - Example of Confirm:
+   let ConfirmMsg = Confirm("Are you sure ?")
+   if(ConfirmMsg === true) {console.log("You clicked ok")} else{console.log("you clicked false")}
+ - Example of prompt:
+  let msg = prompt("Enter Name: " , "Full name" --> Value[opt] )
+  console.log(`Hello ${msg}`)
+
+/* Lesson 104 (setTimeout and clearTimeout) */
+setTimeout(functionName , time with ms , argument[if function has Parameters]) --> do a function after ms you set it
+clearTimeout(Name of vairable of setTimeout)
+ Example:
+ function sayMsg(user , age){
+  console.log(`Hello ${user} your age is: ${age}`)
+ }
+ let counter = setTimeout(sayMsg , 2000 , "Fady" , 16) // after 2s console will show a msg of function you set it
+- You can clearTimeout with: clearTimeout(counter)
+
+Note: Tap in Visual studio code will create a space and Shift Tap will delete space.
+
+/* Lesson 105 (setInterval and clearInterval) */
+- setInterval(function , ms) --> do a function every ms you set it
+Example: 
+let div = document.createElement("div");
+let body = document.body;
+div.innerHTML = 10;
+body.appendChild(div);
+function countDown() {
+  div.innerHTML -= 1;
+  if (div.innerHTML === "0") {
+    clearInterval(counter);
+  }
+}
+let counter = setInterval(countDown, 1000);
+
+/* Lesson 106 (Window Location Object) */
+/*
+  BOM [Browser Object Model]
+  - location Object
+  --- href Get / Set [URL || Hash || File || Mail]
+  --- host
+  --- hash
+  --- protocol
+  --- reload()
+  --- replace()
+  --- assign()
+*/
+location = window.location
+console.log(location);
+console.log(location.href);
+
+// location.href = "https://google.com";
+// location.href = "/#sec02";
+// location.href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript#reference";
+
+// console.log(location.host); // host name with port(5500)
+// console.log(location.hostname); // host name without port
+
+// console.log(location.protocol); // http or // https 
+
+// console.log(location.hash); // it may a div for example.
+location.replace(url) // replace current url with another url and it removes the url page in history
+location.assign(url) // replace current url with another url and it saves the url page in history
+
+/* Lesson 107 (Window Open And Close) */
+/*
+  BOM [Browser Object Model]
+  - open(URL [Opt], Window Name Or Target Attr [Opt], Win Features [Opt], History Replace [Opt])
+  - close()
+  - Window Features
+  --- left [Num]
+  --- top [Num]
+  --- width [Num]
+  --- height [Num]
+  --- menubar [yes || no]
+  Search
+  - Window.Open Window Features
+*/
+setTimeout(function () {
+  window.open("", "_self", "", false);
+}, 2000);
+setTimeout(function () {
+  window.open("https://google.com", "_blank", "width=400,height=400,left=200,top=10");
+}, 2000);
+
+/* Lesson 108 (Window History Object) */
+/*
+  BOM [Browser Object Model]
+  - History API
+  --- Properties
+  ------ length
+  --- Methods
+  ------ back()
+  ------ forward()
+  ------ go(Delta) => Position In History
+  Search [For Advanced Knowledge]
+  - pushState() + replaceState()
+*/
+console.log(history);
+
+/* Lesson 109 (Scroll, ScrollTo, ScrollBy, Focus, Print, Stop) */
+/*
+  BOM [Browser Object Model]
+  - stop()
+  - print()
+  - focus() --> another window
+  - scrollTo(x, y || Options) // move to (x , y)
+  - scroll(x, y || Options) // not support safari from apple
+  - scrollBy(x, y || Options) // add move x , y
+*/
+// let myNewWindow = window.open("https://google.com", "", "width=500,height=500");
+// window.scrollTo({
+//   left: 500,
+//   top: 200,
+//   behavior: "smooth"
+// });
+
+Note1: you can set a style in console then you will copy it in css file.
+Note2: if you set any div or button use bottom: 20px and Position: fixed and right:20px
+
+/* Lesson 110 (Scroll To Top Using Y Practice) */
+/*
+  BOM [Browser Object Model]
+  - Practice => Scroll To Top
+  - scrollX [Alias => PageXOffset]
+  - scrollY [Alias => PageYOffset]
+*/
+
+// console.log(window.scrollX === window.pageXOffset); // true
+let btn = document.querySelector("button");
+
+window.onscroll = function () {
+  if (window.scrollY >= 600) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+Note1: You can know scrollY value by ${window.scrollY}
+Note2: Scroll Y is famous than scroll X 
+btn.onclick = function () {
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+/* Lesson 111 - 114 (Local Storage) , (practice) , (sessionStorage) */
+/*
+  BOM [Browser Object Model]
+  Local Storage
+  - setItem (key: 'string' , value)
+  - getItem (key)
+  - removeItem (key)
+  - clear 
+  - key (index of items 'Number)
+
+  Info
+  - No Expiration Time
+  - HTTP And HTTPS
+  - Private Tab
+*/
+
+Note: Typeof localStorage is object so you can use it as object 
+for example:
+localStorage.fontSize = "10px"
+localStorage["color"] = "#F00"
+
+// Set
+window.localStorage.setItem("color", "#F00");
+window.localStorage.fontWeight = "bold";
+window.localStorage["fontSize"] = "20px";
+
+// Get
+console.log(window.localStorage.getItem("color"));
+console.log(window.localStorage.color);
+console.log(window.localStorage["color"]);
+
+// Remove One
+// window.localStorage.removeItem("color");
+
+// Remove All
+// window.localStorage.clear();
+
+// Get Key
+console.log(window.localStorage.key(0));
+
+// Set Color In Page
+document.body.style.backgroundColor = window.localStorage.getItem("color");
+
+console.log(window.localStorage);
+console.log(typeof window.localStorage);
+- sessionStorage like localStorage but sessionStorage save data for time you visit the sites
+
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+/* Lesson 115 (Destructuring Arrays Part 1) */
+  Destructuring
+  " is a JavaScript expression that allows us to extract data from arrays,
+    objects, and maps and set them into new, distinct variables. "
+  - Destructuring Array
+
+let a = 1;
+let b = 2;
+let c = 3;
+let d = 4;
+let myFriends = ["Ahmed", "Sayed", "Ali", "Maysa"];
+[a = "A", b, c, d, e = "Osama"] = myFriends;
+
+console.log(a); // Ahmed
+console.log(b); // Sayed
+console.log(c); // Ali
+console.log(d); // Maysa
+console.log(e); // Osama
+
+// console.log(myFriends[4]);
+let [, y, , z] = myFriends;
+console.log(y); // Sayed
+console.log(z); // Maysa
+
+/* Lesson 116 (Destructuring Arrays Part 2) */
+let myFriends = ["Fady", "Jerom", "Abanoub", ["Leo", "Hend", ["Emad", "Gero"]]];
+let [, , , [a, , [, b]]] = myFriends;
+console.log(a); // Leo
+console.log(b); // Gero
+
+/* Lesson 117 (Destructuring Arrays Part 3) */
+- Old swaping:
+ let book = "Video";
+ let video = "Book"
+ let stash = book;
+ book = video;
+ video = stash;
+ console.log(book) // Book
+ console.log(video) // Video
+
+- New swaping:
+ [book , video] = [video , book]
+ console.log(book) // Book
+ console.log(video) // Video
+
+/* Lesson 118 - 119 (Destructuring Object Part 1) , (Destructuring Object Part 2) */
+let user = Object.create({
+  theName: "Fady",
+  theAge: 15,
+});
+let { theName, theAge } = user;
+- Now you can use theName value without writing user.theName
+
+Part 2:
+- You can set a name for a prob of object after Destructuring and also can set Default value
+Example:
+let user = Object.create({
+  theName: "Fady",
+  theAge: 15,
+  skills: {
+    html: 20,
+    javascript: 118,
+  },
+});
+let {
+  theName: n,
+  theAge: age,
+  skills: { javascript: js },
+  theColor: co = "Red",
+} = user;
+console.log(
+  `Name: ${n} \n Age: ${age} \n skills progress: ${
+    js + user.skills.html
+  } \n color: ${co}`
+);
+
+/* Lesson 120 (Destructuring Function Parameters) */
+const user = {
+  theName: "Osama",
+  theAge: 39,
+  skills: {
+    html: 70,
+    css: 80,
+  },
+};
+showDetails(user);
+// function showDetails(obj) {
+//   console.log(`Your Name Is ${obj.theName}`);
+//   console.log(`Your Age Is ${obj.theAge}`);
+//   console.log(`Your CSS Skill Progress Is ${obj.skills.css}`);
+// }
+function showDetails({ theName: n, theAge: a, skills: { css: c } } = user) {
+  console.log(`Your Name Is ${n}`);
+  console.log(`Your Age Is ${a}`);
+  console.log(`Your CSS Skill Progress Is ${c}`);
+}
+
+/* Lesson 121 - 122 (Destructuring Mixed Content) */
+const user = {
+  theName: "Osama",
+  theAge: 39,
+  skills: ["HTML", "CSS", "JavaScript"],
+  addresses: {
+    egypt: "Cairo",
+    ksa: "Riyadh",
+  },
+};
+const {
+  theName: n,
+  theAge: a,
+  skills: [, , three],
+  addresses: { egypt: e },
+} = user;
+console.log(`Your Name Is: ${n}`);
+console.log(`Your Age Is: ${a}`);
+console.log(`Your Last Skill Is: ${three}`);
+console.log(`Your Live In: ${e}`);
+
+// Challenge
+let chosen = 3;
+
+const myFriends = [
+  { title: "Osama", age: 39, available: true, skills: ["HTML", "CSS"] },
+  { title: "Ahmed", age: 25, available: false, skills: ["Python", "Django"] },
+  { title: "Sayed", age: 33, available: true, skills: ["PHP", "Laravel"] },
+];
+
+function showData(ch) {
+  const [
+    {
+      title: tia,
+      age: a,
+      available: av,
+      skills: [, cs],
+    },
+    {
+      title: tia2,
+      age: a2,
+      available: av2,
+      skills: [, Dj],
+    },
+    {
+      title: tia3,
+      age: a3,
+      available: av3,
+      skills: [, la],
+    },
+  ] = myFriends;
+
+  if (ch === 1) {
+    console.log(tia);
+    console.log(a);
+    console.log(av ? `Available` : `Not Available`);
+    console.log(cs);
+  }
+  if (ch === 2) {
+    console.log(tia2);
+    console.log(a2);
+    console.log(av2 ? `Available` : `Not Available`);
+    console.log(Dj);
+  }
+  if (ch === 3) {
+    console.log(tia3);
+    console.log(a3);
+    console.log(av3 ? `Available` : `Not Available`);
+    console.log(la);
+  }
+}
+showData(chosen);
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+
+/* Lesson 123 (Set Data Type And Methods) */
+  - Set Data Type
+  Syntax: new Set(Iterable)
+  -- Object To Store Unique Values
+  -- Cannot Access Elements By Index
+
+  Properties:
+  - size
+
+  Methods:
+  - add
+  - delete
+  - clear
+  - has
+*/
+let myData = [1, 1, 1, 2, 3, "A"];
+// let myUniqueData = new Set([1, 1, 1, 2, 3]);
+// let myUniqueData = new Set(myData);
+// let myUniqueData = new Set().add(1).add(1).add(1).add(2).add(3);
+let myUniqueData = new Set();
+
+myUniqueData.add(1).add(1).add(1);
+myUniqueData.add(2).add(3).add("A");
+console.log(`Is Set Has => A ${myUniqueData.has("a".toUpperCase())}`);
+console.log(myData);
+console.log(myUniqueData);
+
+console.log(myUniqueData.size);
+
+console.log(myData[0]);
+console.log(myUniqueData[0]);
+
+// myUniqueData.delete(2);
+console.log(myUniqueData.delete(2));
+
+console.log(myUniqueData);
+console.log(myUniqueData.size);
+
+myUniqueData.clear();
+
+console.log(myUniqueData);
+console.log(myUniqueData.size);
+
+/* Lesson 124 (Set vs WeakSet And Garbage Collector) */
+/*
+  - Set vs WeakSet
+  "
+    The WeakSet is weak,
+    meaning references to objects in a WeakSet are held weakly.
+    If no other references to an object stored in the WeakSet exist,
+    those objects can be garbage collected.
+  "
+  --
+  Set     => Can Store Any Data Values
+  WeakSet => Collection Of Objects Only
+  --
+  Set     => Have Size Property
+  WeakSet => Does Not Have Size Property
+  --
+  Set     => Have Keys, Values, Entries
+  WeakSet => Does Not Have clear, Keys, Values And Entries
+  --
+  Set     => Can Use forEach
+  WeakSet => Cannot Use forEach
+
+  iterator => new Set([]) --> []
+  Usage: Store objects and removes them once they become inaccessible
+*/
+
+// Type Of Data
+
+let mySet = new Set([1, 1, 1, 2, 3, "A", "A"]);
+
+console.log(mySet);
+
+// Size
+console.log(`Size Of Elements Inside Set Is: ${mySet.size}`);
+
+// Values + Keys [Alias For Values]
+let iterator = mySet.keys();
+
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next());
+
+// forEach
+
+mySet.forEach((el) => console.log(el));
+
+console.log("#".repeat(20));
+
+// Type Of Data
+
+let myws = new WeakSet([{ A: 1, B: 2 }]);
+
+console.log(myws);
+
+/* Lesson 125 (Map Data Type vs Object) */
+  - Map Data Type
+  Syntax: new Map(Iterable With Key/Value)
+  -- Map vs Object
+  --
+  ------ Map => Does Not Contain Key By Default
+  ------ Object => Has Default Keys
+  --
+  ------ Map => Key Can Be Anything [Function, Object, Any Primitive Data Types]
+  ------ Object => String Or Symbol
+  --
+  ------ Map => Ordered By Insertion
+  ------ Object => Not 100% Till Now
+  --
+  ------ Map => Get Items By Size
+  ------ Object => Need To Do Manually
+  --
+  ------ Map => Can Be Directly Iterated
+  ------ Object => Not Directly And Need To Use Object.keys() And So On
+  --
+  ------ Map => Better Performance When Add Or Remove Data
+  ------ Object => Low Performance When Comparing To Map
+
+let myObject = {};
+let myEmptyObject = Object.create(null);
+let myMap = new Map();
+
+console.log(myObject);
+console.log(myEmptyObject);
+console.log(myMap);
+
+let myNewObject = {
+  10: "Number",
+  "10": "String",
+};
+
+console.log(myNewObject[10]);
+
+let myNewMap = new Map();
+myNewMap.set(10, "Number");
+myNewMap.set("10", "String");
+myNewMap.set(true, "Boolean");
+myNewMap.set({a: 1, b: 2}, "Object");
+myNewMap.set(function doSomething() {}, "Function");
+
+console.log(myNewMap.get(10));
+console.log(myNewMap.get("10"));
+
+console.log("####");
+
+console.log(myNewObject);
+console.log(myNewMap);
+
+/* Lesson 126 (Map Methods) */
+  - Map Data Type
+  Methods
+  --- set
+  --- get
+  --- delete
+  --- clear
+  --- has
+
+  Properties
+  --- size
+
+let myMap = new Map([
+  [10, "Number"],
+  ["Name", "String"],
+  [false, "Boolean"],
+]);
+
+// myMap.set(10, "Number");
+// myMap.set("Name", "String");
+
+console.log(myMap);
+
+console.log(myMap.get(10));
+console.log(myMap.get("Name"));
+console.log(myMap.get(false));
+
+console.log("####");
+
+console.log(myMap.has("Name"));
+
+console.log("####");
+
+console.log(myMap.size);
+
+console.log(myMap.delete("Name"));
+
+console.log(myMap.size);
+myMap.clear();
+console.log(myMap.size);
+
+/* Lesson 127 (Map vs WeakMap) */
+  - Map vs WeakMap
+  "
+    WeakMap Allows Garbage Collector To Do Its Task But Not Map.
+  "
+  --
+  Map     => Key Can Be Anything
+  WeakMap => Key Can Be Object Only
+
+let mapUser = { theName: "Elzero" };
+
+let myMap = new Map();
+
+myMap.set(mapUser, "Object Value");
+
+mapUser = null; // Override The Reference
+
+console.log(myMap);
+
+console.log("#".repeat(20));
+
+let wMapUser = { theName: "Elzero" };
+
+let myWeakMap = new WeakMap();
+
+myWeakMap.set(wMapUser, "Object Value");
+
+wMapUser = null; // Override The Reference
+
+console.log(myWeakMap);
+
+/* Lesson 128 (Array.from Method) */
+  Array Methods
+  - Array.from(Iterable, MapFunc, This)
+  --- Variable
+  --- String Numbers
+  --- Set
+  --- Using The Map Function
+  --- Arrow Function
+  --- Shorten The Method + Use arguments
+
+console.log(Array.from("Osama"));
+console.log(
+  Array.from("12345", function (n) {
+    return +n + +n;
+  })
+);
+console.log(Array.from("12345", (n) => +n + +n));
+
+let myArray = [1, 1, 1, 2, 3, 4];
+
+let mySet = new Set(myArray);
+
+console.log(Array.from(mySet));
+
+// console.log([...new Set(myArray)]); // Future
+
+function af() {
+  return Array.from(arguments); // return any arguments you put it in function
+}
+
+console.log(af("Osama", "Ahmed", "sayed", 1, 2, 3));
+
+/* Lesson 129 (Array.copyWithin Method) */
+  Array Methods
+  - Array.copyWithin(Target, Start => Optional, End => Optional)
+  "Copy Part Of An Array To Another Location in The Same Array"
+  -- Any Negative Value Will Count From The End
+  -- Target
+  ---- Index To Copy Part To
+  ---- If At Or Greater Than Array Length Nothing Will Be Copied
+  -- Start
+  ---- Index To Start Copying From
+  ---- If Ommited = Start From Index 0
+  -- End
+  ---- Index To End Copying From
+  ---- Not Including End
+  ---- If Ommited = Reach The End
+
+let myArray = [10, 20, 30, 40, 50, "A", "B"];
+
+// myArray.copyWithin(3); // [10, 20, 30, 10, 20, 30, 40]
+
+// myArray.copyWithin(4, 6); // [10, 20, 30, 40, "B", "A", "B"]
+
+// myArray.copyWithin(4, -1); // [10, 20, 30, 40, "B", "A", "B"]
+
+// myArray.copyWithin(1, -2); // [10, "A", "B", 40, 50, "A", "B"]
+
+myArray.copyWithin(1, -2, -1); // [10, "A", 30, 40, 50, "A", "B"]
+
+console.log(myArray);
+
+/* Lesson 130 (Array.some Method) */
+  Array Methods
+  - Array.some(CallbackFunc(Element, Index, Array), This Argument)
+  --- CallbackFunc => Function To Run On Every Element On The Given Array
+  ------ Element => The Current Element To Process
+  ------ Index => Index Of Current Element
+  ------ Array => The Current Array Working With
+  --- This Argument => Value To Use As This When Executing CallbackFunc
+  --
+  Using
+  - Check if Element Exists In Array
+  - Check If Number In Range
+
+let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let myNumber = 10;
+
+// let check = nums.some(function (e) {
+//   console.log("Test");
+//   return e > 5;
+// });
+
+let check = nums.some(function (e) {
+  return e > this;
+}, myNumber);
+
+// let check = nums.some((e) => e > 5);
+
+console.log(check);
+
+function checkValues(arr, val) {
+  return arr.some(function (e) {
+    return e === val;
+  });
+}
+
+console.log(checkValues(nums, 20));
+console.log(checkValues(nums, 5));
+
+let range = {
+  min: 10,
+  max: 20,
+};
+
+let checkNumberInRange = nums.some(function (e) {
+  // console.log(this.min);
+  // console.log(this.max);
+  return e >= this.min && e <= this.max;
+}, range);
+
+console.log(checkNumberInRange);
+
+/* Lesson 131 (Array.every Method) */
+  Array Methods
+  - Array.every(CallbackFunc(Element, Index, Array), This Argument)
+  --- CallbackFunc => Function To Run On Every Element On The Given Array
+  ------ Element => The Current Element To Process
+  ------ Index => Index Of Current Element
+  ------ Array => The Current Array Working With
+  --- This Argument => Value To Use As This When Executing CallbackFunc
+  --
+
+const locations = {
+  20: "Place 1",
+  30: "Place 2",
+  50: "Place 3",
+  40: "Place 4",
+};
+
+let mainLocation = 15;
+
+let locationsArray = Object.keys(locations);
+
+console.log(locationsArray);
+
+let locationArrayNumbers = locationsArray.map((n) => +n);
+
+console.log(locationArrayNumbers);
+
+let check = locationArrayNumbers.every(function (e) {
+  return e > this;
+}, mainLocation);
+
+console.log(check); // Output: true because every number Greater than 15
+
+/* Lesson 132 - 133 (Spread Operator) , (Challenge) */
+  Spread Operator => ...Iterable
+  "Allow Iterable To Expand In Place"
+
+// Spread With String => Expand String
+
+console.log("Osama");
+console.log(..."Osama");
+console.log([..."Osama"]);
+
+// Concatenate Arrays
+
+let myArray1 = [1, 2, 3];
+let myArray2 = [4, 5, 6];
+
+let allArrays = [...myArray1, ...myArray2];
+console.log(allArrays);
+
+// Copy Array
+
+let copiedArray = [...myArray1];
+console.log(copiedArray);
+
+// Push Inside Array
+
+let allFriends = ["Osama", "Ahmed", "Sayed"];
+let thisYearFriends = ["Sameh", "Mahmoud"];
+
+allFriends.push(...thisYearFriends);
+
+console.log(allFriends);
+
+// Use With Math Object
+
+let myNums = [10, 20, -100, 100, 1000, 500];
+console.log(Math.max(...myNums));
+
+// Spread With Objects => Merge Objects
+
+let objOne = {
+  a: 1,
+  b: 2,
+};
+let objTwo = {
+  c: 3,
+  d: 4,
+};
+
+console.log({ ...objOne, ...objTwo, e: 5 });
+
+Challenge: 
+let n1 = [10, 30, 10, 20];
+let n2 = [30, 20, 10];
+// Output: 210
+console.log([...n1, ...n2].length * new Set([...n1, ...n2]).size * Math.min(...n2));
+
+let map = new Map([
+  [10, "Number"],
+  ["Name", "String"],
+  [true, "Boolean"],
+  [
+    "method",
+    function () {
+      return `Function`;
+    },
+  ],
+  ["condition", `${n ? n : ""}`],
+]);
+map.forEach((li) => {
+  console.log(li);
+});
+
+// Challenge (return in console 100)
+const l = ["1", "1", "2", "2", "3", "3", "4", "4", "5", "5"];
+
+// solution
+console.log(
+  Math.max(...[...new Set(Array.from(l, (e) => +e + +e))]) * l.length
+);
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+/* Lesson 134 (Intro And What Is Regular Expression?) */
+  Regular Expression
+  - Email
+  - IP
+  - Phone
+  - URL
+استثناء لحاجات او ترجع حاجات من النص اللي انت عاوزه
+مثال عملي: اختبار صحة الايمالات
+
+/* Lesson 135 (Regular Expression – Modifiers) */
+  Syntax
+  /pattern/modifier(s);
+  new RegExp("pattern", "modifier(s)")
+
+  Modifiers => Flags
+  i => case-insensitive
+  g => global
+  m => Multilines
+
+  Search Methods
+  - match(Pattern)
+
+ChatGPT:
+دالة match(Pattern) 
+هي دالة موجودة في لغة الجافاسكربت JavaScript،
+ وهي تقوم بإيجاد التطابق بين نص والنمط المحدد في العبارة النمطية (pattern) 
+ ويمكن استخدام هذه الدالة للبحث في سلسلة من النصوص بحثًا عن وجود تطابق مع نمط معين واستخراج البيانات التي تم التطابق عليها.
+ وترجع المطابقة كنتيجة.
+ 
+  Match
+  -- Matches A String Against a Regular Expression Pattern
+  -- Returns An Array With The Matches
+  -- Returns null If No Match Is Found.
+
+let myString = "Hello Elzero Web School I Love elzero";
+
+let regex = /elzero/ig; // g --> global , i الحروف الحساسة (capital and small)
+console.log(myString.match(regex));
+
+/* Lesson 136 (Regular Expression – Ranges Part 1) */
+  Ranges
+  - Part 1
+  (X|Y) => X Or Y
+  [0-9] => 0 To 9
+  [^0-9] => Any Character Not 0 To 9
+
+  - Part 2
+  [a-z]
+  [^a-z]
+  [A-Z]
+  [^A-Z]
+  [abc]
+  [^abc]
+
+
+let tld = "Com Net Org Info Code Io";
+let tldRe = /(info|org|io)/ig;
+console.log(tld.match(tldRe));
+
+let nums = "12345678910";
+let numsRe = /[0-2]/g;
+console.log(nums.match(numsRe));
+
+let notNums = "12345678910";
+let notNsRe = /[^0-2]/g;
+console.log(notNums.match(notNsRe));
+
+let specialNums = "1!2@3#4$5%678910";
+let specialNumsRe = /[^0-9]/g;
+console.log(specialNums.match(specialNumsRe));
+
+let practice = "Os1 Os1Os Os2 Os8 Os8Os";
+let practiceRe = /Os[5-9]Os/g;
+console.log(practice.match(practiceRe));
+
+/* Lesson 137 (Regular Expression – Ranges Part 2) */
+let myString = "AaBbcdefG123!234%^&*";
+let atozSmall = /[a-z]/g;
+let NotAtozSmall = /[^a-z]/g;
+let atozCapital = /[A-Z]/g;
+let NotAtozCapital = /[^A-Z]/g;
+let aAndcAnde = /[ace]/g;
+let NotaAndcAnde = /[^ace]/g;
+let lettersCapsAndSmall = /[a-zA-Z]/g;
+let numsAndSpecials = /[^a-zA-Z]/g;
+let specials = /[^a-zA-Z0-9]/g;
+console.log(myString.match(atozSmall));
+console.log(myString.match(NotAtozSmall));
+console.log(myString.match(atozCapital));
+console.log(myString.match(NotAtozCapital));
+console.log(myString.match(aAndcAnde));
+console.log(myString.match(NotaAndcAnde));
+console.log(myString.match(lettersCapsAndSmall));
+console.log(myString.match(numsAndSpecials));
+console.log(myString.match(specials));
+
+/* Lesson 138 (Regular Expression – Character Classes Part 1) */
+  Character Classes
+  . => matches any character, except newline or other line terminators.
+  \w => matches word characters. [a-z, A-Z, 0-9 And Underscore]
+  \W => matches Non word characters
+  \d => matches digits from 0 to 9.
+  \D => matches non-digit characters.
+  \s => matches whitespace character.
+  \S => matches non whitespace character.
+
+let email = 'O@@@g...com O@g.com O@g.net A@Y.com O-g.com o@s.org 1@1.com';
+let dot = /./g;
+let word = /\w/g;
+let valid = /\w@\w.(com|net)/g;
+console.log(email.match(dot));
+console.log(email.match(word));
+console.log(email.match(valid));
+
+/* Lesson 139 (Regular Expression – Character Classes Part 2) */
+  Character Classes
+  \b => matches at the beginning or end of a word.
+  \B => matches NOT at the beginning/end of a word.
+
+  Test Method
+  pattern.test(input)
+
+let names = "Sayed 1Spam 2Spam 3Spam Spam4 Spam5 Osama Ahmed Aspamo";
+let re = /(\bspam|spam\b)/ig;
+console.log(names.match(re));
+
+console.log(re.test(names));
+console.log(/(\bspam|spam\b)/ig.test("Osama"));
+console.log(/(\bspam|spam\b)/ig.test("1Spam"));
+console.log(/(\bspam|spam\b)/ig.test("Spam1"));
+
+/* Lesson 140 (Regular Expression – Quantifiers Part 1) */
+  Quantifiers
+  n+    => One Or More
+  n*    => zero or more
+  n?    => zero or one
+
+let mails = "o@nn.sa osama@gmail.com elzero@gmail.net osama@mail.ru"; // All Emails
+// let mailsRe = /\w+@\w+.(com|net)/ig;
+let mailsRe = /\w+@\w+.\w+/ig;
+console.log(mails.match(mailsRe));
+
+let nums = "0110 10 150 05120 0560 350 00"; // 0 Numbers Or No 0
+let numsRe = /0\d*0/ig;
+console.log(nums.match(numsRe));
+
+let urls = "https://google.com http://www.website.net web.com web"; // http + https
+let urlsRe = /(https?:\/\/)?(www.)?\w+.\w+/ig;
+console.log(urls.match(urlsRe));
+
+/* Lesson 141 (Regular Expressions - Quantifiers Part 2) */
+  Quantifiers
+  n{x}   => Number of
+  n{x,y} => Range
+  n{x,}  => At Least x
+
+let serials = "S100S S3000S S50000S S950000S";
+
+console.log(serials.match(/s\d{3}s/ig)); // S[Three Number]S
+console.log(serials.match(/s\d{4,5}s/ig)); // S[Four Or Five Number]S
+console.log(serials.match(/s\d{4,}s/ig)); // S[At Least Four]S
+let str2 = "S100S S3000S S50000S S950000S";
+
+cl(str2.match(/s\d{3}s/gi)); // 3 numbers
+cl(str2.match(/s\d{4,5}s/gi)); from 4 to 5
+cl(str2.match(/s\d{4,}s/gi)); at least 4 nums
+
+/* Lesson 142 (Regular Expressions - Quantifiers Part 3) */
+/*
+  Quantifiers
+  $  => End With Something
+  ^  => Start With Something
+  ?= => Followed By Something
+  ?! => Not Followed By Something
+*/
+
+let myString = "We Love Programming";
+let names = "1OsamaZ 2AhmedZ 3Mohammed 4MoustafaZ 5GamalZ";
+
+console.log(/ing$/ig.test(myString));
+console.log(/^we/ig.test(myString));
+console.log(/lz$/ig.test(names));
+console.log(/^\d/ig.test(names));
+
+console.log(names.match(/\d\w{5}(?=Z)/ig));
+console.log(names.match(/\d\w{8}(?!Z)/ig));
+
+/* Lesson 143 (Regular Expression – Replace With Pattern) */
+/*
+  - replace
+  - replaceAll
+*/
+
+let txt = "We Love Programming And @ Because @ Is Amazing";
+console.log(txt.replace("@", "JavaScript"));
+console.log(txt.replaceAll("@", "JavaScript"));
+let re = /@/ig;
+console.log(txt.replaceAll(re, "JavaScript"));
+console.log(txt.replaceAll(/@/ig, "JavaScript"));
+
+let url1 = "elzero.org";
+let url2 = "http://elzero.org";
+let url3 = "https://elzero.org";
+let url4 = "https://www.elzero.org";
+let url5 = "https://www.elzero.org:8080/articles.php?id=100&cat=topics";
+
+let re =
+  /(https?:\/\/)?(www.)?\w+\.\w{2,}(:\d{4}\/\w+\.\w+\?id=\d+&\w+\=\w+)?/gi;
+
+console.log(url1.match(re));
+console.log(url2.match(re));
+console.log(url3.match(re));
+console.log(url4.match(re));
+console.log(url5.match(re));
+
+search value: keys
+
+/* Lesson 144 (Regular Expression – Form Validation) */
+/*
+  Regular Expression
+  - Input Form Validation Practice
+*/
+
+document.getElementById("register").onsubmit = function () {
+  let phoneInput = document.getElementById("phone").value;
+  let phoneRe = /\(\d{4}\)\s\d{3}-\d{4}/; // (1234) 567-8910
+  let validationResult = phoneRe.test(phoneInput);
+  if (validationResult === false) {
+    return false;
+  }
+  return true;
+}
+
+/* Lesson 145 - 146 (Test Your Regx And Discussions) , (Regular Expression Challenge) */
+ - Regexr
+ - RegExTester
+ - RegEx101
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+/* Lesson 147 - 148 (OOP Introduction) , (Constructor Function Introduction) */
+/*
+  Constructor Function
+*/
+
+function User(id, username, salary) {
+  this.i = id;
+  this.u = username;
+  this.s = salary + 1000;
+}
+
+let userOne = new User(100, "Elzero", 5000);
+let userTwo = new User(101, "Hassan", 6000);
+let userThree = new User(102, "Sayed", 7000);
+
+console.log(userOne.i);
+console.log(userOne.u);
+console.log(userOne.s);
+
+console.log(userTwo.i);
+console.log(userTwo.u);
+console.log(userTwo.s);
+
+console.log(userThree.i);
+console.log(userThree.u);
+console.log(userThree.s);
+
+// const userOne = {
+//   id: 100,
+//   username: "Elzero",
+//   salary: 5000,
+// };
+
+// const userTwo = {
+//   id: 101,
+//   username: "Hassan",
+//   salary: 6000,
+// };
+
+// const userThree = {
+//   id: 102,
+//   username: "Sayed",
+//   salary: 7000,
+// };
+
+/* Lesson 149 (Constructor Function New Syntax) */
+/*
+  Constructor Function
+  - New Syntax
+*/
+
+class User {
+  constructor(id, username, salary) {
+    this.i = id;
+    this.u = username;
+    this.s = salary + 1000;
+  }
+}
+
+let userOne = new User(100, "Elzero", 5000);
+
+console.log(userOne.i);
+console.log(userOne.u);
+console.log(userOne.s);
+
+console.log(userOne instanceof User);
+console.log(userOne.constructor === User);
+
+/* Lesson 150 (Deal With Properties And Methods) */
+/*
+  Constructor Function
+  - Deal With Properties And Methods
+*/
+
+class User {
+  constructor(id, username, salary) {
+    // Properties
+    this.i = id;
+    this.u = username || "Unknown";
+    this.s = salary < 6000 ? salary + 500 : salary;
+    this.msg = function () {
+      return `Hello ${this.u} Your Salary Is ${this.s}`;
+    };
+  }
+  // Methods
+  writeMsg() {
+    return `Hello ${this.u} Your Salary Is ${this.s}`;
+  }
+}
+
+let userOne = new User(100, "Elzero", 5000);
+let userTwo = new User(101, "", 6000);
+
+console.log(userOne.u);
+console.log(userOne.s);
+console.log(userOne.msg());
+console.log(userOne.writeMsg());
+
+console.log(userTwo.u);
+console.log(userTwo.s);
+console.log(userTwo.msg); // Native Code
+console.log(userTwo.writeMsg); // Native Code
+
+/* Lesson  151 (Update Properties & Built In Constructors)*/
+  Constructor Function
+  - Update Properties
+  - Built In Constructors
+
+class User {
+  constructor(id, username, salary) {
+    this.i = id;
+    this.u = username;
+    this.s = salary;
+  }
+  updateName(newName) {
+    this.u = newName;
+  }
+}
+
+let userOne = new User(100, "Elzero", 5000);
+
+console.log(userOne.u);
+userOne.updateName("Osama");
+console.log(userOne.u);
+
+let strOne = "Elzero";
+let strTwo = new String("Elzero");
+
+console.log(typeof strOne);
+console.log(typeof strTwo);
+
+console.log(strOne instanceof String); // false
+console.log(strTwo instanceof String); // true
+
+console.log(strOne.constructor === String); // true
+console.log(strTwo.constructor === String); // true
+
+/* Lesson 152 (Class Static Properties And Methods) */
+
+/*
+  Class
+  - Static Properties And Methods
+*/
+
+class User {
+  // Static Property
+  static count = 0;
+
+  constructor(id, username, salary) {
+    this.i = id;
+    this.u = username;
+    this.s = salary;
+    User.count++;
+  }
+
+  // Static Methods
+  static sayHello() {
+    return `Hello From Class`;
+  }
+  static countMembers() {
+    return `${this.count} Members Created`;
+  }
+}
+
+let userOne = new User(100, "Elzero", 5000);
+let userTwo = new User(101, "Ahmed", 5000);
+let userThree = new User(102, "Sayed", 5000);
+
+console.log(userOne.u);
+console.log(userTwo.u);
+console.log(userOne.count);
+console.log(User.count);
+console.log(User.sayHello());
+console.log(User.countMembers());
+
+/* Lesson 153 (Class Inheritance) */
+/*
+  Class
+  - Inheritance
+*/
+
+// Parent Class
+class User {
+  constructor(id, username) {
+    this.i = id;
+    this.u = username;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+}
+
+// Derived Class
+class Admin extends User {
+  constructor(id, username, permissions) {
+    super(id, username);
+    this.p = permissions;
+  }
+}
+
+class Superman extends Admin {
+  constructor(id, username, permissions, ability) {
+    super(id, username, permissions);
+    this.a = ability;
+  }
+}
+
+let userOne = new User(100, "Elzero");
+let adminOne = new Admin(110, "Mahmoud", 1);
+
+console.log(userOne.u);
+console.log(userOne.sayHello());
+console.log("####");
+console.log(adminOne.i);
+console.log(adminOne.u);
+console.log(adminOne.p);
+console.log(adminOne.sayHello());
+
+/* Lesson 154 (Class Encapsulation) */
+/*
+  Encapsulation
+  - Class Fields Are Public By Default
+  - Guards The Data Against Illegal Access.
+  - Helps To Achieve The Target Without Revealing Its Complex Details.
+  - Will Reduce Human Errors.
+  - Make The App More Flexible And Manageable.
+  - Simplifies The App.
+*/
+
+class User {
+  // Private Property
+  #e;
+  constructor(id, username, eSalary) {
+    this.i = id;
+    this.u = username;
+    this.#e = eSalary;
+  }
+  getSalary() {
+    return parseInt(this.#e);
+  }
+}
+
+let userOne = new User(100, "Elzero", "5000 Gneh");
+
+console.log(userOne.u);
+console.log(userOne.getSalary() * 0.3);
+
+/* Lesson 155 (Prototype Introduction) */
+/*
+  Prototype
+  - Prototypes are the mechanism by which JavaScript objects
+    inherit features from one another.
+*/
+
+class User {
+  constructor(id, username) {
+    this.i = id;
+    this.u = username;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+}
+
+let userOne = new User(100, "Elzero");
+console.log(userOne.u);
+
+console.log(User.prototype);
+
+let strOne = "Elzero";
+
+console.log(String.prototype);
+
+/* Lesson 156 (Add To Prototype Chain And Extend Constructors Features) */
+/*
+  Prototype
+  - Add To Prototype Chain
+  - Extend Built In Constructors Features
+*/
+
+class User {
+  constructor(id, username) {
+    this.i = id;
+    this.u = username;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+}
+
+let userOne = new User(100, "Elzero");
+console.log(userOne.u);
+console.log(User.prototype);
+console.log(userOne);
+
+User.prototype.sayWelcome = function () {
+  return `Welcome ${this.u}`;
+};
+
+Object.prototype.love = "Elzero Web School";
+
+String.prototype.addDotBeforeAndAfter = function (val) {
+  return `.${this}.`;
+};
+
+let myString = "Elzero";
+
+/* Lesson 157 (Object Meta Data And Descriptor Part 1) */
+/*
+  Object Meta Data And Descriptor
+  - writable
+  - enumerable
+  - configurable [Cannot Delete Or Reconfigure]
+*/
+
+const myObject = {
+  a: 1,
+  b: 2,
+};
+
+Object.defineProperty(myObject, "c", {
+  writable: false,
+  enumerable: true,
+  configurable: false,
+  value: 3,
+});
+
+// Object.defineProperty(myObject, "c", {
+//   writable: false,
+//   enumerable: true,
+//   configurable: true, <= Cannot redefine property
+//   value: 3,
+// });
+
+myObject.c = 100;
+
+console.log(delete myObject.c);
+
+for (let prop in myObject) {
+  console.log(prop, myObject[prop]);
+}
+
+console.log(myObject);
+
+/* Lesson 158 (Object Meta Data And Descriptor Part 2) */
+/*
+  Object Meta Data And Descriptor
+  - Define Multiple Properties
+  - Check Descriptors
+*/
+
+const myObject = {
+  a: 1,
+  b: 2,
+};
+
+Object.defineProperties(myObject, {
+  c: {
+    configurable: true,
+    value: 3,
+  },
+  d: {
+    configurable: true,
+    value: 4,
+  },
+  e: {
+    configurable: true,
+    value: 5,
+  },
+});
+
+console.log(myObject);
+
+console.log(Object.getOwnPropertyDescriptor(myObject, "d"));
+console.log(Object.getOwnPropertyDescriptors(myObject));
+
+ -*Revision OOP*-
+ class User {
+  #e;
+  static count = 0;
+
+  constructor(id, username, eS) {
+    this.i = id;
+    this.u = username;
+    this.#e = eS;
+    User.count++;
+  }
+  sayHello() {
+    return `Hello ${this.u}`;
+  }
+  static numOfUsers() {
+    return `${this.count} members created`;
+  }
+  getSalary() {
+    return parseInt(this.#e);
+  }
+}
+class Admin extends User {
+  constructor(id, username, salary) {
+    super(id, username);
+    this.s = salary < 6000 ? salary + 500 : salary;
+  }
+}
+Object.prototype.showProp = function () {
+  for (let prop in this) {
+    console.log(prop, this[prop]);
+  }
+};
+let userOne = new User(12, "Fady", "3000 dollar");
+cl(User.numOfUsers());
+cl(userOne.getSalary());
+User.prototype.email = function () {
+  return `Expected email: ${this.u}${this.getSalary()}@gmail.com`;
+};
+String.prototype.addNum = function () {
+  return `${this}-2348`;
+};
+let str = "Fady";
+cl(str.addNum());
+
+let my_Obj = {
+  a: 1,
+  b: 2,
+};
+Object.defineProperties(my_Obj, {
+  c: {
+    configurable: true, // loop
+    writable: true, // edit value
+    enumerable: true, // delete
+    value: 3,
+  },
+  d: {
+    configurable: false, // writable and enumerable are false
+    value: 4,
+  },
+});
+cl(Object.getOwnPropertyDescriptors(my_Obj));
+console.log(delete my_Obj.d); // false
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+/* */ 

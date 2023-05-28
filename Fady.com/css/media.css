@@ -1,0 +1,328 @@
+/* Media (Screen) */
+@media (max-width: 1020px) {
+  .h1WriterDiv {
+    width: 98.7%;
+  }
+}
+@media (max-width: 770px) {
+  .TopicDiv {
+    width: calc((100% - 100px) / 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+  }
+  .menuBar a {
+    display: none;
+  }
+
+  .mobileP {
+    display: inline-block;
+    padding-right: 20px;
+    color: rgb(236, 236, 236);
+  }
+
+  .mobileP:hover {
+    color: rgb(236, 236, 236);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 180px;
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 20px;
+    animation: slidein 0.4s forwards;
+    background-color: rgba(67, 67, 67, 0.9);
+  }
+
+  nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+  /* fade-in */
+  nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 0.46em;
+  }
+  .icon {
+    font-size: 3em;
+    padding-left: 10px;
+  }
+  h1 {
+    font-size: 1.7em;
+  }
+  h3 {
+    font-size: 0.9em;
+  }
+  .menuLogo {
+    font-size: 1.4em;
+  }
+  .menuBar a {
+    font-size: 1em;
+  }
+  .container {
+    margin: 0 auto;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  textarea {
+    width: 94%;
+  }
+  .h1WriterDiv {
+    width: 98%;
+  }
+  .img2 {
+    width: 100px;
+    height: 100px;
+  }
+  .flexRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flexLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tyWid {
+    width: 300px;
+    height: 200px;
+  }
+
+  .containur {
+    padding-left: 53px;
+  }
+  #topicSchoolDiv {
+    padding: 10px 40px;
+  }
+  .f-size18px {
+    font-size: 15px;
+  }
+  .f-size22px {
+    font-size: 19px;
+  }
+  .borR2px {
+    font-size: 17px;
+  }
+
+  .underline {
+    font-size: 20px;
+    background-color: #00306e;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+  }
+  .underline2 {
+    background-color: #1a61be;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+  }
+  .view input[type="text"] {
+    font-size: 1rem;
+  }
+  .ytImg {
+    width: 200px;
+    height: 200px;
+  }
+  .flex {
+    display: block !important;
+  }
+  .inFl {
+    display: block !important;
+  }
+  .inBl {
+    display: block !important;
+  }
+  /* shape */
+}
+
+@media (max-width: 576px) {
+  .row {
+    display: block;
+  }
+  .menuBar a {
+    display: none;
+  }
+
+  .mobileP {
+    display: inline-block;
+    padding-right: 20px;
+    color: rgb(236, 236, 236);
+  }
+
+  .mobileP:hover {
+    color: rgb(236, 236, 236);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 180px;
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: rgba(67, 67, 67, 0.9);
+  }
+
+  nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+  /* fade-in */
+  nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 0.46em;
+  }
+  input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .signDiv input[type="text"] {
+    font-size: 1.1rem;
+  }
+
+  .signDiv input[type="password"] {
+    font-size: 1.1rem;
+  }
+
+  .signDiv {
+    padding: 15px;
+  }
+
+  #createTxt {
+    font-size: 1.5rem;
+  }
+
+  input[type="password"] {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .passInputNoteP input {
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    width: 90%;
+  }
+
+  .h1WriterDiv {
+    width: 96%;
+  }
+  .img2 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .flexRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  .flexLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  .tyWid {
+    width: 300px;
+    height: 200px;
+  }
+
+  .containur {
+    padding-left: 53px;
+  }
+
+  .videoScDiv1 {
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    width: 35vh;
+    padding: 20px;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .videoScDiv1 img {
+    width: 35vh;
+    border-radius: 10px;
+  }
+  .chevron {
+    display: none;
+  }
+  #topicSchoolDiv {
+    padding: 10px 25px;
+  }
+  .f-size18px {
+    font-size: 13px;
+  }
+  .f-size22px {
+    font-size: 17px;
+  }
+  .borR2px {
+    font-size: 16px;
+  }
+
+  .underline {
+    font-size: 20px;
+    background-color: #00306e;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+  }
+  .underline2 {
+    background-color: #1a61be;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+  }
+  .toolbar a {
+    font-size: 11px !important;
+  }
+  .toolbar {
+    padding: 2px;
+  }
+  .shapeDiv {
+    background-attachment: initial;
+  }
+  /* .shD2 {
+    padding: 100px 0 10px 10px;
+  } */
+}
