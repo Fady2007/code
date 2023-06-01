@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="quizDesign.css">
+    <link rel="icon" type="image/png" href="../Fady.com/img/logo.PNG">
+    <link rel="stylesheet" href="../Fady.com/css/basics.css">
+</head>
+
+<body>
+
+    <div class="quiz-app">
+        <h1 class="cen bg-Green pd10p">Choose Your Quiz</h1>
+        <center>
+            <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p">
+                <div class="bg-blu">
+                    <i class="fa-brands fa-html5 bigIcon co-w"></i>
+                </div>
+                <div class="pd20p pointer bg-d8">
+                    <h2 class="cen co-43">HTML Quiz</h2>
+                    <p class="bold co-43">Random Questions</p>
+                </div>
+            </div>
+
+            <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p">
+                <div class="bg-blu">
+                    <i class="fa-solid fa-language bigIcon co-w"></i>
+                </div>
+                <div class="pd20p bg-d8 pointer">
+                    <h2 class="cen co-43">Grammer Quiz</h2>
+                    <p class="bold co-43">Random Questions</p>
+                </div>
+            </div>
+        </center>
+    </div>
+
+
+
+    <!-- QUiz app -->
+    <div class="quiz-app hidden">
+        <div class="countdown">00:30</div>
+        <div class="quiz-info">
+            <div class="category">Category: <span>HTML</span></div>
+            <div class="count">Question count: <span></span></div>
+        </div>
+        <div class="quiz-area"></div>
+        <div class="answers-area"></div>
+        <button class="submit-button">Submit answer</button>
+        <div class="bullets">
+            <div class="spans"></div>
+        </div>
+
+        <div class="results"></div>
+    </div>
+
+    <script src="quizScript.js"></script>
+    <script src="../Fady.com/js/all.js"></script>
+
+</body>
+
+</html>
