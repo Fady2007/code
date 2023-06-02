@@ -8,26 +8,59 @@ let answersArea = document.querySelector(".answers-area");
 let submitBtn = document.querySelector(".submit-button");
 let resultsDiv = document.querySelector(".results");
 let countDownDiv = document.querySelector(".countdown");
-let coQ = document.querySelector("coQ");
-
+let category = document.querySelector(".quiz-info .category span");
+let cenApp = document.querySelector("#centerApp");
+let clockBtn = document.querySelectorAll(".clock-button");
 // set options
 let currentIndex = 0;
 let rightAnswerScore = 0;
 let countDownInterval;
 let duration = 30;
 let jF;
-let dataTxt = ["html_questions.json", "grammer.json"];
+let dataTxt = {
+  quizInfo_0: {
+    jsonFile: "html_questions.json",
+    category: "HTML",
+  },
+  quizInfo_1: {
+    jsonFile: "grammar.json",
+    category: "Grammar",
+  },
+};
+
+// choose Timer
+clockBtn.forEach((e) => {
+  e.onclick = function (ev) {
+    clockBtn.forEach((el) => {
+      el.style.background = "#f1f1f1";
+      el.style.color = "#333";
+    });
+
+    ev.currentTarget.style.background = "#3e2aff";
+    ev.currentTarget.style.color = "white";
+
+    if (ev.currentTarget.innerText === " No Timer") {
+      clearInterval(countDownInterval);
+      countDownDiv.classList.add("hidden");
+    } else {
+      duration = ev.currentTarget.innerText;
+      countDownDiv.classList.remove("hidden");
+    }
+  };
+});
 
 // chosen quiz
 chooseQ.forEach((e, i) => {
   e.addEventListener("click", () => {
-    jF = dataTxt[i];
+    jF = dataTxt[`quizInfo_${i}`].jsonFile;
+    category.innerHTML = dataTxt[`quizInfo_${i}`].category;
     getQuestions(jF);
     quizApp[1].classList.remove("hidden");
     quizApp[0].classList.add("hidden");
   });
 });
 
+// get file
 async function getQuestions(jsonFile) {
   let jsonData = await fetch(jsonFile);
   let jsonDataObj = await jsonData.json();
@@ -91,6 +124,10 @@ function shuffleArray(array) {
     array[randomIndex] = temporaryValue;
   }
   return array;
+}
+
+function selectCategory(obj) {
+  console.log(obj[0]["category"]);
 }
 
 function createBullets(num) {
