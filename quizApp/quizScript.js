@@ -41,7 +41,6 @@ clockBtn.forEach((e) => {
 
     ev.currentTarget.style.background = "#3e2aff";
     ev.currentTarget.style.color = "white";
-    clockBtn[1].remove()
 
     if (ev.currentTarget.innerText === " No Timer") {
       clearInterval(countDownInterval);
