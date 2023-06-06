@@ -1,0 +1,420 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Tahoma, Arial;
+  background-color: #373b4b;
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Scroll bar styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #939096; /* #888 #0050c7*/
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #858282; /* #555 #003f9c*/
+}
+:root {
+  --main-color: #131c42;
+}
+
+/* btns */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  margin-top: 16px;
+  background-color: #131c42;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #006eff;
+}
+
+.button:hover {
+  background-color: #006eff;
+}
+.input-field {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+  outline: none;
+  background-color: var(--main-color);
+  color: #4696ff;
+  font-size: 18px;
+}
+.input-field:focus {
+  border-color: #006eff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+.toggle {
+  padding: 20px;
+  cursor: pointer;
+}
+nav {
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  transform: translateY(-100%);
+}
+nav.open {
+  transform: translateY(0);
+}
+nav .close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: white;
+  border: 2px solid white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+nav .close:hover {
+  color: indianred;
+  border-color: indianred;
+}
+nav div {
+  text-decoration: none;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 80px;
+  transition: 0.5s;
+  width: auto;
+  margin: 20px auto;
+  padding: 15px;
+  background: #e0e0e0;
+  color: #333;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* 
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+ */
+
+.quiz-app {
+  width: 820px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #131c42;
+  color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.quiz-app .quiz-info {
+  background: #f8f8f8;
+  color: #333;
+  padding: 20px;
+  display: flex;
+}
+.quiz-app .quiz-info .category {
+  flex: 1;
+}
+.quiz-app .quiz-info .count {
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+  color: rgb(38, 34, 255);
+}
+.quiz-app .passages {
+  font-size: 18px;
+  padding: 15px;
+  background: #040f9c;
+  margin: 10px 0 10px 0;
+  box-shadow: 0px 0px 3px 0px rgb(219, 219, 219);
+  animation: fade-in 0.3s ease;
+}
+.quiz-app .passages div {
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: 600;
+}
+.quiz-app .quiz-area {
+  background: #516bfa;
+  color: white;
+  margin-top: 15px;
+  padding: 20px;
+}
+.quiz-app .quiz-area h2 {
+  margin: 0;
+}
+.quiz-app .answers-area {
+  background: #38528a;
+  color: #333;
+  padding: 20px;
+}
+.quiz-app .answers-area .answer {
+  padding: 15px;
+  background-color: #2c395c;
+  display: flex;
+  align-items: center;
+}
+.quiz-app .answers-area .answer {
+  border: 1px dashed #09164e;
+}
+.quiz-app .answers-area .answer input[type="Radio"] {
+  width: 30px;
+  height: 30px;
+}
+.quiz-app .answers-area .answer input[type="Radio"]:checked + label {
+  color: #0075ff;
+}
+.quiz-app .answers-area .answer label {
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  margin-left: 5px;
+  position: relative;
+  top: -1px;
+}
+.quiz-app .answers-area .answer label:hover {
+  transition: 0.3s;
+  color: #0075ff;
+}
+.quiz-app .submit-button {
+  width: 49%;
+  align-items: center;
+  display: inline-block;
+  font-size: 16px;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 30px;
+  background-color: #3451d1;
+}
+.quiz-app .submit-button:disabled {
+  cursor: not-allowed;
+  background-color: #38528a;
+}
+.quiz-app .submit-button:hover {
+  background-color: #19319e;
+}
+.quiz-app .bullets {
+  padding: 20px;
+  display: flex;
+  background: #f1f4ff;
+  margin-top: 10px;
+  color: #333;
+  overflow-y: auto;
+}
+.quiz-app .bullets .spans {
+  flex: 1;
+  display: flex;
+}
+.quiz-app .bullets .spans span {
+  width: 20px;
+  height: 20px;
+  background-color: #cecece;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+.quiz-app .bullets .spans span.on {
+  background-color: #006eff;
+  transition: 0.2s;
+}
+
+.quiz-app .countdown {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+  font-size: 26px;
+  border: 2px dashed #0075ff;
+  font-family: monospace;
+  background-color: #212142;
+}
+.quiz-app .results {
+  margin-top: 20px;
+  padding: 4px;
+  background-color: #131c42;
+}
+.quiz-app .results p {
+  font-weight: bold;
+  font-size: 22px;
+  padding: 8px;
+  text-align: center;
+  background-color: #26264e;
+  font-family: monospace;
+  border: 1px solid #aa75ff;
+}
+.quiz-app .results span {
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  padding: 8px;
+  display: block;
+}
+.quiz-app .results span.bad {
+  color: red;
+  border: 2px dashed red;
+}
+.quiz-app .results span.good {
+  color: #009688;
+  border: 2px dashed #009688;
+}
+.quiz-app .results span.perfect {
+  color: #0075ff;
+  border: 2px dashed #0075ff;
+}
+.quiz-app .rightAnswers {
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+.quiz-app .rightAnswers h2 {
+  text-align: center;
+  padding: 10px;
+  background-color: #212142;
+  box-shadow: 1px 1px 10px 2px rgb(1, 170, 119);
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.quiz-app .rightAnswers .rightADiv {
+  font-weight: 600;
+  font-size: 18px;
+  background-color: #212142;
+  border-radius: 0px;
+  border: 1px solid #3451d1;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 4px 0px rgb(219, 219, 219);
+}
+.quiz-app .rightAnswers .rightADiv .quiz-app .chosenAns {
+  padding: 10px;
+}
+.quiz-app .chosenAns h2 {
+  text-align: center;
+  padding: 10px;
+  background-color: #212142;
+  box-shadow: 1px 1px 10px 2px rgb(0, 98, 163);
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.quiz-app .chosenAns div {
+  padding: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  display: inline-block;
+  width: 50%;
+  background-color: #212142;
+  border-radius: 0px;
+  border: 1px solid #dddddd;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 836px) {
+  .quiz-app {
+    width: auto;
+    margin: 10px auto;
+    padding: 10px;
+    background: #131c42;
+    color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+@media (max-width: 770px) {
+  .quiz-app .chosenAns div {
+    display: flex;
+    width: auto;
+  }
+}
