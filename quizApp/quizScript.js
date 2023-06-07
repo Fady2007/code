@@ -112,6 +112,7 @@ async function getQuestions(jsonFile) {
 
       // show results
       showResult(qCount);
+      selectedAnswers[currentIndex] = theChosenAns;
     };
 
     backBtn.onclick = () => {
@@ -228,15 +229,14 @@ function addQuestionData(obj, count) {
 
 let theChosenAns;
 
-let answerFound = false;
 function checkAnswer(rAnswer, count) {
   console.log("###");
   console.log(theChosenAns);
   console.log("###");
+  let answerFound = false;
   for (let i = 0; i < answers.length; i++) {
     if (answers[i].checked) {
       theChosenAns = answers[i].dataset.answer;
-      selectedAnswers[currentIndex] = theChosenAns;
       answerFound = true;
     }
   }
