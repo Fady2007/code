@@ -56,8 +56,9 @@ clockBtn.forEach((e) => {
 
     if (ev.currentTarget.innerText === " No Timer") {
       countDownDiv.remove()
+    } else {
       duration = ev.currentTarget.innerText;
-      countDownDiv.classList.remove("hidden");
+      quizApp[1].prepend(countDownDiv)  
     }
   };
 });
