@@ -1,5 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa&family=Katibeh&family=Noto+Sans+Arabic&display=swap");
 
+/*
+  Flexible Box
+  For Parent
+  - display: flex => To Start Flexible Box
+  - flex-direction: row => Default Value
+  - flex-wrap: nowrap => Default Value
+  - flex-flow: [Flex-Direction] + [Flex-Wrap]
+  - justify-content: flex-start => Default Value
+  - align-items: stretch => Default Value
+  - align-content: stretch => Default Value
+  For Child
+  - flex-grow: 0 => Default Value
+  - flex-shrink: 1 => Default Value
+  - order: 0 => Default Value
+  - flex-basis: auto => Default Value
+  - flex: [Flex Grow] [Flex Shrink] [Flex Basis] 0 1 Auto
+*/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.flex {
+  background-color: #eee;
+  width: 800px;
+  padding: 20px;
+  margin: 20px auto;
+  display: inline-flex;
+}
+.flex div {
+  background-color: #f00;
+  color: white;
+  width: 80px;
+  text-align: center;
+  padding: 20px;
+  margin-right: 5px;
+  flex-grow: 1;
+}
+.in {
+  display: inline-block;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -356,4 +398,36 @@ html {
 
 .clock-button:hover {
   background-color: #3e2aff;
+}
+
+.modal{
+  background-color: rgba(0, 0, 0, 0.479);
+  color: white;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  transition: 0.4s ease-in;
+  display: none;
+}
+.modal .alert{
+  margin: 20px auto;
+  padding: 20px;
+  width: calc(100% / 3);
+  background-color: #eee;
+  box-shadow: 0 0 6px 6px #ababab;
+  border-radius: 6px;
+}
+.modal .alert h1{
+  text-align: center;
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 24px;
+}
+.modal .alert p{
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 20px;
 }
