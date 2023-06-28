@@ -1,0 +1,41 @@
+@media (max-width: 900px) {
+  .header .nav {
+    display: none;
+  }
+  .header {
+    justify-content: space-between;
+  }
+  .header .fa-bars {
+    display: block;
+    margin-right: 20px;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 800px) {
+  .product {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact {
+    width: 90% !important;
+  }
+  #contInp {
+    width: 80% !important;
+  }
+  .subE {
+    width: 80% !important;
+  }
+}
+
+@media (max-width: 690px) {
+  .inp {
+    display: none;
+  }
+  .header2 button {
+    display: none;
+  }
+  .main .left-con {
+    width: 200px;
+  }
+}
