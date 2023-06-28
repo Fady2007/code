@@ -60,13 +60,15 @@ comForm.addEventListener("submit", async (e) => {
 
   let comFormInps = comForm.querySelectorAll("input");
   comDiv.innerHTML += `
-  <div class="user-icon">
-  <i class="fa-regular fa-circle-user user-icon"></i>
-  </div>
-  <div class="comment-content">
-        <div class="username">${comFormInps[0].value}</div>
-        <p>${comFormInps[1].value}</p>
+  <div class="commentData">
+      <div class="user-icon">
+        <i class="fa-regular fa-circle-user user-icon"></i>
       </div>
+    <div class="comment-content">
+          <div class="username">${comFormInps[0].value}</div>
+          <p>${comFormInps[1].value}</p>
+        </div>
+    </div>
 `;
 
   let submision = {};
@@ -106,11 +108,3 @@ async function fetchData() {
 }
 
 fetchData();
-
-const obj = { a: 1, b: 2, c: 3 };
-
-for (let key in obj) {
-  if (obj.hasOwnProperty(key)) {
-    console.log(obj[key]);
-  }
-}
