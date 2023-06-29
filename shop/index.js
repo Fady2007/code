@@ -49,6 +49,7 @@ form.addEventListener("submit", async (e) => {
   const { data, error } = await supabase.from("us").insert([submision]);
 });
 
+// comment script
 let comDiv = document.querySelector(".commentDiv");
 const comForm = document.querySelector("#commentForm");
 let userNameCom;
@@ -59,16 +60,21 @@ let minutes;
 let formattedTime;
 let dateTime;
 let commentC;
+let commentIdN;
 let realTime = new Date();
 let realDate = `${realTime.getMonth() + 1} / ${realTime.getDate()}`;
 let lastDate = `${realTime.getMonth() + 1} / ${realTime.getDate() - 1}`;
 
+// on submit
 comForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   comTime = new Date();
   hours = comTime.getHours() - 12;
-  minutes = comTime.getMinutes();
+  minutes =
+    comTime.getMinutes() < 10
+      ? `0${comTime.getMinutes()}`
+      : comTime.getMinutes();
   date = `${comTime.getMonth() + 1} / ${comTime.getDate()}`;
 
   formattedTime = { time: `${hours + ":" + minutes}` };
@@ -85,8 +91,27 @@ comForm.addEventListener("submit", async (e) => {
           <p>${comFormInps[1].value}</p>
           <p class="time"><i class="fa-regular fa-clock"></i> Today at ${formattedTime.time}</p>
         </div>
+        <button class="btn btn-danger" id="del">
+        <i class="fa fa-trash"></i> 
+        Delete Comment
+        </button>
     </div>
 `;
+
+  let delBtn = document.querySelector("#del");
+  if (delBtn) {
+    delBtn.addEventListener("click", async () => {
+      setTimeout(() => {
+        location.reload();
+        location.hash = "#comDivId";
+      }, 1000);
+      const { data, error } = await supabase
+        .from("comment")
+        .delete()
+        .eq("id", localStorage.getItem("commentIdL"))
+        .single();
+    });
+  }
 
   let submision = {};
   let allSubmision;
@@ -103,14 +128,18 @@ comForm.addEventListener("submit", async (e) => {
 
   dataCom = (await supabase.from("comment").select("*")).data;
 
+  localStorage.setItem("commentIdL", dataCom[dataCom.length - 1].id);
+
   comFormInps.forEach((e) => (e.value = ""));
 });
 
+// on visit or refresh
 async function fetchData() {
   dataCom = (await supabase.from("comment").select("*")).data;
   for (let obj of dataCom) {
     userNameCom = obj.username;
     commentC = obj.comment;
+    commentIdN = localStorage.getItem("commentId");
     comDiv.style.flexDirection = "column";
     if (obj.commentDate === realDate) {
       obj.commentDate = "Today";
@@ -135,6 +164,31 @@ async function fetchData() {
         </div>
     </div>
   `;
+    if (localStorage.getItem("commentIdL")) {
+      if (obj.id == localStorage.getItem("commentIdL")) {
+        comDiv.innerHTML += `
+        <button class="btn btn-danger" id="del">
+        <i class="fa fa-trash"></i> 
+        Delete Comment
+        </button>
+        `;
+      }
+    }
+  }
+
+  let delBtn = document.querySelector("#del");
+  if (delBtn) {
+    delBtn.addEventListener("click", async () => {
+      setTimeout(() => {
+        location.reload();
+        location.hash = "#comDivId";
+      }, 1000);
+      const { data, error } = await supabase
+        .from("comment")
+        .delete()
+        .eq("id", localStorage.getItem("commentIdL"))
+        .single();
+    });
   }
 }
 
