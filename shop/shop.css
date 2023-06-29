@@ -351,6 +351,11 @@ body {
   background-color: #fff;
 }
 
+.time {
+  color: #555;
+  font-size: 13px;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
