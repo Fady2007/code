@@ -53,10 +53,26 @@ let comDiv = document.querySelector(".commentDiv");
 const comForm = document.querySelector("#commentForm");
 let userNameCom;
 let dataCom;
+let comTime;
+let hours;
+let minutes;
+let formattedTime;
+let dateTime;
 let commentC;
+let realTime = new Date();
+let realDate = `${realTime.getMonth() + 1} / ${realTime.getDate()}`;
+let lastDate = `${realTime.getMonth() + 1} / ${realTime.getDate() - 1}`;
 
 comForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  comTime = new Date();
+  hours = comTime.getHours() - 12;
+  minutes = comTime.getMinutes();
+  date = `${comTime.getMonth() + 1} / ${comTime.getDate()}`;
+
+  formattedTime = { time: `${hours + ":" + minutes}` };
+  dateTime = { commentDate: `${date}` };
 
   let comFormInps = comForm.querySelectorAll("input");
   comDiv.innerHTML += `
@@ -67,23 +83,26 @@ comForm.addEventListener("submit", async (e) => {
     <div class="comment-content">
           <div class="username">${comFormInps[0].value}</div>
           <p>${comFormInps[1].value}</p>
+          <p class="time"><i class="fa-regular fa-clock"></i> Today at ${formattedTime.time}</p>
         </div>
     </div>
 `;
 
   let submision = {};
+  let allSubmision;
   comFormInps.forEach((el) => {
     const { name, value } = el;
     if (value) {
       submision[name] = value;
+      allSubmision = Object.assign({}, formattedTime, dateTime, submision);
     }
   });
-  const { data, error } = await supabase.from("comment").insert([submision]);
+
+  const { data, error } = await supabase.from("comment").insert([allSubmision]);
   console.log({ data, error });
-  // userNameCom = dataCom[dataCom.length - 1].username;
-  // userNameCom = dataCom[dataCom.length - 1].comment;
-  // console.log(userNameCom);
-  console.log(dataCom);
+
+  dataCom = (await supabase.from("comment").select("*")).data;
+
   comFormInps.forEach((e) => (e.value = ""));
 });
 
@@ -93,6 +112,14 @@ async function fetchData() {
     userNameCom = obj.username;
     commentC = obj.comment;
     comDiv.style.flexDirection = "column";
+    if (obj.commentDate === realDate) {
+      obj.commentDate = "Today";
+    } else if (obj.commentDate === lastDate) {
+      obj.commentDate = "Yesterday";
+    } else {
+      obj.commentDate = obj.commentDate;
+    }
+
     comDiv.innerHTML += `
     <div class="commentData">
       <div class="user-icon">
@@ -101,6 +128,10 @@ async function fetchData() {
     <div class="comment-content">
           <div class="username">${userNameCom}</div>
           <p>${commentC}</p>
+          <p class="time">
+          <i class="fa-regular fa-clock"></i> 
+          ${obj.commentDate} at ${obj.time}
+          </p>
         </div>
     </div>
   `;
