@@ -24,7 +24,7 @@ let chosenAnsDiv = document.querySelector(".chosenAns");
 let currentIndex = 0;
 let rightAnswerScore = 0;
 let countDownInterval;
-let duration = 0.1;
+let duration = 10;
 let qCount;
 let questionsObj;
 let rightAnswer;
