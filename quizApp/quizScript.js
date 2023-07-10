@@ -19,6 +19,7 @@ let cenApp = document.querySelector("#centerApp");
 let clockBtn = document.querySelectorAll(".clock-button");
 let rightAnsDiv = document.querySelector(".rightAnswers");
 let chosenAnsDiv = document.querySelector(".chosenAns");
+let loading = document.querySelector(".load");
 
 // set options
 let currentIndex = 0;
@@ -32,6 +33,8 @@ let answers = document.getElementsByName("question");
 let selectedAnswers = [];
 let selectedAnswersBar = [];
 let jF;
+let typeQ;
+// Quizes Data
 let dataTxt = {
   quizInfo_0: {
     jsonFile: "html_questions.json",
@@ -40,6 +43,7 @@ let dataTxt = {
   quizInfo_1: {
     jsonFile: "grammar.json",
     category: "Italiano",
+    type: "lang",
   },
 };
 
@@ -55,23 +59,23 @@ clockBtn.forEach((e) => {
     ev.currentTarget.style.color = "white";
 
     if (ev.currentTarget.innerText === " No Timer") {
-      countDownDiv.remove()
+      countDownDiv.remove();
     } else {
       duration = ev.currentTarget.innerText;
-      quizApp[1].prepend(countDownDiv)  
+      quizApp[1].prepend(countDownDiv);
     }
   };
 });
 
 // chosen quiz
 chooseQ.forEach((e, i) => {
-  e.addEventListener("click", () => {
+  e.addEventListener("click", async () => {
     jF = dataTxt[`quizInfo_${i}`].jsonFile;
+    typeQ = dataTxt[`quizInfo_${i}`].type;
     category.innerHTML = dataTxt[`quizInfo_${i}`].category;
+    loading.classList.remove("hidden");
     getQuestions(jF);
     progressDiv.classList.remove("hidden");
-    quizApp[1].classList.remove("hidden");
-    quizApp[0].classList.add("hidden");
   });
 });
 
@@ -80,12 +84,17 @@ async function getQuestions(jsonFile) {
   let jsonData = await fetch(jsonFile);
   let jsonDataObj = await jsonData.json();
 
+  loading.remove();
+  quizApp[1].classList.remove("hidden");
+  quizApp[0].classList.add("hidden");
+
   try {
     questionsObj = jsonDataObj;
     qCount = questionsObj.length;
 
     // Shuffle the questionsObj array
-    // questionsObj = shuffleArray(questionsObj);
+
+    questionsObj = shuffleArray(questionsObj);
 
     // create Bullets + Set qu count
     createBullets(qCount);
@@ -396,7 +405,6 @@ function countDown(duration, count) {
   }
 }
 
-
 /* 
 block of code QR
 */
@@ -407,19 +415,18 @@ let genBtn = document.querySelector("#gen");
 let downBtn = document.querySelector("#down");
 let qrImg = document.querySelector("#img");
 
-let noSpace = /\w+\s?/i
+let noSpace = /\w+\s?/i;
 
-input.addEventListener("keyup" , () => {
-  console.log(noSpace.test(input.value))
-})
+input.addEventListener("keyup", () => {
+  console.log(noSpace.test(input.value));
+});
 
 genBtn.addEventListener("click", () => {
   if (!noSpace.test(input.value)) {
     let div = document.createElement("div");
-    div.className = "modal"
-    document.body.prepend(div)
-
-  } else{
+    div.className = "modal";
+    document.body.prepend(div);
+  } else {
     qrCode = `
     https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${input.value}
     `;
@@ -430,9 +437,7 @@ genBtn.addEventListener("click", () => {
     `;
     qrImg.src = qrCode;
   }
-
 });
-
 
 downBtn.addEventListener("click", async () => {
   const response = await fetch(qrImg);
