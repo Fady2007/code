@@ -74,6 +74,7 @@ chooseQ.forEach((e, i) => {
     typeQ = dataTxt[`quizInfo_${i}`].type;
     category.innerHTML = dataTxt[`quizInfo_${i}`].category;
     loading.classList.remove("hidden");
+    quizApp[0].classList.add("hidden");
     getQuestions(jF);
     progressDiv.classList.remove("hidden");
   });
@@ -86,7 +87,6 @@ async function getQuestions(jsonFile) {
 
   loading.remove();
   quizApp[1].classList.remove("hidden");
-  quizApp[0].classList.add("hidden");
 
   try {
     questionsObj = jsonDataObj;
