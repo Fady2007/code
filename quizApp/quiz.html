@@ -1,165 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
-    <link rel="stylesheet" href="quizDesign.css">
-    <link rel="icon" type="image/png" href="../Fady.com/img/logo.PNG">
-    <link rel="stylesheet" href="../Fady.com/css/basics.css">
-</head>
+    <link rel="stylesheet" href="quizDesign.css" />
+    <link rel="icon" type="image/png" href="../Fady.com/img/logo.PNG" />
+    <link rel="stylesheet" href="../Fady.com/css/basics.css" />
+  </head>
 
-<body>
-    <div class="modal">
-        <div class="alert">
-            <h1>Alert</h1>
-            <p>You Can't keep this input empty</h2>
-        </div>
+  <body>
+    <div class="load hidden">
+      <div></div>
+      <div class="wait3"></div>
+      <div class="wait6"></div>
     </div>
-
-    <!-- <div class="toggle">
-        <i class="fa-solid fa-bars bigIcon co-w"></i>
-    </div>
-    <nav>
-        <span class="close"><i class="fa fa-times"></i></span>
-        <div>
-            <p><i class="fa fa-gear"></i> Settings</p>
-            <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-            </label>
-        </div>
-    </nav> -->
     <div class="quiz-app">
-        <h2 class="cen bg-Green pd10p">Choose Your Quiz</h2>
-        <center id="centerApp">
-            <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p">
-                <div class="bg-blu">
-                    <i class="fa-brands fa-html5 bigIcon co-w"></i>
-                </div>
-                <div class="pd20p pointer bg-d8">
-                    <h2 class="cen co-43">HTML Quiz</h2>
-                    <p class="bold co-43">Random Questions</p>
-                </div>
-            </div>
+      <h2 class="cen bg-Green pd10p">Choose Your Quiz</h2>
+      <center id="centerApp">
+        <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p pointer">
+          <div class="bg-blu">
+            <i class="fa-brands fa-html5 bigIcon co-w"></i>
+          </div>
+          <div class="pd20p bg-d8">
+            <h2 class="cen co-43">HTML Quiz</h2>
+            <p class="bold co-43">Random Questions</p>
+          </div>
+        </div>
 
-            <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p">
-                <div class="bg-blu">
-                    <i class="fa-solid fa-language bigIcon co-w"></i>
-                </div>
-                <div class="pd20p bg-d8 pointer">
-                    <h2 class="cen co-43">Italiano Quiz</h2>
-                    <p class="bold co-43">Random Questions</p>
-                </div>
-            </div>
-        </center>
-        <hr>
-        <h2 class="cen bg-Green pd10p">Choose Your Timer (by minutes)</h2>
-        <center>
-            <button class="clock-button" style="background-color: #3e2aff;"><i class="fa-regular fa-clock"></i>
-                10</button>
-            <button class="clock-button"><i class="fa-regular fa-clock"></i> 20</button>
-            <button class="clock-button"><i class="fa-regular fa-clock"></i> 30</button>
-            <button class="clock-button"><i class="fa-regular fa-clock"></i> 40</button>
-            <button class="clock-button"><i class="fa-regular fa-clock"></i> 60</button>
-            <button class="clock-button"><i class="fa-regular fa-circle-xmark"></i> No Timer</button>
-        </center>
-        <hr>
-        <h2 class="cen bg-Green pd10p">Create QR Code</h2>
-        <input type="text" class="input-field" id="input" placeholder="Enter Text or URL..">
-        <button class="button" id="gen">Generate</button>
-        <button class="button" id="down"><i class="fa fa-download"></i> Download</button>
-        <img src="" alt="" id="img">
+        <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p pointer">
+          <div class="bg-blu">
+            <i class="fa-solid fa-language bigIcon co-w"></i>
+          </div>
+          <div class="pd20p bg-d8">
+            <h2 class="cen co-43">Italiano Quiz</h2>
+            <p class="bold co-43">Random Questions</p>
+          </div>
+        </div>
+      </center>
+
+      <hr />
+      <h2 class="cen bg-Green pd10p">Choose Your Timer (by minutes)</h2>
+      <center>
+        <button class="clock-button" style="background-color: #3e2aff">
+          <i class="fa-regular fa-clock"></i> 10
+        </button>
+        <button class="clock-button">
+          <i class="fa-regular fa-clock"></i> 20
+        </button>
+        <button class="clock-button">
+          <i class="fa-regular fa-clock"></i> 30
+        </button>
+        <button class="clock-button">
+          <i class="fa-regular fa-clock"></i> 40
+        </button>
+        <button class="clock-button">
+          <i class="fa-regular fa-clock"></i> 60
+        </button>
+        <button class="clock-button">
+          <i class="fa-regular fa-circle-xmark"></i> No Timer
+        </button>
+      </center>
+      <hr />
+      <h2 class="cen bg-Green pd10p">Create QR Code</h2>
+      <input
+        type="text"
+        class="input-field"
+        id="input"
+        placeholder="Enter Text or URL.."
+      />
+      <button class="button" id="gen">Generate</button>
+      <button class="button" id="down">
+        <i class="fa fa-download"></i> Download
+      </button>
+      <img src="" alt="" id="img" />
     </div>
-
-
 
     <!-- QUiz app -->
     <div class="quiz-app hidden">
-        <div class="countdown">Ready</div>
-        <div class="quiz-info">
-            <div class="category">Category: <span></span></div>
-            <div class="count">Question: <span></span> of <span></span></div>
-        </div>
-        <div class="passages">
-            <div></div>
-        </div>
-        <div class="quiz-area"></div>
-        <div class="answers-area"></div>
-        <button class="submit-button" id="back"><i class="fa fa-chevron-left"></i> Back</button>
-        <button class="submit-button" id="submit-button">Next <i class="fa fa-chevron-right"></i></button>
-        <div class="bullets">
-            <div class="spans"></div>
-        </div>
+      <div class="countdown">Ready</div>
+      <div class="quiz-info">
+        <div class="category">Category: <span></span></div>
+        <div class="count">Question: <span></span> of <span></span></div>
+      </div>
+      <div class="passages">
+        <div></div>
+      </div>
+      <div class="quiz-area"></div>
+      <div class="answers-area"></div>
+      <button class="submit-button" id="back">
+        <i class="fa fa-chevron-left"></i> Back
+      </button>
+      <button class="submit-button" id="submit-button">
+        Next <i class="fa fa-chevron-right"></i>
+      </button>
+      <div class="bullets">
+        <div class="spans"></div>
+      </div>
 
-        <div class="results hidden"></div>
-        <div class="chosenAns hidden">
-            <h2>Answers</h2>
-        </div>
-        <div class="rightAnswers"></div>
+      <div class="results hidden"></div>
+      <div class="chosenAns hidden">
+        <h2>Answers</h2>
+      </div>
+      <div class="rightAnswers"></div>
     </div>
+
     <div class="progress-bar hidden">
-        <div class="progress"></div>
+      <div class="progress"></div>
     </div>
 
-     <script>
-      window.__lc = window.__lc || {};
-      window.__lc.license = 15679365;
-      (function (n, t, c) {
-        function i(n) {
-          return e._h ? e._h.apply(null, n) : e._q.push(n);
-        }
-        var e = {
-          _q: [],
-          _h: null,
-          _v: "2.0",
-          on: function () {
-            i(["on", c.call(arguments)]);
-          },
-          once: function () {
-            i(["once", c.call(arguments)]);
-          },
-          off: function () {
-            i(["off", c.call(arguments)]);
-          },
-          get: function () {
-            if (!e._h)
-              throw new Error(
-                "[LiveChatWidget] You can't use getters before load."
-              );
-            return i(["get", c.call(arguments)]);
-          },
-          call: function () {
-            i(["call", c.call(arguments)]);
-          },
-          init: function () {
-            var n = t.createElement("script");
-            (n.async = !0),
-              (n.type = "text/javascript"),
-              (n.src = "https://cdn.livechatinc.com/tracking.js"),
-              t.head.appendChild(n);
-          },
-        };
-        !n.__lc.asyncInit && e.init(),
-          (n.LiveChatWidget = n.LiveChatWidget || e);
-      })(window, document, [].slice);
-    </script>
-    <noscript
-      ><a href="https://www.livechat.com/chat-with/15679365/" rel="nofollow"
-        >Chat with us</a
-      >, powered by
-      <a
-        href="https://www.livechat.com/?welcome"
-        rel="noopener nofollow"
-        target="_blank"
-        >LiveChat</a
-      ></noscript
-    >
-    <!-- End of LiveChat code -->
     <script src="quizScript.js"></script>
     <script src="../Fady.com/js/all.js"></script>
-</body>
-
+  </body>
 </html>
