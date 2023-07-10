@@ -94,7 +94,7 @@ async function getQuestions(jsonFile) {
 
     // Shuffle the questionsObj array
 
-    questionsObj = shuffleArray(questionsObj);
+    // questionsObj = shuffleArray(questionsObj);
 
     // create Bullets + Set qu count
     createBullets(qCount);
