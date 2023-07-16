@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="../quizDesign.css" />
+    <link rel="icon" type="image/png" href="../../Fady.com/img/logo.PNG" />
+    <link rel="stylesheet" href="../../Fady.com/css/basics.css" />
+    <link rel="stylesheet" href="../css/creative.css" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="flex-head">
+      <div>
+        <a href="../quiz.html">
+          <button class="back"><i class="fa fa-chevron-left"></i> Back</button>
+        </a>
+      </div>
+      <button class="purpBtn">Show Tutorial</button>
+    </div>
+
+    <!-- <button class="btn-space" type="button">
+      <strong>Learn How to make quiz</strong>
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
+
+      <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button> -->
+
+    <div class="root">
+      <form action="" id="form">
+        <center>
+          <p class="introP">Create Quiz</p>
+        </center>
+
+        <center>
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p">
+            <i class="fa fa-info-circle"></i>
+            Quiz Info
+          </p>
+        </center>
+
+        <center>
+          <p class="errMsg hidden"></p>
+        </center>
+
+        <div class="fl">
+          <div class="r">
+            <h3 class="co-43">Category:</h3>
+            <input
+              type="text"
+              class="inp"
+              placeholder="Category"
+              title="This field is required"
+              name="category"
+            />
+          </div>
+          <h3 class="co-43">
+            Icon of quiz (fa5):
+            <a href="https://fontawesome.com/search" target="_blank"
+              >Search Icons</a
+            >
+          </h3>
+          <input
+            type="text"
+            class="inp wd95"
+            placeholder="fa fa-language"
+            name="icon"
+          />
+
+          <h3 class="co-43">Owner:</h3>
+          <input
+            type="text"
+            class="inp wd95"
+            placeholder="your name.."
+            title="This field is required"
+            name="owner"
+          />
+        </div>
+
+        <center>
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p">
+            <i class="fa fa-gear"></i>
+            Options
+          </p>
+          <div class="cntr">
+            <input checked="" type="checkbox" id="cbx" class="hidden-xs-up" />
+            <label for="cbx" class="cbx"></label>
+            <span>Allow Delete</span>
+          </div>
+        </center>
+
+        <center>
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p">
+            <i class="fa-solid fa-link"></i>
+            Quiz Link
+          </p>
+        </center>
+
+        <h3 class="co-43">Online JSON Link:</h3>
+        <div class="fl">
+          <div class="r">
+            <input
+              type="text"
+              class="inp"
+              placeholder="API Link.."
+              title="This field is required"
+              style="width: 100%"
+              name="link"
+            />
+          </div>
+        </div>
+        <button class="btnLeft" type="submit">Create Quiz</button>
+      </form>
+    </div>
+
+    <script src="../../Fady.com/js/all.js"></script>
+    <script src="main.js" type="module"></script>
+    <script src="../../supabase/supadb.js"></script>
+  </body>
+</html>

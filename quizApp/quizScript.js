@@ -1,6 +1,5 @@
 let quizApp = document.querySelectorAll(".quiz-app");
 let quizInfoDiv = document.querySelector(".quiz-info");
-let chooseQ = document.querySelectorAll(".pointer");
 let countSpan = document.querySelectorAll(".quiz-info .count span");
 let progressBar = document.querySelector(".progress");
 let progressDiv = document.querySelector(".progress-bar");
@@ -20,6 +19,10 @@ let clockBtn = document.querySelectorAll(".clock-button");
 let rightAnsDiv = document.querySelector(".rightAnswers");
 let chosenAnsDiv = document.querySelector(".chosenAns");
 let loading = document.querySelector(".load");
+let modalDiv = document.querySelector(".modal1");
+let startBtn = document.querySelector(".startQ");
+let errmsg = document.querySelector(".err");
+let btnQ = document.querySelector(".btnQ");
 
 // set options
 let currentIndex = 0;
@@ -34,19 +37,42 @@ let selectedAnswers = [];
 let selectedAnswersBar = [];
 let jF;
 let typeQ;
-// Quizes Data
-let dataTxt = {
-  quizInfo_0: {
-    jsonFile: "html_questions.json",
-    category: "HTML",
-  },
-  quizInfo_1: {
-    jsonFile: "grammar.json",
-    category: "Italiano",
-    type: "lang",
-  },
-};
+let chooseQ;
+// supabase
+let apiURL = "https://zqjgdgfntxqoybwghjiq.supabase.co";
+let apiKEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxamdkZ2ZudHhxb3lid2doamlxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NzkwMjg2MiwiZXhwIjoyMDAzNDc4ODYyfQ.sBVfZx_-GiRF8tJZqAZbVDXD9WhEL77oXAWtuzo3_n0";
+const { createClient } = supabase;
+supabase = createClient(apiURL, apiKEY);
+let dataTxt = (await supabase.from("quiz").select("*"))["data"];
+let lenOfData = Object.keys(dataTxt).length;
 
+const quizInfos = Object.keys(dataTxt);
+
+if (dataTxt !== "") {
+  for (const quizInfo of quizInfos) {
+    let obj = dataTxt[quizInfo].data;
+    cenApp.innerHTML += `
+        <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p pointer">
+            <div class="bg-blu">
+              <i class="${obj.icon} bigIcon co-w"></i>
+            </div>
+            <div class="pd20p bg-d8">
+              <h2 class="cen co-43">${obj.category} quiz</h2>
+              <p class="bold co-43">Creating By ${
+                obj.owner == "Admin"
+                  ? `<span class="co-blu">Admin</span>`
+                  : obj.owner || `User`
+              }</p>
+            </div>
+          </div>
+    `;
+
+    chooseQ = document.querySelectorAll(".pointer");
+  }
+  document.querySelector(".load.page").classList.add("hidden");
+  quizApp[0].classList.remove("hidden");
+}
 // choose Timer
 clockBtn.forEach((e) => {
   e.onclick = function (ev) {
@@ -68,32 +94,52 @@ clockBtn.forEach((e) => {
 });
 
 // chosen quiz
-chooseQ.forEach((e, i) => {
-  e.addEventListener("click", async () => {
-    jF = dataTxt[`quizInfo_${i}`].jsonFile;
-    typeQ = dataTxt[`quizInfo_${i}`].type;
-    category.innerHTML = dataTxt[`quizInfo_${i}`].category;
-    loading.classList.remove("hidden");
-    quizApp[0].classList.add("hidden");
-    getQuestions(jF);
-    progressDiv.classList.remove("hidden");
-  });
+let loadFast = 0;
+
+document.querySelector(".pointerMain").addEventListener("click", () => {
+  jF = "html_questions.json";
+  category.innerHTML = "HTML";
+  loading.classList.remove("hidden");
+  quizApp[0].classList.add("hidden");
+  getQuestions(jF);
+  btnQ.remove();
+  progressDiv.classList.remove("hidden");
 });
+
+if (chooseQ) {
+  chooseQ.forEach((e, i) => {
+    e.addEventListener("click", () => {
+      for (const quizInfo of quizInfos) {
+        jF = dataTxt[quizInfo].data.jsonFile;
+        category.innerHTML = dataTxt[quizInfo].data.category;
+      }
+
+      loading.classList.remove("hidden");
+      quizApp[0].classList.add("hidden");
+      getQuestions(jF);
+      btnQ.remove();
+      progressDiv.classList.remove("hidden");
+    });
+  });
+}
 
 // get file
 async function getQuestions(jsonFile) {
-  let jsonData = await fetch(jsonFile);
-  let jsonDataObj = await jsonData.json();
-
-  loading.remove();
-  quizApp[1].classList.remove("hidden");
+  setTimeout(() => {
+    loading.remove();
+    quizApp[1].classList.remove("hidden");
+    showModal();
+    document.body.style.overflow = "hidden";
+  }, 300);
 
   try {
+    let jsonData = await fetch(jsonFile);
+    let jsonDataObj = await jsonData.json();
+
     questionsObj = jsonDataObj;
     qCount = questionsObj.length;
 
     // Shuffle the questionsObj array
-
     // questionsObj = shuffleArray(questionsObj);
 
     // create Bullets + Set qu count
@@ -103,7 +149,7 @@ async function getQuestions(jsonFile) {
     addQuestionData(questionsObj[currentIndex], qCount);
 
     // countDown
-    countDown(duration, qCount);
+    // countDown(duration, qCount);
 
     submitBtn.onclick = () => {
       rightAnswer = questionsObj[currentIndex].right_answer;
@@ -149,8 +195,32 @@ async function getQuestions(jsonFile) {
       }
     };
   } catch (reason) {
-    console.log(`${reason}`);
+    loading.remove();
+    errmsg.querySelector("h1").innerHTML += ` (${
+      (await fetch(jsonFile)).status
+    })`;
+    errmsg.classList.remove("hidden");
+    progressBar.style.width += "100%";
+    progressBar.style.transition = "0.8s ease";
+    progressBar.style.backgroundColor = "red";
+    modalDiv.remove();
+    quizApp[1].remove();
   }
+}
+
+function showModal() {
+  modalDiv.querySelector(".loadDiv").classList.remove("hidden");
+  modalDiv.classList.remove("hidden");
+
+  startBtn.onclick = () => {
+    countDown(duration, qCount);
+    modalDiv.querySelector(".first .loadDiv").style.display = "flex";
+    startBtn.classList.add("hidden");
+    setTimeout(() => {
+      document.body.style.overflow = "auto";
+      modalDiv.classList.add("hidden");
+    }, 500);
+  };
 }
 
 // Function to shuffle an array using Fisher-Yates algorithm
@@ -347,7 +417,6 @@ function addRightAns(obj, count) {
       let txtA = document.createTextNode(`${obj[i]["right_answer"]}`);
       let passageD = document.createElement("div");
       let txtPassage = document.createTextNode(`${obj[i]["passage"]}`);
-      let br = document.createElement("br");
 
       divA.className = "rightADiv";
       divP.className = "passages";

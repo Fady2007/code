@@ -3,12 +3,18 @@
 }
 body {
   font-family: Tahoma, Arial;
-  background-color: #373b4b;
+  background-color: var(--mainBg);
   scroll-behavior: smooth;
 }
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --mainBg: #373b4b;
+  --main-color: #131c42;
+}
+
 /* Scroll bar styling */
 ::-webkit-scrollbar {
   width: 5px;
@@ -23,8 +29,73 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #858282; /* #555 #003f9c*/
 }
-:root {
-  --main-color: #131c42;
+
+.modal1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000009c;
+}
+
+.modal1 .loadDiv {
+  flex-direction: row;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.modal1 .first {
+  padding: 20px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px 1px #ddd;
+}
+
+.modal1 div button {
+  margin-top: 12px;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 14px;
+  outline: none;
+  border: 1px solid;
+  color: #0064ff;
+  transition: 0.4s;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.modal1 div button:hover {
+  background-color: #0064ff;
+  color: white;
+}
+
+.modal1 div h1 {
+  color: #636363;
+}
+
+.modal1 input {
+  padding: 20px;
+  font-size: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  height: 60px;
+  outline: none;
+  color: rgb(16, 40, 65);
+  transition: 0.5s background, 0.5s border;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+}
+
+.modal1 input:focus {
+  border-color: #00233a;
 }
 
 /* btns */
@@ -33,7 +104,7 @@ html {
   padding: 12px 24px;
   font-size: 16px;
   margin-top: 16px;
-  background-color: #131c42;
+  background-color: var(--main-color);
   color: #ffffff;
   border: none;
   border-radius: 4px;
@@ -186,8 +257,9 @@ input:checked + .slider:before {
 .quiz-app {
   width: 820px;
   margin: 20px auto;
+  margin-top: 30px;
   padding: 15px;
-  background: #131c42;
+  background: var(--main-color);
   color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   position: relative;
@@ -208,11 +280,11 @@ input:checked + .slider:before {
 }
 .progress-bar {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 12px;
-  background-color: transparent;
+  height: 6px;
+  background-color: #f2f4ffb2;
   border-radius: 1px;
   margin: 0;
   padding: 0;
@@ -220,7 +292,7 @@ input:checked + .slider:before {
 
 .progress {
   height: 100%;
-  background-color: #00a955;
+  background-color: #ad33ff;
   border-radius: 1px;
   width: 0;
   transition: width 0.3s ease;
@@ -326,8 +398,8 @@ input:checked + .slider:before {
   display: flex;
 }
 .quiz-app .bullets .spans span {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background-color: #cecece;
   margin-right: 5px;
   border-radius: 50%;
@@ -350,7 +422,7 @@ input:checked + .slider:before {
 .quiz-app .results {
   margin-top: 20px;
   padding: 4px;
-  background-color: #131c42;
+  background-color: var(--main-color);
 }
 .quiz-app .results p {
   font-weight: bold;
@@ -424,27 +496,51 @@ input:checked + .slider:before {
   border: 1px solid #dddddd;
 }
 
-/* .load {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 5px solid red;
-  border-bottom-color: transparent;
-  animation: span 1s linear infinite;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  bottom: 50%;
-  left: 50%;
+.loadDiv {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
-@keyframes span {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+
+.loadDiv div {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(45, 136, 255);
+  animation: loadDots 0.6s infinite alternate;
+}
+
+.loadDiv .wait3 {
+  animation-delay: 0.3s;
+}
+
+.loadDiv .wait6 {
+  animation-delay: 0.6s;
+}
+
+.err {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  width: 80%;
+}
+
+.err svg {
+  font-size: 40px;
+}
+
+.err h1 {
+  color: red;
+  font-size: 30px;
+}
 
 .load {
   position: fixed;
@@ -496,8 +592,9 @@ input:checked + .slider:before {
   .quiz-app {
     width: auto;
     margin: 10px auto;
+    margin-top: 30px;
     padding: 10px;
-    background: #131c42;
+    background: var(--main-color);
     color: white;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   }

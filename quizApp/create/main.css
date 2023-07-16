@@ -1,0 +1,150 @@
+body {
+  background-color: #f3f3f3;
+  margin: 0;
+}
+
+.back {
+  font-size: 26px;
+  color: #434343;
+  cursor: pointer;
+  border: none;
+  background: transparent !important ;
+}
+
+.flex-head {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #eee;
+  box-shadow: 0 0 15px 10px #ddd;
+  flex-basis: 100%;
+}
+
+.flex-head div {
+  margin: 10px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.root {
+  width: 65%;
+  background-color: #eeeeee;
+  padding: 10px;
+  margin: 20px auto;
+  box-shadow: 0 0px 20px 10px #dddddd;
+  position: relative;
+}
+
+.purpBtn::after {
+  content: "New";
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  transform: rotate(45deg);
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #0061f3e1;
+  color: white;
+  z-index: 99;
+}
+
+.fl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fl .wave-group {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.fl .inp {
+  padding: 10px;
+  flex-direction: column;
+  width: 100%;
+  font-size: 22px;
+  border: 2px solid #dddddd;
+  color: #434343;
+  outline: none;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f3f3;
+  transition: 0.2s ease-in;
+  border-radius: 6px;
+}
+
+.wd95 {
+  width: 95% !important;
+}
+
+.r {
+  position: relative;
+  width: 95%;
+}
+
+.fl .r:not(:nth-child(2))::after {
+  content: "*";
+  position: absolute;
+  font-size: 20px;
+  right: -15px;
+  color: red;
+}
+
+.fl .inp:hover {
+  border: 3px solid #dddddd;
+}
+
+.fl .inp:focus {
+  border: 1px solid #003f9c;
+  color: #003f9c;
+  box-shadow: 0 0px 25px 10px #dddddd;
+}
+
+.fl h3 a {
+  text-decoration: none;
+  color: #003f9c;
+  transition: 0.3s;
+}
+.fl h3 a:hover {
+  color: #0061f3;
+}
+
+p[class^="introP"] {
+  font-size: 26px;
+  font-weight: bold;
+  border: 1px solid blue;
+  padding: 10px;
+  color: white;
+  background: linear-gradient(to right, #003f9c, #370075);
+  margin: 0;
+  width: 100%;
+}
+
+.errMsg {
+  color: red;
+  border: 1px solid red;
+  padding: 6px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 355;
+}
+
+@media (max-width: 927px) {
+  .root {
+    width: 96%;
+  }
+}
+
+@media (max-width: 734px) {
+  .fl {
+    flex-direction: column;
+  }
+}

@@ -8,37 +8,79 @@
     <link rel="stylesheet" href="quizDesign.css" />
     <link rel="icon" type="image/png" href="../Fady.com/img/logo.PNG" />
     <link rel="stylesheet" href="../Fady.com/css/basics.css" />
+    <link rel="stylesheet" href="css/creative.css" />
   </head>
 
   <body>
-    <div class="load hidden">
+    <!-- button -->
+    <a href="create">
+      <button class="btnQ poAbsBottom">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+        >
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path
+            fill="currentColor"
+            d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+          ></path>
+        </svg>
+        <span>Create your quiz</span>
+      </button>
+    </a>
+
+    <!-- Modal after choose quiz -->
+    <div class="modal1 hidden">
+      <div class="first">
+        <h1>Enter Your name:</h1>
+        <input type="text" placeholder="Name.." autofocus />
+        <button class="startQ">Next <i class="fa fa-chevron-right"></i></button>
+        <div class="loadDiv hidden">
+          <div></div>
+          <div class="wait3"></div>
+          <div class="wait6"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- load -->
+    <div class="load page">
       <div></div>
       <div class="wait3"></div>
       <div class="wait6"></div>
     </div>
-    <div class="quiz-app">
-      <h2 class="cen bg-Green pd10p">Choose Your Quiz</h2>
-      <center id="centerApp">
-        <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p pointer">
+
+    <div class="err hidden">
+      <i class="fa-solid fa-circle-exclamation" style="color: #ff2600"></i>
+      <h1>There was an error while getting quiz Try again later</h1>
+    </div>
+
+    <div class="quiz-app hidden">
+      <h2 class="cen bg-Green pd10p">
+        Choose Your Quiz <span style="color: gold">(Main Quizes)</span>
+      </h2>
+
+      <center>
+        <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p pointerMain">
           <div class="bg-blu">
             <i class="fa-brands fa-html5 bigIcon co-w"></i>
           </div>
           <div class="pd20p bg-d8">
-            <h2 class="cen co-43">HTML Quiz</h2>
-            <p class="bold co-43">Random Questions</p>
-          </div>
-        </div>
-
-        <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p pointer">
-          <div class="bg-blu">
-            <i class="fa-solid fa-language bigIcon co-w"></i>
-          </div>
-          <div class="pd20p bg-d8">
-            <h2 class="cen co-43">Italiano Quiz</h2>
-            <p class="bold co-43">Random Questions</p>
+            <h2 class="cen co-43">Html quiz</h2>
+            <p class="bold co-43">
+              Creating By <span class="co-blu">Admin</span>
+            </p>
           </div>
         </div>
       </center>
+
+      <hr />
+      <h2 class="cen bg-Green pd10p">
+        Choose Your Quiz <span style="color: gold">(Other Quizes)</span>
+      </h2>
+      <center id="centerApp"></center>
 
       <hr />
       <h2 class="cen bg-Green pd10p">Choose Your Timer (by minutes)</h2>
@@ -110,7 +152,13 @@
       <div class="progress"></div>
     </div>
 
-    <script src="quizScript.js"></script>
+    <!-- <div class="typewriter">
+      <div class="slide"><i></i></div>
+      <div class="paper"></div>
+      <div class="keyboard"></div>
+    </div> -->
+    <script src="quizScript.js" type="module"></script>
     <script src="../Fady.com/js/all.js"></script>
+    <script src="../supabase/supadb.js"></script>
   </body>
 </html>
