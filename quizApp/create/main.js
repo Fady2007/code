@@ -6,6 +6,10 @@ let linkInp = document.querySelector("[name=link]");
 let ownerInp = document.querySelector("[name=owner]");
 let subtn = document.querySelector("[type=submit]");
 let form = document.querySelector("#form");
+let ico = document.querySelector("#showIcon");
+let checkInp = document.querySelector(".flex .cntr #cbx");
+let flinkInp = document.querySelector("[name=flink]");
+let copyi = document.querySelector("#copyi");
 let err = document.querySelector(".errMsg");
 let data;
 let to;
@@ -29,8 +33,13 @@ form.addEventListener("submit", async (e) => {
     showError("Api Link must be a valid link", linkInp);
   } else if (adReg.test(ownerInp.value)) {
     showError("Admin name not allowed!", ownerInp);
+  } else if ((await fetch(linkInp.value)).status === 404) {
+    showError(
+      `Quiz is not found ${(await fetch(linkInp.value)).status}`,
+      linkInp
+    );
   } else {
-    clearInps(categoryInp, linkInp, iconInp, ownerInp);
+    clearInps(600, categoryInp, linkInp, iconInp, ownerInp);
     removeError(categoryInp, linkInp);
 
     subtn.disabled = true;
@@ -38,9 +47,10 @@ form.addEventListener("submit", async (e) => {
     let submison = {
       data: {
         jsonFile: linkInp.value,
-        category: categoryInp.value,
+        category: categoryInp.value.toLowerCase(),
         icon: iconInp.value || "fa-regular fa-circle-question",
         owner: ownerInp.value || "User",
+        flink: flinkInp.value.slice(flinkInp.value.length - 7) || "",
       },
     };
 
@@ -58,10 +68,24 @@ form.addEventListener("submit", async (e) => {
     }, 1000);
 
     setTimeout(() => {
-      location.href = "../quiz.html";
+      location.href = "../";
     }, 2000);
   }
 });
+
+iconInp.addEventListener("keyup", () => {
+  ico.innerHTML = `<i class="${iconInp.value} iconIs"></i>`;
+});
+
+checkInp.onchange = () => {
+  if (checkInp.checked) {
+    generateLink(flinkInp, "https://fady2007.github.io/code/quizApp/#");
+    document.querySelector("#des").style.color = "#287eff";
+  } else {
+    clearInps(0, flinkInp);
+    document.querySelector("#des").style.color = "";
+  }
+};
 
 function showError(msg, input) {
   err.style.border = "1px solid red";
@@ -75,7 +99,9 @@ function showError(msg, input) {
 function removeError(...inputs) {
   err.style.border = "1px solid green";
   err.style.color = "green";
-  err.innerHTML = "Good! Let's Create your quiz";
+  err.innerHTML = `<i class="${
+    iconInp.value.trim() == "" ? "fa-regular fa-circle-question" : iconInp.value
+  }"></i> Good! Let's Create your quiz`;
   err.classList.remove("hidden");
   to = setTimeout(() => {
     err.classList.add("hidden");
@@ -83,8 +109,40 @@ function removeError(...inputs) {
   inputs.forEach((e) => (e.style.border = ""));
 }
 
-function clearInps(...inputs) {
+function clearInps(t, ...inputs) {
   setTimeout(() => {
     inputs.forEach((e) => (e.value = ""));
-  }, 1000);
+  }, t);
 }
+
+function generateLink(inp, str = "") {
+  let abc = "a2bcdefghijk9lmnopq5rstu3vwxyz0123456789";
+  let randomL = "";
+  for (let i = 0; i < 7; i++) {
+    randomL += abc[Math.floor(Math.random() * abc.length)];
+    inp.value = str + randomL;
+  }
+}
+
+function copyText(btn, inp) {
+  btn.addEventListener("click", function () {
+    let copied;
+    copied = navigator.clipboard.writeText(inp.value);
+    if (copied) {
+      btn.innerHTML = `<i class="fa-solid fa-check iconIs fade-in pointerEv"></i>`;
+      setTimeout(() => {
+        btn.innerHTML = `<i class="fa-solid fa-copy iconIs fade-in pointer"></i>`;
+      }, 2000);
+    } else {
+      alert("There was an error");
+    }
+  });
+}
+
+linkInp.onblur = async () => {
+  if ((await (await fetch(linkInp.value)).json())[0]["title"]) {
+    console.log("ok");
+  }
+};
+
+copyText(copyi, flinkInp);

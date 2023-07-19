@@ -56,6 +56,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  flex-direction: column;
 }
 
 .fl .wave-group {
@@ -82,16 +83,15 @@ body {
   width: 95% !important;
 }
 
-.r {
+.r h3 {
   position: relative;
-  width: 95%;
 }
 
-.fl .r:not(:nth-child(2))::after {
-  content: "*";
+.fl .r h3::after {
+  margin-left: 10px;
+  content: "\2a";
   position: absolute;
   font-size: 20px;
-  right: -15px;
   color: red;
 }
 
@@ -137,6 +137,40 @@ p[class^="introP"] {
   z-index: 355;
 }
 
+.input-container {
+  position: relative;
+}
+
+.inp {
+  padding-left: 40px; /* Adjust the value to set the left spacing for the icon */
+}
+
+.iconIs {
+  position: absolute;
+  top: 50%;
+  right: 6px; /* Adjust the value to set the left position for the icon */
+  transform: translate(-50%, -50%);
+  color: #003f9c; /* Adjust the color of the icon */
+  font-size: 26px;
+}
+
+.fade-in {
+  animation: fade-in 0.8s ease;
+}
+
+.pointerEv {
+  pointer-events: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 927px) {
   .root {
     width: 96%;
@@ -146,5 +180,8 @@ p[class^="introP"] {
 @media (max-width: 734px) {
   .fl {
     flex-direction: column;
+  }
+  input[name="flink"] {
+    font-size: 14px;
   }
 }

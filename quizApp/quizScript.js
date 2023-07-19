@@ -77,11 +77,11 @@ if (dataTxt !== "") {
 clockBtn.forEach((e) => {
   e.onclick = function (ev) {
     clockBtn.forEach((el) => {
-      el.style.background = "#131c42";
-      el.style.color = "white";
+      el.style.background = "";
+      el.style.color = "";
     });
 
-    ev.currentTarget.style.background = "#3e2aff";
+    ev.currentTarget.style.background = "#131c42";
     ev.currentTarget.style.color = "white";
 
     if (ev.currentTarget.innerText === " No Timer") {
@@ -483,6 +483,7 @@ let input = document.querySelector("#input");
 let genBtn = document.querySelector("#gen");
 let downBtn = document.querySelector("#down");
 let qrImg = document.querySelector("#img");
+let qrCode;
 
 let noSpace = /\w+\s?/i;
 
@@ -516,3 +517,9 @@ downBtn.addEventListener("click", async () => {
   downLink.download = "qrCode.jpg";
   downLink.click();
 });
+
+for (let i = 0; i < lenOfData; i++) {
+  if (location.hash == `#${dataTxt[i].data.flink}`) {
+    chooseQ[i].click();
+  }
+}

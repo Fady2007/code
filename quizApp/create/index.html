@@ -14,7 +14,7 @@
   <body>
     <div class="flex-head">
       <div>
-        <a href="../quiz.html">
+        <a href="../">
           <button class="back"><i class="fa fa-chevron-left"></i> Back</button>
         </a>
       </div>
@@ -22,7 +22,7 @@
     </div>
 
     <!-- <button class="btn-space" type="button">
-      <strong>Learn How to make quiz</strong>
+      <strong></strong>
       <div id="container-stars">
         <div id="stars"></div>
       </div>
@@ -33,14 +33,15 @@
       </div>
     </button> -->
 
-    <div class="root">
+    <div class="root bo-rad6">
       <form action="" id="form">
         <center>
-          <p class="introP">Create Quiz</p>
+          <p class="introP bo-rad6">Create Quiz</p>
         </center>
 
+        <!-- Quiz Info -->
         <center>
-          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p">
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6">
             <i class="fa fa-info-circle"></i>
             Quiz Info
           </p>
@@ -53,68 +54,109 @@
         <div class="fl">
           <div class="r">
             <h3 class="co-43">Category:</h3>
-            <input
-              type="text"
-              class="inp"
-              placeholder="Category"
-              title="This field is required"
-              name="category"
-            />
           </div>
+          <input
+            type="text"
+            class="inp"
+            placeholder="Category"
+            title="This field is required"
+            name="category"
+          />
+
           <h3 class="co-43">
-            Icon of quiz (fa5):
+            Icon (fa5):
             <a href="https://fontawesome.com/search" target="_blank"
               >Search Icons</a
             >
           </h3>
-          <input
-            type="text"
-            class="inp wd95"
-            placeholder="fa fa-language"
-            name="icon"
-          />
+          <label class="input-container">
+            <div id="showIcon">
+              <i class="fa-regular fa-circle-question iconIs"></i>
+            </div>
+            <input
+              type="text"
+              class="inp"
+              placeholder="fa fa-language"
+              name="icon"
+            />
+          </label>
 
           <h3 class="co-43">Owner:</h3>
           <input
             type="text"
-            class="inp wd95"
+            class="inp"
             placeholder="your name.."
             title="This field is required"
             name="owner"
           />
         </div>
 
+        <!-- Options -->
         <center>
-          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p">
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6">
             <i class="fa fa-gear"></i>
             Options
           </p>
-          <div class="cntr">
-            <input checked="" type="checkbox" id="cbx" class="hidden-xs-up" />
-            <label for="cbx" class="cbx"></label>
-            <span>Allow Delete</span>
-          </div>
         </center>
 
+        <div class="flex" style="flex-direction: column">
+          <div class="cntr">
+            <input type="checkbox" id="cbx" class="hidden-xs-up" />
+            <label for="cbx" class="cbx"></label>
+            <span>Create Link to your quiz</span>
+          </div>
+          <p
+            style="
+              color: #696969;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              width: 300px;
+              text-align: left;
+            "
+            id="des"
+          >
+            Create a unique link for your quiz that allow student go to your
+            quiz directely
+          </p>
+        </div>
+
+        <div class="fl">
+          <label class="input-container">
+            <div id="copyi">
+              <i
+                class="fa-solid fa-copy iconIs pointer"
+                style="opacity: 0.8"
+              ></i>
+            </div>
+            <input
+              type="text"
+              class="inp"
+              style="font-size: 17px"
+              disabled
+              name="flink"
+            />
+          </label>
+        </div>
+
+        <!-- quiz Link and create button -->
         <center>
-          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p">
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6">
             <i class="fa-solid fa-link"></i>
             Quiz Link
           </p>
         </center>
 
-        <h3 class="co-43">Online JSON Link:</h3>
         <div class="fl">
           <div class="r">
-            <input
-              type="text"
-              class="inp"
-              placeholder="API Link.."
-              title="This field is required"
-              style="width: 100%"
-              name="link"
-            />
+            <h3 class="co-43">Online JSON Link:</h3>
           </div>
+          <input
+            type="text"
+            class="inp"
+            placeholder="API Link.."
+            title="This field is required"
+            style="width: 100%"
+            name="link"
+          />
         </div>
         <button class="btnLeft" type="submit">Create Quiz</button>
       </form>

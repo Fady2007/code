@@ -57,9 +57,10 @@ html {
   align-items: center;
   flex-direction: column;
   box-shadow: 0 0 10px 1px #ddd;
+  flex-basis: 340px;
 }
 
-.modal1 div button {
+.modal1 div .startQ {
   margin-top: 12px;
   width: 100%;
   font-size: 1.2em;
@@ -72,21 +73,21 @@ html {
   background-color: transparent;
 }
 
-.modal1 div button:hover {
+.modal1 div .startQ:hover {
   background-color: #0064ff;
   color: white;
 }
 
 .modal1 div h1 {
   color: #636363;
+  font-size: 1.3em;
 }
 
 .modal1 input {
-  padding: 20px;
-  font-size: 25px;
+  padding: 10px;
+  font-size: 22px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
-  height: 60px;
   outline: none;
   color: rgb(16, 40, 65);
   transition: 0.5s background, 0.5s border;
@@ -501,6 +502,7 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   gap: 15px;
+  margin-top: 20px;
 }
 
 .loadDiv div {
