@@ -47,7 +47,7 @@ form.addEventListener("submit", async (e) => {
     let submison = {
       data: {
         jsonFile: linkInp.value,
-        category: categoryInp.value.toLowerCase(),
+        category: categoryInp.value,
         icon: iconInp.value || "fa-regular fa-circle-question",
         owner: ownerInp.value || "User",
         flink: flinkInp.value.slice(flinkInp.value.length - 7) || "",
