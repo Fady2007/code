@@ -86,11 +86,20 @@ html {
 .co-w {
   color: white !important;
 }
+.co-blu-w {
+  color: #98c1ff;
+}
 .bolder {
   font-weight: bolder;
 }
+.gradient-tr {
+  background: transparent;
+}
 .bg-d8 {
   background-color: #d8d8d8;
+}
+.bo-b1 {
+  border-bottom: 1px solid #ffeded85;
 }
 .bg-Green {
   background-color: #00a955 !important;
@@ -152,7 +161,6 @@ html {
 .flex {
   display: flex;
   gap: 6px;
-  flex-wrap: wrap;
 }
 .wd50 {
   width: 50%;
@@ -309,6 +317,8 @@ html {
 }
 .bg-blu {
   background-color: #003f9e;
+}
+.pd50p {
   padding: 50px;
 }
 .mg10p {
@@ -377,9 +387,8 @@ html {
   background-color: #131c42;
   color: white;
 }
-
 .modal {
-  background-color: rgba(0, 0, 0, 0.479);
+  background-color: rgba(0, 0, 0, 0.541);
   color: white;
   width: 100%;
   position: fixed;
@@ -389,11 +398,11 @@ html {
   z-index: 999;
   transition: 0.4s ease-in;
   display: none;
+  align-items: center;
 }
 .modal .alert {
   margin: 20px auto;
   padding: 20px;
-  width: calc(100% / 3);
   background-color: #eee;
   box-shadow: 0 0 6px 6px #ababab;
   border-radius: 6px;
@@ -401,13 +410,52 @@ html {
 .modal .alert h1 {
   text-align: center;
   font-weight: bold;
-  color: var(--main-color);
-  font-size: 24px;
+  color: #0d6efd;
+  font-size: 2em;
+  font-family: "roboto";
 }
 .modal .alert p {
   font-weight: bold;
-  color: var(--main-color);
-  font-size: 20px;
+  color: #b4b4b4;
+  font-size: 0.9em;
+  margin-top: 15px;
+  font-family: "roboto";
+}
+
+.modal .choice {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal .choice button {
+  font-size: 1.2em;
+  padding: 12px;
+  color: #434343;
+  flex-basis: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.modal .choice button:nth-child(1) {
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+}
+
+.modal .choice button:nth-child(1):hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.modal .choice button:nth-child(2) {
+  border: 1px solid rgb(133, 133, 133);
+  color: rgb(133, 133, 133);
+}
+
+.modal .choice button:nth-child(2):hover {
+  color: white;
+  background-color: rgb(133, 133, 133);
 }
 
 .poAbsBottom {
@@ -425,4 +473,68 @@ html {
 
 .posrel {
   position: relative;
+}
+
+.bg-231 {
+  background-color: rgb(231, 231, 231);
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(49, 49, 49, 0.664);
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 130%;
+  left: 50%;
+  margin-left: -60px;
+  z-index: 54;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  font-family: "Roboto";
+  border-style: solid;
+  border-color: rgba(49, 49, 49, 0.664) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  animation: fade-in 0.5s;
+  visibility: visible;
+}
+
+.movable {
+  position: absolute;
+  cursor: move;
+}
+
+.greDesign {
+  border: 1px solid #00a955 !important;
+  color: #00a955 !important;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

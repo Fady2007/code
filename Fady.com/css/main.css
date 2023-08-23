@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa&family=Katibeh&family=Noto+Sans+Arabic&display=swap");
 
+* {
+  box-sizing: border-box;
+}
 body {
-  margin: 0;
+  margin: 0px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   background: rgb(241, 241, 241);
@@ -1014,7 +1017,7 @@ textarea {
   font-weight: 600;
   font-size: 1.2em;
 }
-/* btn */
+/* btn nav*/
 .modal-content {
   background-color: #e0e8ff;
   margin: 10% auto;
@@ -1166,7 +1169,7 @@ ul li {
   padding: 10px;
   text-decoration: none;
 }
-
+/* modal */
 /* Animations */
 @keyframes slidein {
   from {
