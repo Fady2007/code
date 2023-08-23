@@ -1,10 +1,13 @@
 // import * as all from "../quizScript.js";
-
 let categoryInp = document.querySelector("[name=category]");
 let iconInp = document.querySelector("[name=icon]");
 let linkInp = document.querySelector("[name=link]");
 let ownerInp = document.querySelector("[name=owner]");
 let subtn = document.querySelector("[type=submit]");
+let rootCreate = document.querySelector(".root.overflow");
+let rootOne = document.querySelector(".root.willhid");
+let cateFromCre = document.querySelector("#cateFromCre");
+let icFromCre = document.querySelector("#icFromCre");
 let form = document.querySelector("#form");
 let ico = document.querySelector("#showIcon");
 let checkInp = document.querySelector(".flex .cntr #cbx");
@@ -33,7 +36,17 @@ form.addEventListener("submit", async (e) => {
     showError("Api Link must be a valid link", linkInp);
   } else if (adReg.test(ownerInp.value)) {
     showError("Admin name not allowed!", ownerInp);
-  } else if ((await fetch(linkInp.value)).status === 404) {
+  } else if (
+    (
+      await fetch(linkInp.value, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    ).status === 404
+  ) {
     showError(
       `Quiz is not found ${(await fetch(linkInp.value)).status}`,
       linkInp
@@ -42,8 +55,14 @@ form.addEventListener("submit", async (e) => {
     clearInps(600, categoryInp, linkInp, iconInp, ownerInp);
     removeError(categoryInp, linkInp);
 
-    subtn.disabled = true;
+    let condi =
+      iconInp.value.trim() == ""
+        ? `<i class="fa-regular fa-circle-question"></i> fa-regular fa-circle-question`
+        : `<i class="${iconInp.value}"></i> ${iconInp.value}`;
+    cateFromCre.innerHTML = categoryInp.value;
+    icFromCre.innerHTML = condi;
 
+    console.log(icFromCre.innerHTML);
     let submison = {
       data: {
         jsonFile: linkInp.value,
@@ -54,22 +73,12 @@ form.addEventListener("submit", async (e) => {
       },
     };
 
-    setTimeout(async () => {
-      try {
-        await supabase.from("quiz").insert(submison);
-      } catch (reason) {
-        showError(
-          "There was an Error while recieving data try again!",
-          linkInp
-        );
-        console.log(reason);
-        clearTimeout(to);
-      }
-    }, 1000);
+    submit(submison);
 
     setTimeout(() => {
-      location.href = "../";
-    }, 2000);
+      rootCreate.classList.remove("hidden");
+      rootOne.classList.add("hidden");
+    }, 1000);
   }
 });
 
@@ -137,6 +146,18 @@ function copyText(btn, inp) {
       alert("There was an error");
     }
   });
+}
+
+function submit(submison) {
+  setTimeout(async () => {
+    try {
+      await supabase.from("quiz").insert(submison);
+    } catch (reason) {
+      showError("There was an Error while recieving data try again!", linkInp);
+      console.log(reason);
+      clearTimeout(to);
+    }
+  }, 1000);
 }
 
 linkInp.onblur = async () => {

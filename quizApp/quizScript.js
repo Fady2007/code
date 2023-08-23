@@ -44,22 +44,23 @@ let apiKEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxamdkZ2ZudHhxb3lid2doamlxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NzkwMjg2MiwiZXhwIjoyMDAzNDc4ODYyfQ.sBVfZx_-GiRF8tJZqAZbVDXD9WhEL77oXAWtuzo3_n0";
 const { createClient } = supabase;
 supabase = createClient(apiURL, apiKEY);
+
 let dataTxt = (await supabase.from("quiz").select("*"))["data"];
+
 let lenOfData = Object.keys(dataTxt).length;
+let quizInfos = Object.keys(dataTxt);
 
-const quizInfos = Object.keys(dataTxt);
-
-if (dataTxt !== "") {
+if (dataTxt) {
   for (const quizInfo of quizInfos) {
     let obj = dataTxt[quizInfo].data;
     cenApp.innerHTML += `
-        <div class="bg-f8 bordS1p mg1r-b wdcalc mg10p pointer">
-            <div class="bg-blu">
+        <div class="transbg_dark mg1r-b wdcalc mg10p pointer bo-rad6">
+            <div class="pd50p bo-b1">
               <i class="${obj.icon} bigIcon co-w"></i>
             </div>
-            <div class="pd20p bg-d8">
-              <h2 class="cen co-43">${obj.category} quiz</h2>
-              <p class="bold co-43">Creating By ${
+            <div class="pd20p gradient-tr">
+              <h2 class="cen">${obj.category} quiz</h2>
+              <p class="bold ">Creating By ${
                 obj.owner == "Admin"
                   ? `<span class="co-blu">Admin</span>`
                   : obj.owner || `User`
@@ -122,7 +123,6 @@ if (chooseQ) {
     });
   });
 }
-
 // get file
 async function getQuestions(jsonFile) {
   setTimeout(() => {
@@ -356,9 +356,9 @@ function checkAnswer(rAnswer, count) {
   chosenAnsDiv.appendChild(div);
 
   if (rAnswer === theChosenAns) {
-    div.style.backgroundColor = "#005300";
+    div.style.backgroundColor = "#0053006e";
   } else {
-    div.style.backgroundColor = "#8d0000";
+    div.style.backgroundColor = "#8d000066";
   }
 }
 
@@ -422,8 +422,8 @@ function addRightAns(obj, count) {
       divP.className = "passages";
 
       pT.style.cssText = `
-        padding: 10px;
-        background-color: #3d19ff;
+        padding: 12px;
+        background-color: #a0adff29;
         margin: 0;
       `;
       pA.style.cssText = `

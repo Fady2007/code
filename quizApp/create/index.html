@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../Fady.com/css/basics.css" />
     <link rel="stylesheet" href="../css/creative.css" />
     <link rel="stylesheet" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="flex-head">
@@ -33,15 +34,26 @@
       </div>
     </button> -->
 
-    <div class="root bo-rad6">
+    <div class="modal">
+      <div class="alert">
+        <h1 class="co-blu">Are you sure ?</h1>
+        <p id="alertReason"></p>
+        <div class="choice">
+          <button>Yes</button>
+          <button>Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="root willhid bo-rad6 hidden">
       <form action="" id="form">
         <center>
-          <p class="introP bo-rad6">Create Quiz</p>
+          <p class="introP bo-rad6 mg1r-t">Create Quiz</p>
         </center>
 
         <!-- Quiz Info -->
         <center>
-          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6">
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6 mg1r-t">
             <i class="fa fa-info-circle"></i>
             Quiz Info
           </p>
@@ -93,13 +105,15 @@
 
         <!-- Options -->
         <center>
-          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6">
+          <p
+            class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6 mg1r-t mg1r-b"
+          >
             <i class="fa fa-gear"></i>
             Options
           </p>
         </center>
 
-        <div class="flex" style="flex-direction: column">
+        <div class="flex" style="flex-direction: column; flex-wrap: wrap">
           <div class="cntr">
             <input type="checkbox" id="cbx" class="hidden-xs-up" />
             <label for="cbx" class="cbx"></label>
@@ -139,7 +153,7 @@
 
         <!-- quiz Link and create button -->
         <center>
-          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6">
+          <p class="cen wd100 bg-d8 co-43 f-size22px pd10p bo-rad6 mg1r-t">
             <i class="fa-solid fa-link"></i>
             Quiz Link
           </p>
@@ -162,8 +176,58 @@
       </form>
     </div>
 
+    <!-- New Root -->
+    <div class="root overflow pd0">
+      <header>
+        <h2 id="cateFromCre">Category</h2>
+        <h2 id="icFromCre" style="color: orangered">Icon</h2>
+        <h2 id="icFromCre" style="color: blueviolet">Owner</h2>
+      </header>
+    </div>
+
+    <button class="save-button poAbsBottom">
+      <i class="fa fa-bookmark"></i> Save
+    </button>
+    <div class="root bo-rad6 pd0 overflow aw">
+      <div class="flex cr">
+        <div class="toolbar">
+          <ul>
+            <li class="addQueBtn">
+              <i class="fa fa-plus"></i>
+              <p>Add Question</p>
+            </li>
+            <li>
+              <i class="fa-regular fa-newspaper"></i>
+              <p>Add Passage</p>
+            </li>
+            <li>
+              <i class="fa-solid fa-link"></i>
+              <p>Quiz Link</p>
+            </li>
+            <li class="deleteAll">
+              <i class="fa-solid fa-trash-can"></i>
+              <p>Delete quiz</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pd20p qForm" style="flex-basis: 100%">
+          <div class="introCreate">
+            <h1>
+              <i class="fa fa-circle-question"></i> Add your first question
+            </h1>
+            <p>Let's get started! Click to add question</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="createQ.js" type="module"></script>
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+
     <script src="../../Fady.com/js/all.js"></script>
     <script src="main.js" type="module"></script>
     <script src="../../supabase/supadb.js"></script>
+    <script src="./oop_js/oop.js" type="module"></script>
   </body>
 </html>
