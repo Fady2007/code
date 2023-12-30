@@ -38,6 +38,9 @@ let selectedAnswersBar = [];
 let jF;
 let typeQ;
 let chooseQ;
+let lenOfData;
+let quizInfos;
+let dataTxt;
 // supabase
 let apiURL = "https://zqjgdgfntxqoybwghjiq.supabase.co";
 let apiKEY =
