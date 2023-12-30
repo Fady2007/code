@@ -45,29 +45,59 @@ let apiKEY =
 const { createClient } = supabase;
 supabase = createClient(apiURL, apiKEY);
 
-let dataTxt = (await supabase.from("quiz").select("*"))["data"];
+try {
+  supabase = createClient(apiURL, apiKEY);
 
-let lenOfData = Object.keys(dataTxt).length;
-let quizInfos = Object.keys(dataTxt);
+  let res = await supabase.from("quiz").select("*");
+  if (res.ok) {
+    dataTxt = (await supabase.from("quiz").select("*"))["data"];
+  } else {
+    dataTxt = {
+      quizInfo: {
+        data: {
+          icon: "",
+          jsonFile: "",
+          category: "",
+          owner: "",
+        },
+      },
+    };
+  }
+
+  quizInfos = Object.keys(dataTxt);
+  lenOfData = Object.keys(dataTxt).length;
+
+  // Object.keys(dataTxt);
+} catch (error) {}
 
 if (dataTxt) {
   for (const quizInfo of quizInfos) {
     let obj = dataTxt[quizInfo].data;
-    cenApp.innerHTML += `
-        <div class="transbg_dark mg1r-b wdcalc mg10p pointer bo-rad6">
-            <div class="pd50p bo-b1">
-              <i class="${obj.icon} bigIcon co-w"></i>
-            </div>
-            <div class="pd20p gradient-tr">
-              <h2 class="cen">${obj.category} quiz</h2>
-              <p class="bold ">Creating By ${
-                obj.owner == "Admin"
-                  ? `<span class="co-blu">Admin</span>`
-                  : obj.owner || `User`
-              }</p>
-            </div>
+    if (lenOfData <= 1) {
+      cenApp.innerHTML = `
+      <h2><i class="fa-regular fa-face-frown"></i> No quizes Found</h2>
+      <p class="errMsg">If you created a quiz and wasn't showed here , Please contact us! </p>
+      `;
+    }
+    if (obj.category == "") {
+      cenApp.innerHTML += "";
+    } else {
+      cenApp.innerHTML += `
+      <div class="transbg_dark mg1r-b wdcalc mg10p pointer bo-rad6">
+          <div class="pd50p bo-b1">
+            <i class="${obj.icon} bigIcon co-w"></i>
           </div>
-    `;
+          <div class="pd20p gradient-tr">
+            <h2 class="cen">${obj.category} quiz</h2>
+            <p class="bold ">Creating By ${
+              obj.owner == "Admin"
+                ? `<span class="co-blu">Admin</span>`
+                : obj.owner || `User`
+            }</p>
+          </div>
+        </div>
+  `;
+    }
 
     chooseQ = document.querySelectorAll(".pointer");
   }
