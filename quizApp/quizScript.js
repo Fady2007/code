@@ -46,14 +46,13 @@ let apiURL = "https://zqjgdgfntxqoybwghjiq.supabase.co";
 let apiKEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxamdkZ2ZudHhxb3lid2doamlxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NzkwMjg2MiwiZXhwIjoyMDAzNDc4ODYyfQ.sBVfZx_-GiRF8tJZqAZbVDXD9WhEL77oXAWtuzo3_n0";
 const { createClient } = supabase;
-supabase = createClient(apiURL, apiKEY);
-
 try {
   supabase = createClient(apiURL, apiKEY);
 
   let res = await supabase.from("quiz").select("*");
-  if (res.ok) {
+  if (res.status === 200) {
     dataTxt = (await supabase.from("quiz").select("*"))["data"];
+    console.log(dataTxt);
   } else {
     dataTxt = {
       quizInfo: {
@@ -76,10 +75,11 @@ try {
 if (dataTxt) {
   for (const quizInfo of quizInfos) {
     let obj = dataTxt[quizInfo].data;
-    if (lenOfData <= 1) {
+    let objId = dataTxt[quizInfo].id;
+    if (lenOfData < 1) {
       cenApp.innerHTML = `
-      <h2><i class="fa-regular fa-face-frown"></i> No quizes Found</h2>
-      <p class="errMsg">If you created a quiz and wasn't showed here , Please contact us! </p>
+      <h2><i class="fa-regular fa-face-frown"></i> No quizes Found (${lenOfData})</h2>
+      <p>If you created a quiz and wasn't showed here , Please contact us! </p>
       `;
     }
     if (obj.category == "") {
@@ -106,7 +106,28 @@ if (dataTxt) {
   }
   document.querySelector(".load.page").classList.add("hidden");
   quizApp[0].classList.remove("hidden");
+} else {
+  console.log(dataTxt);
 }
+
+if (chooseQ) {
+  chooseQ.forEach((e, i) => {
+    e.addEventListener("click", (e) => {
+      for (const quizInfo of quizInfos) {
+        jF = dataTxt[i].data.jsonFile;
+        category.innerHTML = dataTxt[quizInfo].data.category;
+      }
+
+      loading.classList.remove("hidden");
+      quizApp[0].classList.add("hidden");
+      getQuestions(jF);
+      console.log(jF);
+      btnQ.remove();
+      progressDiv.classList.remove("hidden");
+    });
+  });
+}
+
 // choose Timer
 clockBtn.forEach((e) => {
   e.onclick = function (ev) {
@@ -140,22 +161,6 @@ document.querySelector(".pointerMain").addEventListener("click", () => {
   progressDiv.classList.remove("hidden");
 });
 
-if (chooseQ) {
-  chooseQ.forEach((e, i) => {
-    e.addEventListener("click", () => {
-      for (const quizInfo of quizInfos) {
-        jF = dataTxt[quizInfo].data.jsonFile;
-        category.innerHTML = dataTxt[quizInfo].data.category;
-      }
-
-      loading.classList.remove("hidden");
-      quizApp[0].classList.add("hidden");
-      getQuestions(jF);
-      btnQ.remove();
-      progressDiv.classList.remove("hidden");
-    });
-  });
-}
 // get file
 async function getQuestions(jsonFile) {
   setTimeout(() => {
@@ -163,7 +168,7 @@ async function getQuestions(jsonFile) {
     quizApp[1].classList.remove("hidden");
     showModal();
     document.body.style.overflow = "hidden";
-  }, 300);
+  }, 30);
 
   try {
     let jsonData = await fetch(jsonFile);
@@ -231,7 +236,14 @@ async function getQuestions(jsonFile) {
     loading.remove();
     errmsg.querySelector("h1").innerHTML += ` (${
       (await fetch(jsonFile)).status
-    })`;
+    }) 
+    `;
+    errmsg.innerHTML += `
+    <button class="purpBtn" onclick="window.location.reload()">
+    <i class="fa fa-refresh"></i>
+    Refresh
+    </button>
+    `;
     errmsg.classList.remove("hidden");
     progressBar.style.width += "100%";
     progressBar.style.transition = "0.8s ease";
@@ -252,7 +264,7 @@ function showModal() {
     setTimeout(() => {
       document.body.style.overflow = "auto";
       modalDiv.classList.add("hidden");
-    }, 500);
+    }, 20);
   };
 }
 
