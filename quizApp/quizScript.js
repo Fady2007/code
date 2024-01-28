@@ -28,6 +28,7 @@ let btnQ = document.querySelector(".btnQ");
 let currentIndex = 0;
 let rightAnswerScore = 0;
 let countDownInterval;
+let progressPercentage;
 let duration = 10;
 let qCount;
 let questionsObj;
@@ -151,12 +152,14 @@ clockBtn.forEach((e) => {
 // chosen quiz
 let loadFast = 0;
 
+// main question
 document.querySelector(".pointerMain").addEventListener("click", () => {
   jF = "html_questions.json";
   category.innerHTML = "HTML";
   loading.classList.remove("hidden");
   quizApp[0].classList.add("hidden");
   getQuestions(jF);
+  modalDiv.classList.add("hidden");
   btnQ.remove();
   progressDiv.classList.remove("hidden");
 });
@@ -213,8 +216,13 @@ async function getQuestions(jsonFile) {
 
       selectedAnswersBar[currentIndex] = theChosenAns;
 
-      const progressPercentage = (selectedAnswersBar.length / qCount) * 100;
-      progressBar.style.width = `${progressPercentage}%`;
+      if (qCount > currentIndex) {
+        progressPercentage = (selectedAnswersBar.length / qCount) * 100;
+        progressBar.style.width = `${progressPercentage}%`;
+      } else {
+        progressPercentage = (rightAnswerScore / qCount) * 100;
+        progressBar.style.width = `${progressPercentage}%`;
+      }
     };
 
     backBtn.onclick = () => {
@@ -431,11 +439,21 @@ function showResult(count) {
     resultsDiv.classList.remove("hidden");
 
     if (rightAnswerScore > count / 2 && rightAnswerScore < count) {
-      theResult = `<span class="good">Good</span> <p>You got ${rightAnswerScore} / ${count}</p>`;
+      theResult = `
+      <span class="good">Good</span> 
+      <p>You got ${rightAnswerScore} / ${count}</p>
+      `;
+      progressBar.style.background = "green";
     } else if (rightAnswerScore === count) {
-      theResult = `<span class="perfect">Perfect</span> <p>You got ${rightAnswerScore} / ${count}</p>`;
+      progressBar.style.background = "aqua";
+      theResult = `<span class="perfect">Perfect</span> 
+      <p>You got ${rightAnswerScore} / ${count}</p>`;
     } else {
-      theResult = `<span class="bad">Bad</span> <p>You got ${rightAnswerScore} / ${count}</p>`;
+      progressBar.style.background = "red";
+      theResult = `
+      <span class="bad">Bad</span> 
+      <p>You got ${rightAnswerScore} / ${count}</p>
+      `;
     }
 
     resultsDiv.innerHTML += theResult;
