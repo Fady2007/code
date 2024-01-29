@@ -12,6 +12,16 @@
   </head>
 
   <body>
+    <div class="modal fade-in">
+      <div class="alert">
+        <h1 class="co-blu">Are you sure ?</h1>
+        <p id="alertReason"></p>
+        <div class="choice">
+          <button>Yes</button>
+          <button>Cancel</button>
+        </div>
+      </div>
+    </div>
     <!-- button -->
     <a href="create">
       <button class="btnQ poAbsBottom">
@@ -86,13 +96,14 @@
     </div>
 
     <div class="quiz-app hidden">
-      <h2 class="cen transbg_dark pd10p">
-        Choose Your Quiz <span style="color: gold">(Main Quizes)</span>
-      </h2>
+      <button class="setting-button">
+        <i class="fa fa-gear"></i> Settings
+      </button>
+      <h2 class="cen transbg_dark pd10p bo-rad6">Main Quizes</h2>
 
       <center>
         <div class="transbg_dark bo-rad6 mg1r-b wdcalc mg10p pointerMain">
-          <div class="pd50p bo-b1">
+          <div class="pd40p bo-b1">
             <i class="fa-brands fa-html5 bigIcon co-w"></i>
           </div>
           <div class="pd20p gradient-tr">
@@ -102,13 +113,13 @@
         </div>
       </center>
 
-      <hr />
-      <h2 class="cen transbg_dark pd10p">
+      <h2 class="cen transbg_dark pd10p bo-rad6">
         Choose Your Quiz <span style="color: gold">(Other Quizes)</span>
       </h2>
+
       <center id="centerApp"></center>
 
-      <hr />
+      <!-- <hr /> -->
       <h2 class="cen transbg_dark pd10p">Create QR Code</h2>
       <input
         type="text"
@@ -126,6 +137,9 @@
     <!-- QUiz app -->
     <div class="quiz-app hidden">
       <div class="countdown">Ready</div>
+      <button class="leave-button" id="Leave">
+        <i class="fa fa-sign-in"></i> Leave Quiz
+      </button>
       <div class="quiz-info">
         <div class="category">Category: <span></span></div>
         <div class="count">Question: <span></span> of <span></span></div>
@@ -135,12 +149,14 @@
       </div>
       <div class="quiz-area"></div>
       <div class="answers-area"></div>
-      <button class="submit-button" id="back">
-        <i class="fa fa-chevron-left"></i> Back
-      </button>
-      <button class="submit-button" id="submit-button">
-        Next <i class="fa fa-chevron-right"></i>
-      </button>
+      <div>
+        <button class="submit-button" id="back">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="submit-button" id="submit-button">
+          Next <i class="fa fa-chevron-right"></i>
+        </button>
+      </div>
       <div class="bullets">
         <div class="spans"></div>
       </div>
