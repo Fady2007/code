@@ -78,6 +78,7 @@ form.addEventListener("submit", async (e) => {
     setTimeout(() => {
       rootCreate.classList.remove("hidden");
       rootOne.classList.add("hidden");
+      location.replace("../");
     }, 1000);
   }
 });
