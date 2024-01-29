@@ -23,6 +23,9 @@ let modalDiv = document.querySelector(".modal1");
 let startBtn = document.querySelector(".startQ");
 let errmsg = document.querySelector(".err");
 let btnQ = document.querySelector(".btnQ");
+let modal = document.querySelector(".modal");
+let leaveBtn = document.querySelector(".leave-button");
+let settingBtn = document.querySelector(".setting-button");
 
 // set options
 let currentIndex = 0;
@@ -70,25 +73,28 @@ try {
   quizInfos = Object.keys(dataTxt);
   lenOfData = Object.keys(dataTxt).length;
 
+  console.log(lenOfData);
   // Object.keys(dataTxt);
 } catch (error) {}
+
+if (lenOfData === 0) {
+  cenApp.innerHTML += `
+  <h2><i class="fa-regular fa-face-frown"></i> No quizes Found</h2>
+  <p>If you created a quiz and wasn't showed here , Please contact us! </p>
+  `;
+} else {
+}
 
 if (dataTxt) {
   for (const quizInfo of quizInfos) {
     let obj = dataTxt[quizInfo].data;
     let objId = dataTxt[quizInfo].id;
-    if (lenOfData < 1) {
-      cenApp.innerHTML = `
-      <h2><i class="fa-regular fa-face-frown"></i> No quizes Found (${lenOfData})</h2>
-      <p>If you created a quiz and wasn't showed here , Please contact us! </p>
-      `;
-    }
     if (obj.category == "") {
       cenApp.innerHTML += "";
     } else {
       cenApp.innerHTML += `
       <div class="transbg_dark mg1r-b wdcalc mg10p pointer bo-rad6">
-          <div class="pd50p bo-b1">
+          <div class="pd40p bo-b1">
             <i class="${obj.icon} bigIcon co-w"></i>
           </div>
           <div class="pd20p gradient-tr">
@@ -122,8 +128,9 @@ if (chooseQ) {
       loading.classList.remove("hidden");
       quizApp[0].classList.add("hidden");
       getQuestions(jF);
-      console.log(jF);
       btnQ.remove();
+      leaveBtn.classList.remove("hidden");
+      settingBtn.remove();
       progressDiv.classList.remove("hidden");
     });
   });
@@ -161,6 +168,8 @@ document.querySelector(".pointerMain").addEventListener("click", () => {
   getQuestions(jF);
   modalDiv.classList.add("hidden");
   btnQ.remove();
+  leaveBtn.classList.remove("hidden");
+  settingBtn.remove();
   progressDiv.classList.remove("hidden");
 });
 
@@ -187,11 +196,13 @@ async function getQuestions(jsonFile) {
     createBullets(qCount);
 
     // add question data
-    addQuestionData(questionsObj[currentIndex], qCount);
-
+    if (!questionsObj[currentIndex].title) {
+      showErrorMsg(jsonFile);
+    } else {
+      addQuestionData(questionsObj[currentIndex], qCount);
+    }
     // countDown
     // countDown(duration, qCount);
-
     submitBtn.onclick = () => {
       rightAnswer = questionsObj[currentIndex].right_answer;
 
@@ -241,24 +252,27 @@ async function getQuestions(jsonFile) {
       }
     };
   } catch (reason) {
-    loading.remove();
-    errmsg.querySelector("h1").innerHTML += ` (${
-      (await fetch(jsonFile)).status
-    }) 
-    `;
-    errmsg.innerHTML += `
-    <button class="purpBtn" onclick="window.location.reload()">
-    <i class="fa fa-refresh"></i>
-    Refresh
-    </button>
-    `;
-    errmsg.classList.remove("hidden");
-    progressBar.style.width += "100%";
-    progressBar.style.transition = "0.8s ease";
-    progressBar.style.backgroundColor = "red";
-    modalDiv.remove();
-    quizApp[1].remove();
+    showErrorMsg(jsonFile);
+    throw Error(reason);
   }
+}
+
+async function showErrorMsg(jsonFile) {
+  loading.remove();
+  errmsg.querySelector("h1").innerHTML += ` (${(await fetch(jsonFile)).status}) 
+  `;
+  errmsg.innerHTML += `
+  <button class="purpBtn" onclick="window.location.reload()">
+  <i class="fa fa-refresh"></i>
+  Refresh
+  </button>
+  `;
+  errmsg.classList.remove("hidden");
+  progressBar.style.width += "100%";
+  progressBar.style.transition = "0.8s ease";
+  progressBar.style.backgroundColor = "red";
+  modalDiv.remove();
+  quizApp[1].remove();
 }
 
 function showModal() {
@@ -372,10 +386,8 @@ function addQuestionData(obj, count) {
 // grand js / unit testing
 let theChosenAns;
 
+// Function for checking answer validity and updating score
 function checkAnswer(rAnswer, count) {
-  // console.log("###");
-  // console.log(theChosenAns);
-  // console.log("###");
   let answerFound = false;
 
   for (let i = 0; i < answers.length; i++) {
@@ -423,6 +435,8 @@ function handelBullets() {
     }
   });
 }
+
+// Function to check answers and show results
 function showResult(count) {
   let theResult;
   if (currentIndex === count || countDownDiv.textContent === "00:00") {
@@ -434,6 +448,7 @@ function showResult(count) {
     countDownDiv.remove();
     passageArea.remove();
     backBtn.remove();
+    leaveBtn.remove();
     clearInterval(countDownInterval);
 
     resultsDiv.classList.remove("hidden");
@@ -586,3 +601,47 @@ for (let i = 0; i < lenOfData; i++) {
     chooseQ[i].click();
   }
 }
+
+function fadetohid(item) {
+  item.classList.add("fade-out");
+  setTimeout(() => {
+    item.style.display = "none";
+  }, 300);
+}
+
+function showAlert(
+  alertDiv,
+  sureBtn,
+  doSomething,
+  cancelBtn,
+  valueContent = "Do you really want to do this operation ?",
+  cancleOnclickModel = true
+) {
+  alertDiv.style.display = "flex";
+  alertDiv.classList.add("fade-in");
+  alertDiv.classList.remove("fade-out");
+  cancelBtn.onclick = () => {
+    fadetohid(alertDiv);
+    alertDiv.classList.remove("fade-in");
+  };
+  sureBtn.addEventListener("click", doSomething);
+  document.querySelector("#alertReason").textContent = valueContent;
+  if (cancleOnclickModel) {
+    alertDiv.addEventListener("click", () => {
+      fadetohid(alertDiv);
+      alertDiv.classList.remove("fade-in");
+    });
+  } else {
+    return;
+  }
+}
+
+leaveBtn.addEventListener("click", () => {
+  let yes = modal.querySelectorAll(".alert .choice button")[0];
+  let cancle = modal.querySelectorAll(".alert .choice button")[1];
+  let content = "Do you want to leave this quiz ?";
+  const doFunc = () => {
+    location.reload();
+  };
+  showAlert(modal, yes, doFunc, cancle, content);
+});
