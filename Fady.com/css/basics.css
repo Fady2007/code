@@ -278,7 +278,7 @@ html {
   cursor: default;
 }
 .bigIcon {
-  font-size: 5em;
+  font-size: 4.5em;
   color: #333;
 }
 .inBl {
@@ -318,8 +318,8 @@ html {
 .bg-blu {
   background-color: #003f9e;
 }
-.pd50p {
-  padding: 50px;
+.pd40p {
+  padding: 40px;
 }
 .mg10p {
   margin: 10px;
@@ -403,21 +403,23 @@ html {
 .modal .alert {
   margin: 20px auto;
   padding: 20px;
-  background-color: #eee;
-  box-shadow: 0 0 6px 6px #ababab;
-  border-radius: 6px;
+  background: linear-gradient(to left, #d8d8d8, #d6e5ff);
+  box-shadow: 0 0 4px 5px #ababab;
+  border-radius: 10px;
+  width: 40vh;
 }
 .modal .alert h1 {
   text-align: center;
   font-weight: bold;
-  color: #0d6efd;
+  color: #7700ff;
   font-size: 2em;
   font-family: "roboto";
 }
 .modal .alert p {
   font-weight: bold;
-  color: #b4b4b4;
-  font-size: 0.9em;
+  color: #9c9c9c;
+  font-family: "Franklin Gothic Medium";
+  font-size: 1em;
   margin-top: 15px;
   font-family: "roboto";
 }
