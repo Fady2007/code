@@ -56,7 +56,6 @@ try {
   let res = await supabase.from("quiz").select("*");
   if (res.status === 200) {
     dataTxt = (await supabase.from("quiz").select("*"))["data"];
-    console.log(dataTxt);
   } else {
     dataTxt = {
       quizInfo: {
@@ -93,16 +92,21 @@ if (dataTxt) {
       cenApp.innerHTML += "";
     } else {
       cenApp.innerHTML += `
-      <div class="transbg_dark mg1r-b wdcalc mg10p pointer bo-rad6">
-          <div class="pd40p bo-b1">
+      <div class="transbg_dark mg1r-b flex mg10p pointer bo-rad6 ${
+        obj.visibility == "hidden" ? obj.visibility : ""
+      }">
+          <div class="pd40p boright">
             <i class="${obj.icon} bigIcon co-w"></i>
           </div>
           <div class="pd20p gradient-tr">
-            <h2 class="cen">${obj.category} quiz</h2>
-            <p class="bold ">Creating By ${
+            <h3 class="cen purple bo-rad6 pd10p">${obj.category} quiz</h3>
+            <p class="bold">Created By ${
               obj.owner == "Admin"
                 ? `<span class="co-blu">Admin</span>`
                 : obj.owner || `User`
+            }</p>
+            <p class="bold fmar"><i class="fa fa-clock"></i> Timer: ${
+              Number(obj.timer) ? `${obj.timer} min` : ` Optional`
             }</p>
           </div>
         </div>
@@ -119,10 +123,32 @@ if (dataTxt) {
 
 if (chooseQ) {
   chooseQ.forEach((e, i) => {
-    e.addEventListener("click", (e) => {
+    e.addEventListener("click", async (e) => {
+      jF = dataTxt[i].data.jsonFile;
       for (const quizInfo of quizInfos) {
-        jF = dataTxt[i].data.jsonFile;
-        category.innerHTML = dataTxt[quizInfo].data.category;
+        let obj = dataTxt[quizInfo].data;
+        obj.timer = Number(obj.timer);
+        console.log(typeof obj.timer);
+        if (obj.timer) {
+          console.log(typeof obj.timer);
+          if (typeof obj.timer == "number") {
+            let jsonData = await fetch(jF);
+            let jsonDataObj = await jsonData.json();
+            questionsObj = jsonDataObj;
+            qCount = questionsObj.length;
+            duration = obj.timer;
+            countDown(duration, qCount);
+            location.hash = "";
+            setTimeout(() => {
+              document.body.style.overflow = "auto";
+              modalDiv.classList.add("hidden");
+            }, 20);
+            document.querySelector(".first").remove();
+          } else {
+            duration = duration;
+          }
+          category.innerHTML = dataTxt[quizInfo].data.category;
+        }
       }
 
       loading.classList.remove("hidden");
@@ -279,15 +305,16 @@ function showModal() {
   modalDiv.querySelector(".loadDiv").classList.remove("hidden");
   modalDiv.classList.remove("hidden");
 
-  startBtn.onclick = () => {
+  startBtn.addEventListener("click", () => {
     countDown(duration, qCount);
     modalDiv.querySelector(".first .loadDiv").style.display = "flex";
     startBtn.classList.add("hidden");
+    location.hash = "";
     setTimeout(() => {
       document.body.style.overflow = "auto";
       modalDiv.classList.add("hidden");
     }, 20);
-  };
+  });
 }
 
 // Function to shuffle an array using Fisher-Yates algorithm
@@ -643,5 +670,5 @@ leaveBtn.addEventListener("click", () => {
   const doFunc = () => {
     location.reload();
   };
-  showAlert(modal, yes, doFunc, cancle, content);
+  showAlert(modal, yes, doFunc, cancle, content, false);
 });

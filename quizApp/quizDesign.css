@@ -619,6 +619,16 @@ input:checked + .slider:before {
   color: red;
 }
 
+.bghtml {
+  background-image: url(html_img.jfif) !important;
+  background-size: cover;
+  background-position: 0;
+}
+
+.abit_black {
+  background-color: #00233a9a;
+}
+
 @keyframes loadDots {
   from {
     transform: translate(0);
