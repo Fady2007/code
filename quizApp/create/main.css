@@ -374,29 +374,33 @@ p[class^="introP"] {
 .introCreate::after {
   content: "";
   position: absolute;
-  background: linear-gradient(to top right, #ff7f50, white, #6495ed);
+  background: linear-gradient(
+    to top right,
+    #ececec81,
+    rgba(255, 255, 255, 0.781),
+    #fafafa94
+  );
   top: 0;
   left: 0;
-  width: 80px;
-  height: 100%;
-  z-index: -1;
+  width: 50px;
+  height: 99%;
+  z-index: 33;
   opacity: 0.2;
-  border: 2px solid #ddd;
   display: flex;
   align-items: center;
+  border-radius: 8px;
   justify-content: center;
   color: white;
   font-size: 2em;
-  animation: moveRight 1.2s 2 ease alternate forwards;
+  animation: moveRight 1.8s ease-in infinite;
 }
 
 @keyframes moveRight {
-  from {
+  0% {
     transform: translateX(0);
-    opacity: 0;
   }
-  to {
-    transform: translateX(500%) rotate(45deg);
+  100% {
+    transform: translateX(600%);
   }
 }
 

@@ -32,38 +32,6 @@ delAllBtn.onclick = function () {
   );
 };
 
-function showAlert(
-  alertDiv,
-  sureBtn,
-  doSomething,
-  cancelBtn,
-  valueContent = "Do you really want to do this operation ?"
-) {
-  alertDiv.style.display = "flex";
-  alertDiv.classList.add("fade-in");
-  alertDiv.classList.remove("fade-out");
-  cancelBtn.onclick = () => {
-    fadetohid(alertDiv);
-    alertDiv.classList.remove("fade-in");
-  };
-  sureBtn.addEventListener("click", doSomething);
-  document.querySelector("#alertReason").textContent = valueContent;
-}
-
-function fadetohid(item) {
-  item.classList.add("fade-out");
-  setTimeout(() => {
-    item.style.display = "none";
-  }, 300);
-}
-
-function fadetore(item) {
-  item.classList.add("fade-out");
-  setTimeout(() => {
-    item.remove();
-  }, 300);
-}
-
 if (document.querySelector(".introCreate")) {
   document.querySelector(".introCreate").onclick = () => {
     qform.innerHTML += `
@@ -96,6 +64,10 @@ if (document.querySelector(".introCreate")) {
 // add and remove question function
 let formInpsOnly = [];
 function addQue() {
+  for (let i = 0; i < formInpsOnly.length; i++) {
+    const val = localStorage.getItem("val");
+    formInpsOnly[i].value = JSON.parse(val)[i];
+  }
   allInputs = document.querySelectorAll("input");
   for (let i = 0; i < allInputs.length; i++) {
     if (i < 6) {
@@ -142,19 +114,14 @@ removeQ.forEach((e) => {
   });
 });
 
-// if user didn't save save
+// if user didn't click save
 if (!localStorage.getItem("root")) {
   addQue();
-  saveBtn.addEventListener("click", () => {
-    localStorage.setItem("root", rootCreate.innerHTML);
-    setTimeout(() => {
-      location.reload();
-    }, 500);
-    saveBtn.innerHTML = `Saving...`;
-  });
+  saveBtn.addEventListener("click", handlesavebtn);
 }
 
 // localstrorage functions
+
 window.onload = () => {
   if (localStorage.getItem("root")) {
     rootCreate.innerHTML = localStorage.getItem("root");
@@ -165,27 +132,23 @@ window.onload = () => {
     qform = document.querySelector(".qForm");
     addQue();
 
-    // save btn
-    saveBtn.addEventListener("click", () => {
-      localStorage.setItem("root", rootCreate.innerHTML);
-      for (let i = 0; i < formInpsOnly.length; i++) {
-        val = formInpsOnly[i].value;
-        values.push(val);
-        localStorage.setItem("val", JSON.stringify(values));
-      }
+    if (localStorage.getItem("val")) {
+      saveBtn.addEventListener("click", handlesavebtn);
 
-      setTimeout(() => {
-        location.reload();
-      }, 400);
-      saveBtn.innerHTML = `Saving...`;
-    });
+      for (let i = 0; i < formInpsOnly.length; i++) {
+        const val = localStorage.getItem("val");
+        formInpsOnly[i].value = JSON.parse(val)[i];
+      }
+    }
+    // save btn
+    saveBtn.addEventListener("click", handlesavebtn);
+
     removeQ = document.querySelectorAll(".removeQue");
     removeQ.forEach((e) => {
       e.addEventListener("click", (ev) => {
         fadetohid(ev.currentTarget.parentElement);
       });
     });
-
     // delete All btn
     delAllBtn = document.querySelector(".deleteAll");
     delAllBtn.onclick = function () {
@@ -205,13 +168,6 @@ window.onload = () => {
       );
     };
     selectInpsOnfocus(formInpsOnly);
-  }
-
-  if (localStorage.getItem("val")) {
-    for (let i = 0; i < formInpsOnly.length; i++) {
-      const val = localStorage.getItem("val");
-      formInpsOnly[i].value = JSON.parse(val)[i];
-    }
   }
 };
 
@@ -238,12 +194,59 @@ document.addEventListener("mouseup", () => {
   document.removeEventListener("mousemove", move);
 });
 
+// some useful functions
 function selectInpsOnfocus(arrInps) {
   arrInps.forEach((inp) => {
     inp.onfocus = () => {
       inp.select();
     };
   });
+}
+
+function handlesavebtn() {
+  localStorage.setItem("root", rootCreate.innerHTML);
+  for (let i = 0; i < formInpsOnly.length; i++) {
+    const val = formInpsOnly[i].value.trim() == "" ? "" : formInpsOnly[i].value;
+    values.push(val);
+    localStorage.setItem(`val`, JSON.stringify(values));
+  }
+
+  setTimeout(() => {
+    location.reload();
+  }, 400);
+  saveBtn.innerHTML = `Saving...`;
+}
+
+function showAlert(
+  alertDiv,
+  sureBtn,
+  doSomething,
+  cancelBtn,
+  valueContent = "Do you really want to do this operation ?"
+) {
+  alertDiv.style.display = "flex";
+  alertDiv.classList.add("fade-in");
+  alertDiv.classList.remove("fade-out");
+  cancelBtn.onclick = () => {
+    fadetohid(alertDiv);
+    alertDiv.classList.remove("fade-in");
+  };
+  sureBtn.addEventListener("click", doSomething);
+  document.querySelector("#alertReason").textContent = valueContent;
+}
+
+function fadetohid(item) {
+  item.classList.add("fade-out");
+  setTimeout(() => {
+    item.style.display = "none";
+  }, 300);
+}
+
+function fadetore(item) {
+  item.classList.add("fade-out");
+  setTimeout(() => {
+    item.remove();
+  }, 300);
 }
 
 const q = new Quiz();

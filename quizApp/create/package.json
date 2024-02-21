@@ -1,0 +1,18 @@
+{
+  "name": "create",
+  "version": "1.0.0",
+  "description": "",
+  "main": "createQ.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "math": "^0.0.3",
+    "node-require": "^0.0.10",
+    "requirejs": "^2.3.6"
+  }
+}

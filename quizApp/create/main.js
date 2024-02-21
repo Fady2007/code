@@ -69,9 +69,11 @@ form.addEventListener("submit", async (e) => {
         category: categoryInp.value,
         icon: iconInp.value || "fa-regular fa-circle-question",
         owner: ownerInp.value || "User",
-        flink: flinkInp.value.slice(flinkInp.value.length - 7) || "",
+        flink: flinkInp.value.slice(flinkInp.value.length - 7) || generateId(),
       },
     };
+
+    subtn.innerHTML = "Submit...";
 
     submit(submison);
 
@@ -79,7 +81,7 @@ form.addEventListener("submit", async (e) => {
       rootCreate.classList.remove("hidden");
       rootOne.classList.add("hidden");
       location.replace("../");
-    }, 1000);
+    }, 2000);
   }
 });
 
@@ -132,6 +134,15 @@ function generateLink(inp, str = "") {
     randomL += abc[Math.floor(Math.random() * abc.length)];
     inp.value = str + randomL;
   }
+}
+
+function generateId() {
+  let abc = "a2bcdefghijk9lmnopq5rstu3vwxyz0123456789";
+  let randomL = "";
+  for (let i = 0; i < 7; i++) {
+    randomL += abc[Math.floor(Math.random() * abc.length)];
+  }
+  return randomL;
 }
 
 function copyText(btn, inp) {
