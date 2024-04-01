@@ -172,6 +172,9 @@ html {
   .flexMob {
     flex-direction: column;
   }
+  .flex {
+       flex-direction: column; 
+  }
 }
 .wd50 {
   width: 50%;
