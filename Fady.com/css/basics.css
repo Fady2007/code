@@ -172,9 +172,6 @@ html {
   .flexMob {
     flex-direction: column;
   }
-  .flex {
-    flex-direction: column;
-  }
 }
 .wd50 {
   width: 50%;
@@ -324,6 +321,9 @@ html {
 @media (max-width: 1000px) {
   .wdcalc {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .flex {
+    flex-direction: column;
   }
 }
 .bold {
