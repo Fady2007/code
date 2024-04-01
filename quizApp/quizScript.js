@@ -95,7 +95,7 @@ if (dataTxt) {
       <div class="transbg_dark mg1r-b flex mg10p pointer bo-rad6 ${
         obj.visibility == "hidden" ? obj.visibility : ""
       }">
-          <div class="pd40p boright">
+          <div class="pd40p cen">
             <i class="${obj.icon} bigIcon co-w"></i>
           </div>
           <div class="pd20p gradient-tr">
