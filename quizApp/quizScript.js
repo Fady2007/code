@@ -482,18 +482,18 @@ function showResult(count) {
 
     if (rightAnswerScore > count / 2 && rightAnswerScore < count) {
       theResult = `
-      <span class="good">Good</span> 
+      <span class="good">Good  (${(rightAnswerScore / count)* 100}%)</span> 
       <p>You got ${rightAnswerScore} / ${count}</p>
       `;
       progressBar.style.background = "green";
     } else if (rightAnswerScore === count) {
       progressBar.style.background = "aqua";
-      theResult = `<span class="perfect">Perfect</span> 
+      theResult = `<span class="perfect">Perfect (${(rightAnswerScore / count)* 100}%)</span> 
       <p>You got ${rightAnswerScore} / ${count}</p>`;
     } else {
       progressBar.style.background = "red";
       theResult = `
-      <span class="bad">Bad</span> 
+      <span class="bad">Bad (${(rightAnswerScore / count)* 100}%)</span> 
       <p>You got ${rightAnswerScore} / ${count}</p>
       `;
     }
