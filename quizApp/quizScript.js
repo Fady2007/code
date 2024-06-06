@@ -137,10 +137,7 @@ if (chooseQ) {
       for (const quizInfo of quizInfos) {
         let obj = dataTxt[quizInfo].data;
         obj.timer = Number(obj.timer);
-        console.log(typeof obj.timer);
-        console.log(obj.timer);
         if (obj.timer) {
-          console.log(typeof obj.timer);
           if (typeof obj.timer == "number") {
             let jsonData = await fetch(jF);
             let jsonDataObj = await jsonData.json();
@@ -253,10 +250,6 @@ async function getQuestions(jsonFile, ar = false) {
       
       currentIndex++;
       selectedAnswers[currentIndex - 1] = {sans: theChosenAns, id: currentIndex - 1};
-
-
-      console.log("cu: " , currentIndex)
-      console.log("id: " , selectedAnswers[currentIndex - 1].id)
 
       addRightAns(questionsObj, qCount);
 
@@ -437,7 +430,6 @@ function addQuestionData(obj, count) {
       answersArea.appendChild(mainDiv);
     }
 
-    console.log(selectedAnswers)
     // save the answer in question
     // for (let i = 0; i < answers.length; i++) {
     //   for (let j = 0; j < selectedAnswers.length - 1; j++) {
@@ -753,11 +745,8 @@ async function addQuiz(cate, ic = "fa-solid fa-q", timer = 1) {
         jF2 = dataQuiz[i].quizInfo.data.jsonFile;
         // for (const quizInfo of quizInfos) {
         let obj = dataQuiz[i]["quizInfo"].data;
-        console.log(obj);
         obj.timer = Number(obj.timer);
-        console.log(typeof obj.timer);
         if (obj.timer) {
-          console.log(typeof obj.timer);
           if (typeof obj.timer == "number") {
             let jsonData = JSON.stringify(jF2, null, 4);
             let jsonDataObj = jsonData;
