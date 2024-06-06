@@ -65,11 +65,11 @@
     },
     {
         "title": "... negotiations are difficult, tiring with a lot being discussed.",
-        "answer_1": "Easy",
-        "answer_2": "Silly",
+        "answer_1": "intensive",
+        "answer_2": "intense",
         "answer_3": "Delicate",
-        "answer_4": "None of the above",
-        "right_answer": "Delicate"
+        "answer_4": "a & b",
+        "right_answer": "a & b"
     },
     {
         "title": "... negotiations are very difficult negotiations and could easily fail.",
