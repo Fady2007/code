@@ -64,7 +64,7 @@
         "right_answer": "All the above"
     },
     {
-        "title": "... negotiations are difficult, tiring with a lot being discussed.",
+        "title": ".... negotiations are difficult, tiring with a lot being discussed.",
         "answer_1": "intensive",
         "answer_2": "intense",
         "answer_3": "Delicate",
@@ -72,15 +72,15 @@
         "right_answer": "a & b"
     },
     {
-        "title": "... negotiations are very difficult negotiations and could easily fail.",
-        "answer_1": "Intense",
-        "answer_2": "Long",
-        "answer_3": "Protracted",
-        "answer_4": "Delicate",
-        "right_answer": "Delicate"
+        "title": ".... negotiations are very difficult negotiations and could easily fail.",
+        "answer_1": "Intensive",
+        "answer_2": "Intense",
+        "answer_3": "Delicate",
+        "answer_4": "a&b",
+        "right_answer": "a&b"
     },
     {
-        "title": "... negotiations which take a very long time",
+        "title": ".... negotiations which take a very long time",
         "answer_1": "Protracted",
         "answer_2": "11th hour",
         "answer_3": "Last minute",
@@ -88,50 +88,50 @@
         "right_answer": "Protracted"
     },
     {
-        "title": "... negotiation takes place at the last possible moment of the time available.",
+        "title": ".... negotiation takes place at the last possible moment of the time available.",
         "answer_1": "Protracted",
         "answer_2": "11th hour",
         "answer_3": "Last minute",
-        "answer_4": "Delicate",
-        "right_answer": "11th hour"
+        "answer_4": "b&c",
+        "right_answer": "b&c"
     },
     {
-        "title": "... is discussions between groups of employees and their employers about pay and conditions.",
+        "title": ".... is discussions between groups of employees and their employers about pay and conditions.",
         "answer_1": "Collective bargaining",
         "answer_2": "Wage bargaining",
         "answer_3": "Pay bargaining",
-        "answer_4": "All the above",
-        "right_answer": "All the above"
+        "answer_4": "b&c",
+        "right_answer": "b&c"
     },
     {
-        "title": "... is a particular technique used by a bargainer or negotiator.",
+        "title": ".... is a particular technique used by a bargainer or negotiator.",
         "answer_1": "Bargaining ploy",
-        "answer_2": "Bargaining power",
-        "answer_3": "Bargaining chip",
-        "answer_4": "Bargaining tactic",
-        "right_answer": "Bargaining ploy"
+        "answer_2": "Bargaining tactic",
+        "answer_3": "Bargaining tool",
+        "answer_4": "a&b",
+        "right_answer": "a&b"
     },
     {
-        "title": "... is an issue that a negotiator or bargainer uses to gain an advantage.",
+        "title": ".... is an issue that a negotiator or bargainer uses to gain an advantage.",
         "answer_1": "Bargaining chip",
+        "answer_2": "Bargaining tool",
+        "answer_3": "Bargaining tactic",
+        "answer_4": "a&b",
+        "right_answer": "a&b"
+    },
+    {
+        "title": ".... is a particular issue that a negotiator or a bargainer discusses the degree to which one side is strong enough to obtain what he wants.",
+        "answer_1": "Bargaining point",
         "answer_2": "Bargaining power",
-        "answer_3": "Bargaining point",
-        "answer_4": "Bargaining process",
-        "right_answer": "Bargaining chip"
+        "answer_3": "Bargaining tactic",
+        "answer_4": "a&b",
+        "right_answer": "a&b"
     },
     {
-        "title": "... is a particular issue that a negotiator or a bargainer discusses the degree to which one side is strong enough to obtain what he wants.",
-        "answer_1": "Bargaining power",
-        "answer_2": "Bargaining ploy",
-        "answer_3": "Bargaining point",
-        "answer_4": "Bargaining chip",
-        "right_answer": "Bargaining power"
-    },
-    {
-        "title": "... is the way that negotiations develop.",
-        "answer_1": "Bargaining power",
-        "answer_2": "Bargaining ploy",
-        "answer_3": "Bargaining point",
+        "title": ".... is the way that negotiations develop.",
+        "answer_1": "Bargaining point",
+        "answer_2": "Bargaining power",
+        "answer_3": "Bargaining tactic",
         "answer_4": "Bargaining process",
         "right_answer": "Bargaining process"
     },
@@ -218,18 +218,18 @@
         {
         "title": "After 48 hours of negotiations in which he slept for only one hour, Mr. Prescott said, 'It has been both tough and incredibly complicated.' Negotiations can be described as:",
         "answer_1": "Intensive",
-        "answer_2": "Protracted",
-        "answer_3": "Both Intensive & Protracted",
-        "answer_4": "Easy",
-        "right_answer": "Both Intensive & Protracted"
+        "answer_2": "Intense",
+        "answer_3": "protracted",
+        "answer_4": "both a&b",
+        "right_answer": "both a&b"
         },
         {
-        "title": "One of the problems of negotiations is that achieving agreement can come to be more important than anything else including the final decision. Negotiations can be described as:",
+        "title": "One of the problems of negotiations is that achieving agreement can come to be more important than anything else including the final decision...Negotiations can be described as:",
         "answer_1": "Intensive",
-        "answer_2": "Protracted",
-        "answer_3": "Both Intensive & Protracted",
-        "answer_4": "Easy",
-        "right_answer": "Both Intensive & Protracted"
+        "answer_2": "Intense",
+        "answer_3": "Protracted",
+        "answer_4": "a&b",
+        "right_answer": "Protracted"
         },
         {
         "title": "The deal was struck only after ..... hour negotiations between the US, the European Union and Japan",
@@ -248,7 +248,7 @@
             "right_answer": "both tense and delicate"
         },
         {
-            "title": "The painting has been withdrawn from sale and acquired by the National Gallery after minute negotiations with the auctioneers, Sotheby's. The negotiations were:",
+            "title": "The painting has been withdrawn from sale and acquired by the National Gallery after.... minute negotiations with the auctioneers, Sotheby's. The negotiations were:",
             "answer_1": "less",
             "answer_2": "lost",
             "answer_3": "least",
@@ -280,12 +280,12 @@
             "right_answer": "merger"
             },
             {
-            "title": "To finish the deal, we had to negotiate the price.",
+            "title": "To finish the deal, we had to .... the price.",
             "answer_1": "negotiate",
             "answer_2": "bargain",
             "answer_3": "both negotiate and bargain",
             "answer_4": "none of the above",
-            "right_answer": "negotiate"
+            "right_answer": "bargain"
             },
             {
                 "title": "The owner of the two companies decided to unite, this is called:",
@@ -308,7 +308,7 @@
 
 {
 "title": "Negotiations that take a very long time are called:",
-"answer_1": "eleventh hour negotiations",
+"answer_1": "11th hour negotiations",
 "answer_2": "last minute negotiations",
 "answer_3": "a & b",
 "answer_4": "none of the mentioned",
