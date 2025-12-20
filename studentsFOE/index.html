@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام البحث عن أكواد الطلاب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="search-card">
+            <h1>Students 2029 New Bylaw</h1>
+            <p style="margin-bottom: 20px; color: #666;">أدخل اسم الطالب (أو جزء منه) أو الكود الجامعي</p>
+            
+            <div class="input-group">
+                <input type="text" id="searchInput" placeholder="اكتب الاسم أو الـ ID هنا..." onkeypress="handleKeyPress(event)">
+                <button onclick="searchData()">بحث</button>
+            </div>
+
+            <div id="noResults" class="no-results">لا توجد نتائج مطابقة للبحث</div>
+
+            <div class="results-container">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>الاسم</th>
+                            <th style="width: 150px; text-align: center;">الكود (ID)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        </tbody>
+                </table>
+            </div>
+            <div id="stats" class="stats"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
