@@ -1,0 +1,314 @@
+[
+  {
+    "title": "Focus on creating a single dominant impression of a person, place, event, feeling or idea.",
+    "answer_1": "Expository writing",
+    "answer_2": "Persuasive writing",
+    "answer_3": "Descriptive writing",
+    "answer_4": "Narrative writing",
+    "right_answer": "Descriptive writing"
+  },
+  {
+    "title": "Aims to move the reader to support a point of view or to act in support of an idea or cause.",
+    "answer_1": "Expository writing",
+    "answer_2": "Persuasive writing",
+    "answer_3": "Descriptive writing",
+    "answer_4": "Narrative writing",
+    "right_answer": "Persuasive writing"
+  },
+  {
+    "title": "Involves presenting facts and information to a specific audience.",
+    "answer_1": "Expository writing",
+    "answer_2": "Persuasive writing",
+    "answer_3": "Descriptive writing",
+    "answer_4": "Narrative writing",
+    "right_answer": "Expository writing"
+  },
+  {
+    "title": "Storytelling is considered a type of:",
+    "answer_1": "Expository writing",
+    "answer_2": "Persuasive writing",
+    "answer_3": "Descriptive writing",
+    "answer_4": "Narrative writing",
+    "right_answer": "Narrative writing"
+  },
+  {
+    "title": "Which of the following are generally a good example of an informal report?",
+    "answer_1": "Technical reports",
+    "answer_2": "Laboratory reports",
+    "answer_3": "Published papers",
+    "answer_4": "Patent",
+    "right_answer": "Laboratory reports"
+  },
+  {
+    "title": "Which of the following are generally a good example of a formal report?",
+    "answer_1": "Technical reports",
+    "answer_2": "Laboratory reports",
+    "answer_3": "Safety notes",
+    "answer_4": "Test reports",
+    "right_answer": "Technical reports"
+  },
+  {
+    "title": "Very important part of a report that may be all that is read. This refers to:",
+    "answer_1": "Abstract",
+    "answer_2": "Introduction",
+    "answer_3": "Key words",
+    "answer_4": "Acronyms",
+    "right_answer": "Abstract"
+  },
+  {
+    "title": "Use only when necessary. This refers to:",
+    "answer_1": "Abstract",
+    "answer_2": "Acronyms",
+    "answer_3": "Key words",
+    "answer_4": "References",
+    "right_answer": "Acronyms"
+  },
+  {
+    "title": "All of the following are examples of technical reports except:",
+    "answer_1": "Specifications",
+    "answer_2": "Handbooks",
+    "answer_3": "Magazines",
+    "answer_4": "Brochures",
+    "right_answer": "Magazines"
+  },
+  {
+    "title": "Select the example which best illustrates the term 'in-text citation':",
+    "answer_1": "Arasse, D. (1987). The Guillotine and the Terror. London: The Penguin Press.",
+    "answer_2": "The French Revolution, although political, \"functioned in some ways as a religious one\".",
+    "answer_3": "The French Revolution, although political, functioned in some ways as a religious one [1].",
+    "answer_4": "None of the above",
+    "right_answer": "The French Revolution, although political, functioned in some ways as a religious one [1]."
+  },
+  {
+    "title": "Which of the following is never required in a reference list or bibliography entry?",
+    "answer_1": "Editors' names",
+    "answer_2": "Place of publication",
+    "answer_3": "ISBN",
+    "answer_4": "Journal title",
+    "right_answer": "ISBN"
+  },
+  {
+    "title": "A part of a technical report that discusses published information in a particular subject area.",
+    "answer_1": "Review of literature",
+    "answer_2": "Introduction",
+    "answer_3": "Abstract",
+    "answer_4": "Conclusion",
+    "right_answer": "Review of literature"
+  },
+  {
+    "title": "Understand the importance of directing your technical writing to specific individuals or groups, this is considered:",
+    "answer_1": "Writing strategy",
+    "answer_2": "Writing skill",
+    "answer_3": "Writing benefit",
+    "answer_4": "Writing purpose",
+    "right_answer": "Writing strategy"
+  },
+  {
+    "title": "Safety notes are a form of:",
+    "answer_1": "Technical report",
+    "answer_2": "Test report",
+    "answer_3": "Technical memorandum",
+    "answer_4": "Organization change",
+    "right_answer": "Technical memorandum"
+  },
+  {
+    "title": "The 'Four Cs' which make good technical writing are:",
+    "answer_1": "Clear, Concise, Contrast, Careful",
+    "answer_2": "Clear, Concise, Complete, Correct",
+    "answer_3": "Clear, Concise, Careful, Correct",
+    "answer_4": "None of the above",
+    "right_answer": "Clear, Concise, Complete, Correct"
+  },
+  {
+    "title": "Which type of writing concerns the study of market?",
+    "answer_1": "Problem solving",
+    "answer_2": "Developing something new",
+    "answer_3": "Engineering project",
+    "answer_4": "Feasibility study",
+    "right_answer": "Feasibility study"
+  },
+  {
+    "title": "Which of the following describes the 'Analyze of data' phase?",
+    "answer_1": "Problem solving",
+    "answer_2": "Developing something new",
+    "answer_3": "Engineering project",
+    "answer_4": "Feasibility study",
+    "right_answer": "Developing something new"
+  },
+  {
+    "title": "The only part of a technical report that does not include references is:",
+    "answer_1": "Abstract",
+    "answer_2": "Introduction",
+    "answer_3": "Discussion",
+    "answer_4": "Conclusion",
+    "right_answer": "Abstract"
+  },
+  {
+    "title": "What is the main function of the Abstract?",
+    "answer_1": "To provide background knowledge",
+    "answer_2": "To show the aim of research",
+    "answer_3": "To communicate your contribution",
+    "answer_4": "To list the references",
+    "right_answer": "To communicate your contribution"
+  },
+  {
+    "title": "Which of the following is an example of Upward Communication?",
+    "answer_1": "To supervisors",
+    "answer_2": "To peers",
+    "answer_3": "To subordinates",
+    "answer_4": "To customers",
+    "right_answer": "To supervisors"
+  },
+  {
+    "title": "The citation format '(Brown et al., 1990)' indicates the number of authors is:",
+    "answer_1": "One",
+    "answer_2": "Two",
+    "answer_3": "Three",
+    "answer_4": "Three or more",
+    "right_answer": "Three or more"
+  },
+  {
+    "title": "Technical writing enhances job security by increasing your value to your employer.",
+    "answer_1": "True",
+    "answer_2": "False",
+    "answer_3": "Not mentioned",
+    "answer_4": "Only in engineering",
+    "right_answer": "True"
+  },
+  {
+    "title": "All of the following are examples of technical writing except:",
+    "answer_1": "Patent",
+    "answer_2": "E-mail",
+    "answer_3": "Letter",
+    "answer_4": "Draft",
+    "right_answer": "Draft"
+  },
+  {
+    "title": "However, significant improvement to heating efficiency is required before solar energy is used without other sources. This part of the introduction shows:",
+    "answer_1": "Why the subject is important",
+    "answer_2": "How the solar energy works",
+    "answer_3": "The aim of the research",
+    "answer_4": "Literature review",
+    "right_answer": "Why the subject is important"
+  },
+  {
+    "title": "Various factors in the design of the solar heater affect how well the solar energy is converted to heat energy. This part of the introduction shows:",
+    "answer_1": "Why the subject is important",
+    "answer_2": "How the solar energy works",
+    "answer_3": "The aim of the research",
+    "answer_4": "The conclusion",
+    "right_answer": "How the solar energy works"
+  },
+  {
+    "title": "This experiment investigates two factors affecting the heating efficiency: mass flow rate and collector design. This part of the introduction shows:",
+    "answer_1": "Why the subject is important",
+    "answer_2": "How the solar energy works",
+    "answer_3": "The aim of the research",
+    "answer_4": "The results",
+    "right_answer": "The aim of the research"
+  },
+  {
+    "title": "Which of the following report titles is formatted correctly?",
+    "answer_1": "Modeling Scientific Influence for Research Trending Topic Prediction.",
+    "answer_2": "Modeling Scientific Influence for Research Trending Topic Prediction",
+    "answer_3": "modeling scientific influence for research trending topic prediction",
+    "answer_4": "MODELING SCIENTIFIC INFLUENCE for RESEARCH TRENDING TOPIC PREDICTION.",
+    "right_answer": "Modeling Scientific Influence for Research Trending Topic Prediction"
+  },
+  {
+    "title": "Where should you look for the publication information you need for a book citation?",
+    "answer_1": "The front and back of the title page",
+    "answer_2": "The front and back cover",
+    "answer_3": "The table of contents and index",
+    "answer_4": "The bibliography and end-paper",
+    "right_answer": "The front and back of the title page"
+  },
+  {
+    "title": "The background of what is already known is found in which part of a report?",
+    "answer_1": "Abstract",
+    "answer_2": "Introduction",
+    "answer_3": "Discussion",
+    "answer_4": "Appendix",
+    "right_answer": "Introduction"
+  },
+  {
+    "title": "Is plagiarism defined as using the ideas and work of another person and submitting them as your own?",
+    "answer_1": "True",
+    "answer_2": "False",
+    "answer_3": "Only if it is a direct quote",
+    "answer_4": "Only in professional papers",
+    "right_answer": "True"
+  },
+  {
+    "title": "Which of the following should you NOT do when paraphrasing?",
+    "answer_1": "Restate information and ideas accurately",
+    "answer_2": "Use your own language and style",
+    "answer_3": "Change just one or two words in a sentence",
+    "answer_4": "Reference the source",
+    "right_answer": "Change just one or two words in a sentence"
+  },
+  {
+    "title": "Do you need to reference graphics, charts, and figures?",
+    "answer_1": "Yes",
+    "answer_2": "No",
+    "answer_3": "Only if they are from a book",
+    "answer_4": "Only in the appendix",
+    "right_answer": "Yes"
+  },
+  {
+    "title": "A list of headings and appendices of the report is called:",
+    "answer_1": "Table of content",
+    "answer_2": "Acknowledgment",
+    "answer_3": "Summary",
+    "answer_4": "Table of figures",
+    "right_answer": "Table of content"
+  },
+  {
+    "title": "A short paragraph thanking any person or organization which gave you help is called:",
+    "answer_1": "Introduction",
+    "answer_2": "Acknowledgment",
+    "answer_3": "Summary",
+    "answer_4": "Body",
+    "right_answer": "Acknowledgment"
+  },
+  {
+    "title": "If no date is listed for an online source, what should you write in the citation?",
+    "answer_1": "Leave it blank",
+    "answer_2": "Write 'n.d.'",
+    "answer_3": "Use the current year",
+    "answer_4": "Write 'No Date'",
+    "right_answer": "Write 'n.d.'"
+  },
+  {
+    "title": "Evoking images and emotions is the goal for which type of writing?",
+    "answer_1": "Creative",
+    "answer_2": "Technical",
+    "answer_3": "Scientific",
+    "answer_4": "Expository",
+    "right_answer": "Creative"
+  },
+  {
+    "title": "Written reports change their meaning when transferred to others.",
+    "answer_1": "True",
+    "answer_2": "False",
+    "answer_3": "Only in verbal communication",
+    "answer_4": "Not mentioned",
+    "right_answer": "False"
+  },
+  {
+    "title": "An Example for Downward Communication is communicating to:",
+    "answer_1": "Supervisors",
+    "answer_2": "Peers",
+    "answer_3": "Subordinates",
+    "answer_4": "Customers",
+    "right_answer": "Subordinates"
+  },
+  {
+    "title": "Which of the following is considered a good report title?",
+    "answer_1": "Concrete Bridge",
+    "answer_2": "Assignment 1",
+    "answer_3": "Analysis of a prestressed concrete bridge",
+    "answer_4": "How to analysis prestressed concrete bridge",
+    "right_answer": "Analysis of a prestressed concrete bridge"
+  }
+]
