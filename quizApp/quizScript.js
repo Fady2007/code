@@ -206,6 +206,19 @@ document.querySelector(".pointerMain").addEventListener("click", () => {
   progressDiv.classList.remove("hidden");
 });
 
+document.querySelector(".pointerQuiz").addEventListener("click", () => {
+  jF = "Technical_writing.json";
+  category.innerHTML = "Technical writing";
+  loading.classList.remove("hidden");
+  quizApp[0].classList.add("hidden");
+  getQuestions(jF);
+  modalDiv.classList.add("hidden");
+  btnQ.remove();
+  leaveBtn.classList.remove("hidden");
+  settingBtn.remove();
+  progressDiv.classList.remove("hidden");
+});
+
 // get file
 async function getQuestions(jsonFile, ar = false) {
   setTimeout(() => {
@@ -466,7 +479,7 @@ function checkAnswer(rAnswer, count) {
   if (theChosenAns === undefined) {
     theChosenAns = `No Answer`;
   }
-
+//pointerQuiz
   // console.log(selectedAnswers);
 
   // Check if the chosen answer already exists in the selectedAnswers array
@@ -715,7 +728,7 @@ async function addQuiz(cate, ic = "fa-solid fa-q", timer = 1) {
       </div>
   `;
   chooseQuiz = document.querySelectorAll(".pointerQuiz");
-
+// pointMain
   if (chooseQuiz) {
     let dataQuiz = [
       {
